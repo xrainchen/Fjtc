@@ -3,3 +3,18 @@
 
 *.dll
 *.exe
+/开发/src/fjtc/.vs
+/开发/src/fjtc/Fjtc/bin
+/开发/src/fjtc/Fjtc/obj
+/开发/src/fjtc/Fjtc.BLL/obj
+/开发/src/fjtc/Fjtc.BLL/bin
+/开发/src/fjtc/fjtc.com/obj
+/开发/src/fjtc/fjtc.com/bin
+/开发/src/fjtc/Fjtc.Common/obj
+/开发/src/fjtc/Fjtc.Common/bin
+/开发/src/fjtc/Fjtc.DAL/obj
+/开发/src/fjtc/Fjtc.DAL/bin
+/开发/src/fjtc/Fjtc.DbHelper/obj
+/开发/src/fjtc/Fjtc.DbHelper/bin
+/开发/src/fjtc/Fjtc.Model/obj
+/开发/src/fjtc/Fjtc.Model/bin

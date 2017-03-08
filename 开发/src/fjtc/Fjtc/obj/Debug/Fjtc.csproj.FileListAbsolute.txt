@@ -1,5 +1,0 @@
-D:\福建特产\Fjtc\开发\src\fjtc\Fjtc\bin\Debug\Fjtc.dll
-D:\福建特产\Fjtc\开发\src\fjtc\Fjtc\bin\Debug\Fjtc.pdb
-D:\福建特产\Fjtc\开发\src\fjtc\Fjtc\obj\Debug\Fjtc.dll
-D:\福建特产\Fjtc\开发\src\fjtc\Fjtc\obj\Debug\Fjtc.pdb
-D:\福建特产\Fjtc\开发\src\fjtc\Fjtc\obj\Debug\Fjtc.csprojResolveAssemblyReference.cache

@@ -1,6 +1,0 @@
-D:\福建特产\Fjtc\开发\src\fjtc\Fjtc.Model\bin\Debug\Fjtc.Model.dll
-D:\福建特产\Fjtc\开发\src\fjtc\Fjtc.Model\bin\Debug\Fjtc.Model.pdb
-D:\福建特产\Fjtc\开发\src\fjtc\Fjtc.Model\obj\Debug\Fjtc.Model.dll
-D:\福建特产\Fjtc\开发\src\fjtc\Fjtc.Model\obj\Debug\Fjtc.Model.pdb
-D:\福建特产\Fjtc\开发\src\fjtc\Fjtc.Model\bin\Debug\RPoney.Framework.dll
-D:\福建特产\Fjtc\开发\src\fjtc\Fjtc.Model\obj\Debug\Fjtc.Model.csprojResolveAssemblyReference.cache
