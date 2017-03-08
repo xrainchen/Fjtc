@@ -480,7 +480,6 @@
     <Compile Include="Auth\ITicketStorage.cs" />
     <Compile Include="Auth\TicketStorageFactory.cs" />
     <Compile Include="Common\DwzHelper.cs" />
-    <Compile Include="Config\SiteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -501,6 +500,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Config\log4net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\RPoneyRedisLog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Properties\PublishProfiles\admin.fjtc.com.pubxml" />
     <Content Include="Views\User\List.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
@@ -549,7 +554,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>11212</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
