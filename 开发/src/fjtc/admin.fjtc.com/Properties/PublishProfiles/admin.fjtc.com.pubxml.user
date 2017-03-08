@@ -1,0 +1,1093 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+您 Web 项目的发布/打包进程将使用此文件。您可以通过编辑此 MSBuild 文件
+来自定义该进程的行为。若要了解与此相关的详细信息，请访问 http://go.microsoft.com/fwlink/?LinkID=208121。
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>D:\xrainchen\admin.fjtc.com</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="ApplicationInsights.config">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="bin/admin.fjtc.com.dll">
+      <publishTime>02/14/2017 22:37:23</publishTime>
+    </File>
+    <File Include="bin/ApplicationInsights.config">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="bin/fjtc.com.dll">
+      <publishTime>02/14/2017 20:43:47</publishTime>
+    </File>
+    <File Include="bin/Fjtc.dll">
+      <publishTime>02/14/2017 20:43:43</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
+      <publishTime>11/30/2016 16:07:42</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.DependencyCollector.dll">
+      <publishTime>12/07/2016 11:45:42</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.PerfCounterCollector.dll">
+      <publishTime>12/07/2016 11:50:34</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.ServerTelemetryChannel.dll">
+      <publishTime>12/06/2016 15:15:48</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.Web.dll">
+      <publishTime>12/07/2016 11:49:10</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.WindowsServer.dll">
+      <publishTime>12/07/2016 11:50:34</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ApplicationInsights.dll">
+      <publishTime>12/06/2016 15:09:52</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>06/15/2015 02:06:24</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>07/25/2012 11:48:56</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>06/18/2015 20:19:44</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>01/28/2015 04:04:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>01/28/2015 04:02:18</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>01/28/2015 04:02:32</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.Deployment.dll">
+      <publishTime>01/28/2015 04:04:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.dll">
+      <publishTime>01/28/2015 04:04:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.Razor.dll">
+      <publishTime>01/28/2015 04:04:30</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Helpers.resources.dll">
+      <publishTime>01/28/2015 04:04:32</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Mvc.resources.dll">
+      <publishTime>01/28/2015 04:02:22</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Razor.resources.dll">
+      <publishTime>01/28/2015 04:02:34</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Webpages.Deployment.resources.dll">
+      <publishTime>01/28/2015 04:04:32</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Webpages.Razor.resources.dll">
+      <publishTime>01/28/2015 04:04:32</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Webpages.resources.dll">
+      <publishTime>01/28/2015 04:04:32</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/dwz.frag.xml">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/favicon.ico">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/accordion/accordion.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/account_info_bg.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/alert/alertpanel.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/alert/alertpanel_icon.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/button/button_s.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/button/imgX.gif">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/button/imgX.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/dialog/dialogpanel.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/dialog/dialogpanel_icon.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/form/input_bg.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/form/input_bt.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/grid/grid.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/grid/resizeCol.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/grid/tableth.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/header_bg.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/icon.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/layout/taskbar.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/layout/taskbar_control.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/layout/taskbar_icon.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/layout/toggleSidebar.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/listLine.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/menu/menu.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/order_down.gif">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/order_up.gif">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/pageHeader_bg.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/panel/panel.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/panel/panel_icon.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/preview.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/progressBar/progressBar_l.gif">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/progressBar/progressBar_m.gif">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/progressBar/progressBar_s.gif">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/search-bg.gif">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/search-bt.gif">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/shadow/shadow_c_c.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/shadow/shadow_c_l.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/shadow/shadow_c_r.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/shadow/shadow_f_c.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/shadow/shadow_f_l.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/shadow/shadow_f_r.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/shadow/shadow_h_c.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/shadow/shadow_h_l.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/shadow/shadow_h_r.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/tabs/tabscontrol.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/tabs/tabspage.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/tabs/tabspage_icon.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/tabs/tabspanel.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/tree/check.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/tree/folder.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/images/tree/tree.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/azure/style.css">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/css/core.css">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/css/ieHack.css">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/css/login.css">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/css/print.css">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/accordion/accordion.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/account_info_bg.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/alert/alertpanel.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/alert/alertpanel_icon.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/button/button_s.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/button/imgX.gif">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/button/toleft.gif">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/button/toleftone.gif">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/button/toright.gif">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/button/torightone.gif">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/dialog/dialogpanel.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/dialog/dialogpanel_icon.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/form/input_bg.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/form/input_bt.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/grid/grid.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/grid/resizeCol.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/grid/tableth.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/header_bg.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/icon.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/layout/taskbar.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/layout/taskbar_control.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/layout/taskbar_icon.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/layout/toggleSidebar.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/listLine.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/login_banner.jpg">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/login_bg.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/login_content_bg.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/login_header_bg.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/login_list.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/login_logo.gif">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/login_sub.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/login_title.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/logo.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/menu/menu.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/order_down.gif">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/order_up.gif">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/pageHeader_bg.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/panel/panel.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/panel/panel_icon.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/progressBar/progressBar_l.gif">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/progressBar/progressBar_m.gif">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/progressBar/progressBar_s.gif">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/search-bg.gif">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/search-bt.gif">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/shadow/shadow_c_c.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/shadow/shadow_c_l.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/shadow/shadow_c_r.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/shadow/shadow_f_c.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/shadow/shadow_f_l.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/shadow/shadow_f_r.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/shadow/shadow_h_c.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/shadow/shadow_h_l.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/shadow/shadow_h_r.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/tabs/tabscontrol.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/tabs/tabspage.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/tabs/tabspage_icon.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/tabs/tabspanel.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/themeButton.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/tree/check.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/tree/folder.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/tree/tree.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/wx.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/images/zfb.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/default/style.css">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/green/images/accordion/accordion.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/green/images/account_info_bg.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/green/images/alert/alertpanel.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/green/images/alert/alertpanel_icon.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/green/images/button/button_s.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/green/images/button/imgX.gif">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/green/images/dialog/dialogpanel.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/green/images/dialog/dialogpanel_icon.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/green/images/form/input_bg.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/green/images/form/input_bt.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/green/images/grid/grid.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/green/images/grid/resizeCol.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/green/images/grid/tableth.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/green/images/header_bg.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/green/images/layout/toggleSidebar.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/green/images/listLine.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/green/images/logo.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/green/images/pageHeader_bg.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/green/images/panel/panel.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/green/images/panel/panel_icon.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/green/images/tabs/tabscontrol.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/green/images/tabs/tabspage.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/green/images/tabs/tabspage_icon.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/green/images/tabs/tabspanel.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/green/images/tree/tree.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/green/style.css">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/accordion/accordion.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/account_info_bg.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/alert/alertpanel.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/alert/alertpanel_icon.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/button/button_s.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/button/imgX.gif">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/dialog/dialogpanel.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/dialog/dialogpanel_icon.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/form/input_bg.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/form/input_bt.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/grid/grid.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/grid/resizeCol.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/grid/tableth.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/header_bg.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/layout/taskbar.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/layout/taskbar_control.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/layout/taskbar_icon.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/layout/toggleSidebar.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/login_bg.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/login_content_bg.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/login_header_bg.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/login_list.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/menu/menu.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/pageHeader_bg.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/panel/panel.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/panel/panel_icon.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/progressBar/progressBar_l.gif">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/progressBar/progressBar_m.gif">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/progressBar/progressBar_s.gif">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/shadow/shadow_c_c.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/shadow/shadow_c_l.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/shadow/shadow_c_r.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/shadow/shadow_f_c.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/shadow/shadow_f_l.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/shadow/shadow_f_r.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/shadow/shadow_h_c.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/shadow/shadow_h_l.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/shadow/shadow_h_r.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/tabs/tabscontrol.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/tabs/tabspage.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/tabs/tabspage_icon.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/tabs/tabspanel.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/tree/check.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/tree/folder.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/images/tree/tree.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/purple/style.css">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/images/accordion/accordion.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/images/account_info_bg.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/images/alert/alertpanel.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/images/alert/alertpanel_icon.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/images/button/button_s.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/images/button/imgX.gif">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/images/dialog/dialogpanel.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/images/dialog/dialogpanel_icon.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/images/form/input_bg.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/images/form/input_bt.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/images/grid/grid.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/images/grid/resizeCol.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/images/grid/tableth.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/images/header_bg.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/images/layout/taskbar.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/images/layout/taskbar_control.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/images/layout/taskbar_icon.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/images/layout/toggleSidebar.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/images/listLine.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/images/menu/menu.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/images/pageHeader_bg.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/images/panel/panel.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/images/panel/panel_icon.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/images/progressBar/progressBar_l.gif">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/images/progressBar/progressBar_m.gif">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/images/progressBar/progressBar_s.gif">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/images/shadow/shadow_c_c.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/images/shadow/shadow_c_l.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/images/shadow/shadow_c_r.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/images/shadow/shadow_f_c.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/images/shadow/shadow_f_l.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/images/shadow/shadow_f_r.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/images/shadow/shadow_h_c.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/images/shadow/shadow_h_l.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/images/shadow/shadow_h_r.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/images/tabs/tabscontrol.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/images/tabs/tabspage.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/images/tabs/tabspage_icon.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/images/tabs/tabspanel.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/images/tree/check.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/images/tree/folder.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/images/tree/tree.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/dwz_jui/themes/silver/style.css">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/uploadify/Change Log.txt">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/uploadify/css/uploadify.css">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/uploadify/img/add.jpg">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/uploadify/img/cancel.jpg">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/uploadify/img/delete.jpg">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/uploadify/img/upload.jpg">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/uploadify/img/uploadify-cancel.png">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/uploadify/scripts/jquery.uploadify.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/uploadify/scripts/jquery.uploadify.min.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Content/uploadify/scripts/uploadify.swf">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/AdvancedQuery.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/AdvancedQuery.min.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/Default.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/doublemultiple.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/dwz_jui/chart/g.bar.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/dwz_jui/chart/g.dot.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/dwz_jui/chart/g.line.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/dwz_jui/chart/g.pie.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/dwz_jui/chart/g.raphael.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/dwz_jui/chart/raphael-min.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/dwz_jui/dwz.min.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/dwz_jui/dwz.regional.zh.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/dwz_jui/source/dwz.accordion.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/dwz_jui/source/dwz.ajax.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/dwz_jui/source/dwz.alertMsg.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/dwz_jui/source/dwz.barDrag.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/dwz_jui/source/dwz.checkbox.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/dwz_jui/source/dwz.combox.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/dwz_jui/source/dwz.contextmenu.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/dwz_jui/source/dwz.core.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/dwz_jui/source/dwz.cssTable.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/dwz_jui/source/dwz.database.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/dwz_jui/source/dwz.datepicker.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/dwz_jui/source/dwz.dialog.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/dwz_jui/source/dwz.dialogDrag.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/dwz_jui/source/dwz.drag.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/dwz_jui/source/dwz.effects.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/dwz_jui/source/dwz.history.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/dwz_jui/source/dwz.navTab.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/dwz_jui/source/dwz.pagination.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/dwz_jui/source/dwz.panel.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/dwz_jui/source/dwz.print.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/dwz_jui/source/dwz.regional.zh.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/dwz_jui/source/dwz.resize.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/dwz_jui/source/dwz.scrollCenter.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/dwz_jui/source/dwz.sortDrag.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/dwz_jui/source/dwz.stable.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/dwz_jui/source/dwz.switchEnv.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/dwz_jui/source/dwz.tab.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/dwz_jui/source/dwz.taskBar.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/dwz_jui/source/dwz.theme.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/dwz_jui/source/dwz.tree.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/dwz_jui/source/dwz.ui.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/dwz_jui/source/dwz.util.date.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/dwz_jui/source/dwz.util.number.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/dwz_jui/source/dwz.validate.method.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery-2.1.4.min.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery.bgiframe.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery.cookie.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery.easing.1.3.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery.linq.min.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery.multi-select.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery.quicksearch.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.min.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/linq.min.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/lookupExtend.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/lookupExtend.min.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/My97DatePicker/calendar.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/My97DatePicker/lang/en.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/My97DatePicker/lang/zh-cn.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/My97DatePicker/lang/zh-tw.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/My97DatePicker/skin/datePicker.gif">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/My97DatePicker/skin/default/datepicker.css">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/My97DatePicker/skin/default/img.gif">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/My97DatePicker/skin/WdatePicker.css">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/My97DatePicker/skin/whyGreen/bg.jpg">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/My97DatePicker/skin/whyGreen/datepicker.css">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/My97DatePicker/skin/whyGreen/img.gif">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/My97DatePicker/WdatePicker.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Scripts/speedup.js">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>02/14/2017 22:36:26</publishTime>
+    </File>
+    <File Include="Views/Home/Login.cshtml">
+      <publishTime>02/14/2017 22:27:57</publishTime>
+    </File>
+    <File Include="Views/User/List.cshtml">
+      <publishTime>02/14/2017 21:02:22</publishTime>
+    </File>
+    <File Include="Views/web.config">
+      <publishTime>02/13/2017 19:03:25</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>02/14/2017 20:43:52</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
