@@ -3,6 +3,7 @@
 
 *.dll
 *.exe
+*.pdb
 /开发/src/fjtc/.vs
 /开发/src/fjtc/Fjtc/bin
 /开发/src/fjtc/Fjtc/obj
