@@ -137,6 +137,22 @@
   <ItemGroup>
     <Content Include="Content\dwz_jui\dwz.frag.xml" />
     <Content Include="Content\dwz_jui\favicon.ico" />
+    <Content Include="Content\jqGrid\css\ellipsis-xbl.xml" />
+    <Content Include="Content\jqGrid\css\ui.jqgrid.css" />
+    <Content Include="Content\jquery.ui-1.8.16\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\jquery.ui-1.8.16\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\jquery.ui-1.8.16\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\jquery.ui-1.8.16\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\jquery.ui-1.8.16\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\jquery.ui-1.8.16\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\jquery.ui-1.8.16\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\jquery.ui-1.8.16\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\jquery.ui-1.8.16\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\jquery.ui-1.8.16\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\jquery.ui-1.8.16\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\jquery.ui-1.8.16\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\jquery.ui-1.8.16\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\jquery.ui-1.8.16\jquery-ui.custom.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\dwz_jui\themes\azure\images\accordion\accordion.png" />
     <Content Include="Content\dwz_jui\themes\azure\images\account_info_bg.png" />
@@ -427,7 +443,12 @@
     <Content Include="Scripts\dwz_jui\source\dwz.util.date.js" />
     <Content Include="Scripts\dwz_jui\source\dwz.util.number.js" />
     <Content Include="Scripts\dwz_jui\source\dwz.validate.method.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-cn.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-en.js" />
+    <Content Include="Scripts\jqGrid\jqGrid.extend.js" />
+    <Content Include="Scripts\jqGrid\jquery.jqGrid.min.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
+    <Content Include="Scripts\jquery-migrate-1.2.1.js" />
     <Content Include="Scripts\jquery.bgiframe.js" />
     <Content Include="Scripts\jquery.cookie.js" />
     <Content Include="Scripts\jquery.easing.1.3.js" />
@@ -458,10 +479,14 @@
     <Compile Include="Auth\CookieTickStorage.cs" />
     <Compile Include="Auth\ITicketStorage.cs" />
     <Compile Include="Auth\TicketStorageFactory.cs" />
+    <Compile Include="Common\DwzHelper.cs" />
     <Compile Include="Config\SiteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\RoleController.cs" />
+    <Compile Include="Controllers\SqlController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -476,11 +501,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Login.cshtml" />
     <None Include="Properties\PublishProfiles\admin.fjtc.com.pubxml" />
     <Content Include="Views\User\List.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\User\Add.cshtml" />
+    <Content Include="Views\Shared\_Pager.cshtml" />
+    <Content Include="Views\Menu\List.cshtml" />
+    <Content Include="Views\Role\List.cshtml" />
+    <Content Include="Views\Sql\List.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

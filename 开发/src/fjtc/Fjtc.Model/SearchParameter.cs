@@ -1,10 +1,42 @@
-﻿namespace Fjtc.Model
+﻿using System.Security.Permissions;
+
+namespace Fjtc.Model
 {
     /// <summary>
     /// 搜索条件基类
     /// </summary>
     public class SearchParameter
     {
-
+        /// <summary>
+        /// 页码
+        /// </summary>
+        public int Page { get; set; }
+        /// <summary>
+        /// 数量
+        /// </summary>
+        public int PageSize { get; set; }
+        /// <summary>
+        /// 总数
+        /// </summary>
+        public int Count { get; set; }
+        /// <summary>
+        /// 总页数
+        /// </summary>
+        public int TotalPage
+        {
+            get
+            {
+                if (PageSize < 1) return 1;
+                return (Count + PageSize - 1) / PageSize;
+            }
+        }
+        /// <summary>
+        /// 排序方式
+        /// </summary>
+        public string OrderBy { get; set; }
+        /// <summary>
+        /// 返回数据
+        /// </summary>
+        public dynamic ReturnList { get; set; }
     }
 }

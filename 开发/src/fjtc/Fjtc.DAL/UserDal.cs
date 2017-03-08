@@ -17,7 +17,7 @@ namespace Fjtc.DAL
             {
                 string sqlStr = @"SELECT * FROM dbo.[CMSUser](NOLOCK) WHERE LoginName=@Name";
                 SqlParameter[] paramet = new[] {
-                    new SqlParameter("@LoginName",SqlDbType.NVarChar,50) { Value = userName },
+                    new SqlParameter("@Name",SqlDbType.NVarChar,50) { Value = userName },
                 };
                 var model = ModelConvertHelper<User>.ToModel(DataBaseManager.MainDb().ExecuteFillDataTable(sqlStr, paramet));
                 return model;
@@ -33,9 +33,9 @@ namespace Fjtc.DAL
         {
             try
             {
-                var insertSql = @"IF (SELECT COUNT(1) FROM CMSUser with(nolock) WHERE Name = @Name) = 0
+                var insertSql = @"IF (SELECT COUNT(1) FROM CMSUser with(nolock) WHERE Name=@Name) = 0
                             BEGIN
-                                INSERT INTO CMSUser(Password, Name, CreatedBy, CreatedTime, Status, Number, LoginName)  Values(@Password, @Name, @CreatedBy, @CreatedTime, @Status, @Number, @LoginName)
+                                INSERT INTO CMSUser(Password,Name,CreatedBy,CreatedTime,Status,Number,LoginName)  Values(@Password, @Name, @CreatedBy, @CreatedTime, @Status, @Number, @LoginName)
                             END";
                 IDataParameter[] parameters ={
                 new SqlParameter("@Password",SqlDbType.VarChar,32) {Value =  user.Password},

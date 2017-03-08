@@ -16,23 +16,26 @@ namespace admin.fjtc.com.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult Add(UserViewModel user)
         {
-            if (Request.IsAjaxRequest())
-            {
-                var msg = string.Empty;
-                var result = new UserBll().AddUser(new User()
-                {
-                    Name = user.Name,
-                    CreatedBy = "当前登录用户",
-                    Password = user.Password,
-                    Status = user.Status,
-                    Number = user.Number,
-                    LoginName = user.LoginName
-                }, ref msg);
-                return Json(new { IsOk = result, Msg = msg });
-            }
             return View(user);
+        }
+
+        [HttpPost]
+        public ActionResult Add(UserViewModel user, FormCollection collection)
+        {
+            var msg = string.Empty;
+            var result = new UserBll().AddUser(new User()
+            {
+                Name = user.Name,
+                CreatedBy = User.Identity.Name,
+                Password = user.Password,
+                Status = user.Status,
+                Number = user.Number,
+                LoginName = user.LoginName
+            }, ref msg);
+            return Json(new { IsOk = result, Msg = msg });
         }
     }
 }

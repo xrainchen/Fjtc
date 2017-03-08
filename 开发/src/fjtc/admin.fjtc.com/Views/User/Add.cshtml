@@ -2,13 +2,38 @@
     Layout = null;
 }
 @model Fjtc.Model.ViewModel.UserViewModel
-<div>
-    <form>
-        <table>
-            <tr>
-                <td>用户名</td>
-                <td>@Html.TextBoxFor(m => m.Name)</td>
-            </tr>
-        </table>
+<div class="pageContent">
+    <form method="post" action="@Url.Action("Add")" class="pageForm required-validate" onsubmit="return validateCallback(this, navTabAjaxDone);">
+        <div class="pageFormContent" layoutH="56">
+            <p>
+                <label>用户名：</label>
+                @Html.TextBoxFor(m => m.LoginName)
+            </p>
+            <p>
+                <label>密码：</label>
+                @Html.TextBoxFor(m => m.Password)
+            </p>
+            <p>
+                <label>名字：</label>
+                @Html.TextBoxFor(m => m.Name)
+            </p>
+            <p>
+                <label>工号：</label>
+                @Html.TextBoxFor(m => m.Number)
+            </p>
+            <p>
+                <label>状态：</label>
+                <input type="radio" name="Status" value="1" />正常
+                <input type="radio" name="Status" value="-1" />注销
+            </p>
+        </div>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+                <li>
+                    <div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div>
+                </li>
+            </ul>
+        </div>
     </form>
 </div>

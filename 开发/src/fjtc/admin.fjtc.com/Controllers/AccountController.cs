@@ -1,7 +1,10 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using System.Web.Security;
+using admin.fjtc.com.Auth;
 using Fjtc.Common;
 using admin.fjtc.com.Models;
+using Fjtc.Model.Entity;
 
 namespace admin.fjtc.com.Controllers
 {
@@ -65,6 +68,7 @@ namespace admin.fjtc.com.Controllers
                     var user = userBll.GetModel(loginModel.UserName);
                     if (user != null && user.EncryPassword(loginModel.Password) == user.Password)
                     {
+                        TicketStorageFactory.InstanceTicketStorage<User>().SetTicket(user);
                         return RedirectToAction("Index", "Home");
                     }
                     else
@@ -84,7 +88,7 @@ namespace admin.fjtc.com.Controllers
         public ActionResult LogOut()
         {
             Session.Abandon();
-            FormsAuthentication.SignOut();
+            TicketStorageFactory.InstanceTicketStorage<User>().Cancellation();
             return RedirectToAction("Index");
         }
         /// <summary>

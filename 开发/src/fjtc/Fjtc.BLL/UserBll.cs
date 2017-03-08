@@ -13,6 +13,7 @@ namespace Fjtc.BLL
 
         public bool AddUser(User user, ref string msg)
         {
+            user.Password = user.EncryPassword(user.Password);
             return _user.AddUser(user, ref msg);
         }
     }
