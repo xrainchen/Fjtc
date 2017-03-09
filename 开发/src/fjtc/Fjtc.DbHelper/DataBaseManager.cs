@@ -10,7 +10,7 @@ namespace Fjtc.DbHelper
     /// </summary>
     public static class DataBaseManager
     {
-        public static string GetCountAsGroup(string tbName, string where) =>$"select count(1) from (select count(1) as a1 from {tbName} where 1=1 {where}) as t1";
+        public static string GetCountAsGroup(string tbName, string where) => $"select count(1) from (select count(1) as a1 from {tbName} where 1=1 {where}) as t1";
 
         public static string GetCountString(string tbName, string where) => $"select count(1) from {tbName} where 1=1 {where}";
         /// <summary>
@@ -49,10 +49,18 @@ namespace Fjtc.DbHelper
 
         public static IDbHelper MainDb()
         {
-            return SqlHelper.FromFile(@"D:\Lib.DBC\" + ConfigurationManager.AppSettings["DBCFileName"], true);
+            return MainDb(ConfigurationManager.AppSettings["DBCFileName"]);
         }
 
-        public static IDbHelper MainDb(string dBCFileName) =>SqlHelper.FromFile(@"D:\Lib.DBC\" + dBCFileName + ".dbc", true);
+        public static IDbHelper MainDb(string dBCFileName)
+        {
+            var isServer = ConfigurationManager.AppSettings["IsServer"];
+            if (string.Equals("true", isServer, StringComparison.OrdinalIgnoreCase))
+            {
+                return SqlHelper.FromFile($@"{AppDomain.CurrentDomain.BaseDirectory}\Config\" + dBCFileName + ".dbc", true);
+            }
+            return SqlHelper.FromFile(@"D:\Lib.DBC\" + dBCFileName + ".dbc", true);
+        }
 
         public static string SqlEscape(this string input, string escapeChar)
         {
