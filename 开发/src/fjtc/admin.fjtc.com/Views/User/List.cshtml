@@ -1,16 +1,25 @@
 ﻿@model Fjtc.Model.SearchModel.UserSearchParameter
 @{
     Layout = null;
+    var tableId = Guid.NewGuid().ToString().Replace("-", "");
+    var pagerId = Guid.NewGuid().ToString().Replace("-", "");
+    var formId = Guid.NewGuid().ToString().Replace("-", "");
 }
 <div class="pageHeader">
-    <form onsubmit="return navTabSearch(this);" action="@Url.Action("List")" method="post">
+    <form id="@formId" onsubmit="return navTabSearch(this);" action="@Url.Action("List")" method="post">
         @Html.Partial("_Pager", Model)
         <div class="searchBar">
-            <table class="searchContent"></table>
+            <table class="searchContent">
+                <tr>
+                    <td>
+                        用户名：@Html.TextBoxFor(m=>m.LoginName)
+                    </td>
+                </tr>
+            </table>
         </div>
         <div class="subBar">
             <ul>
-                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">查询</button></div></div></li>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="button" onclick="Search()">查询</button></div></div></li>
             </ul>
         </div>
     </form>
@@ -21,4 +30,41 @@
             <li><a class="add" href="@Url.Action("Add")" target="dialog" title="添加用户" mask="true"><span>添加</span></a></li>
         </ul>
     </div>
+    <table id="@tableId"></table>
+    <div id="@pagerId"></div>
 </div>
+<script>
+    function InitGrid() {
+        $("#@tableId").jqGrid({
+            url: '@Url.Action("List")',
+            mtype: 'post',
+            datatype: "local",
+            colNames: ['用户Id', '名称', '登录名', '创建人', '状态', '编号', '创建时间'],
+            colModel: [
+                { name: 'Id', index: 'Id' },
+                { name: 'Name', index: 'Name' },
+                { name: 'LoginName', index: 'LoginName' },
+                { name: 'CreatedBy', index: 'CreatedBy' },
+                { name: 'Status', index: 'Status' },
+                { name: 'Number', index: 'Number' },
+                { name: 'CreatedTime', index: 'CreatedTime', formatter: JsonDateFormat }
+            ],
+            rowNum: 10,
+            rowList: [10, 20, 30],
+            width: '100%',
+            prmNames: jqGridDefaultConfig.prmNames,
+            jsonReader: jqGridDefaultConfig.jsonReader,
+            postData: FormToJson({ formId: '@formId' }),
+            pager: '#@pagerId',
+            viewrecords: true,
+            caption: "用户列表"
+        }).navGrid("#@tableId", { edit: false, add: false, del: false });
+    }
+
+    function Search() {
+        $("#@tableId").jqGrid('setGridParam', { page: 1, datatype: "json", postData: FormToJson({ formId: '@formId' }) }).trigger("reloadGrid"); 
+    }
+    $(function () {
+        InitGrid();
+    });
+</script>

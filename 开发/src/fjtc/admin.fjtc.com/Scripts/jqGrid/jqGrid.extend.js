@@ -36,7 +36,7 @@ function FormToJson(pin) {
     var jsonObj = {};
     $($("#" + pin.formId).serializeArray()).each(function (i, o) {
         if (o.value) {
-            if (p.postNameArray) {//以数组方式提交多个name值
+            if (pin.postNameArray) {//以数组方式提交多个name值
                 if (jsonObj[o.name]) {
                     
                 }

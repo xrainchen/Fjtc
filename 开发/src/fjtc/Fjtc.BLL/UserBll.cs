@@ -1,5 +1,8 @@
-﻿using Fjtc.DAL;
+﻿using System.Collections.Generic;
+using Fjtc.DAL;
+using Fjtc.Model;
 using Fjtc.Model.Entity;
+using Fjtc.Model.ViewModel;
 
 namespace Fjtc.BLL
 {
@@ -15,6 +18,11 @@ namespace Fjtc.BLL
         {
             user.Password = user.EncryPassword(user.Password);
             return _user.AddUser(user, ref msg);
+        }
+
+        public IList<UserViewModel> GetList(SearchParameter searachParam)
+        {
+            return _user.GetList(searachParam);
         }
     }
 }

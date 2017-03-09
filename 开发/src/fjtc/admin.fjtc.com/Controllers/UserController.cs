@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using Fjtc.BLL;
 using Fjtc.Model.Entity;
+using Fjtc.Model.SearchModel;
 using Fjtc.Model.ViewModel;
 
 namespace admin.fjtc.com.Controllers
@@ -11,9 +12,19 @@ namespace admin.fjtc.com.Controllers
         /// 用户列表页
         /// </summary>
         /// <returns></returns>
-        public ActionResult List()
+        [HttpGet]
+        public ActionResult List(UserSearchParameter searchParameter)
         {
-            return View();
+            BindParameter(searchParameter);
+            return View(searchParameter);
+        }
+
+        [HttpPost]
+        public ActionResult List(UserSearchParameter searchParameter, FormCollection collection)
+        {
+            BindParameter(searchParameter);
+            searchParameter.ReturnList = new UserBll().GetList(searchParameter);
+            return Json(searchParameter);
         }
 
         [HttpGet]

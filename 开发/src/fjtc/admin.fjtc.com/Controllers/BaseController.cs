@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Web.Mvc;
 using admin.fjtc.com.Auth;
 using Fjtc.BLL;
+using Fjtc.Model;
 using Fjtc.Model.Entity;
 
 namespace admin.fjtc.com.Controllers
@@ -86,6 +87,12 @@ namespace admin.fjtc.com.Controllers
                 //    return;
                 //}
             }
+        }
+
+        protected virtual void BindParameter(SearchParameter searchParameter)
+        {
+            if (searchParameter.Page < 1) searchParameter.Page = 1;
+            if (searchParameter.PageSize < 1) searchParameter.Page = 20;
         }
     }
 }

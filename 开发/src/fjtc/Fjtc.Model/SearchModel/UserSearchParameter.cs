@@ -5,6 +5,9 @@
     /// </summary>
     public class UserSearchParameter : SearchParameter
     {
-
+        /// <summary>
+        /// 登录名
+        /// </summary>
+        public string LoginName { get; set; }
     }
 }

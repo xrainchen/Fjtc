@@ -1,9 +1,15 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using Fjtc.DbHelper;
+using Fjtc.Model;
 using Fjtc.Model.Entity;
+using Fjtc.Model.SearchModel;
+using Fjtc.Model.ViewModel;
 using RPoney.Data;
+using RPoney.Data.SqlClient;
 using RPoney.Log;
 
 namespace Fjtc.DAL
@@ -56,6 +62,26 @@ namespace Fjtc.DAL
                 msg = "添加用户异常";
                 return false;
             }
+        }
+
+        public IList<UserViewModel> GetList(SearchParameter searachParam)
+        {
+            var tbname = " CMSUser with(nolock) ";
+            var filter = " [Id],[Name],[LoginName],[CreatedTime],[Status],[CreatedBy]";
+            var orderField = " CreatedTime desc ";
+            var where = "";
+            var search = searachParam as UserSearchParameter;
+            var paramlist = new List<SqlParameter>();
+            if (!string.IsNullOrWhiteSpace(search.LoginName))
+            {
+                where += $" and LoginName like '%{search.LoginName}%'";
+                //paramlist.Add(new SqlParameter("@LoginName", search.LoginName));
+            }
+            var pageSql = DataBaseManager.GetPageString(tbname, filter, orderField, where, searachParam.Page,
+                searachParam.PageSize);
+            var countSql = DataBaseManager.GetCountString(tbname, where);
+            searachParam.Count = int.Parse(DataBaseManager.MainDb().ExecuteScalar(countSql, paramlist.ToArray()).ToString());
+            return ModelConvertHelper<UserViewModel>.ToModels(DataBaseManager.MainDb().ExecuteFillDataTable(pageSql, paramlist.ToArray()));
         }
     }
 }
