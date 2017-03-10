@@ -6,6 +6,7 @@ namespace Fjtc.Model.Entity
     /// <summary>
     /// 用户表
     /// </summary>
+    [Serializable]
     public class User
     {
         /// <summary>
@@ -49,5 +50,9 @@ namespace Fjtc.Model.Entity
         {
             return $"{password}{PublicConst.SystemMainKey}".Md5();
         }
+        /// <summary>
+        /// 用户类型  0：超级管理员 1：操作员
+        /// </summary>
+        public UserTypeEnum UserType { get; set; }
     }
 }

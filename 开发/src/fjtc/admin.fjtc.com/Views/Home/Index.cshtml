@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Fjtc.Model.Entity.User
+@{
     Layout = null;
 }
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -58,6 +59,11 @@
     <div id="layout">
         <div id="header">
             <div class="headerNav">
+                <ul class="nav">
+                    <li><a href="@Url.Action("UpdatePassword","User")" target="dialog">修改密码</a></li>
+                     <li><a href="javascript:;">@(Model.Number + "|" + Model.LoginName)</a></li>
+                    <li><a href="@Url.Action("LogOut","Account")">退出</a></li>
+                </ul>
                 <ul class="themeList" id="themeList">
                     <li theme="default"><div class="selected">蓝色</div></li>
                 </ul>
@@ -107,8 +113,8 @@
                 <div class="navTab-panel tabsPageContent layoutBox">
                     <div class="page unitBox">
                         <div class="pageFormContent" layoutH="80" style="margin-right: 230px">
-                            <a href="http://jui.org/" target="navTab" ref="tab100000000">DWZ官网</a>
-                            <a href="http://blog.mn886.net/jqGrid/" target="navTab" ref="tab200000000">jqGridApi</a>
+                            <a href="http://jui.org/" target="navTab" rel="tab100000000">DWZ官网</a>
+                            <a href="http://blog.mn886.net/jqGrid/" target="navTab" rel="tab200000000">jqGridApi</a>
                         </div>
                         <div style="width:230px;position: absolute;top:60px;right:0" layoutH="80">
                             <iframe width="100%" height="430" class="share_self" frameborder="0" scrolling="no"></iframe>

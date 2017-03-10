@@ -105,9 +105,11 @@
         <div id="login">
             <h1>福建特产管理系统</h1>
             @Html.TextBoxFor(m => m.UserName, new { placeholder = "用户名", required = "required" })
-            @Html.TextBoxFor(m => m.Password, new { placeholder = "密码", required = "required" })
-            @Html.TextBoxFor(m => m.VerifyCode, new { placeholder = "验证码", required = "required",style="width:150px;" })
-            <img style="float: right; cursor: hand; width: 100px; height: 40px;cursor:pointer"  src="@Url.Content("~/Account/VerifyCode")" alt="看不清？点击更换" valign="top" onclick="this.src=this.src+'?'" />
+            @Html.PasswordFor(m => m.Password, new { placeholder = "密码", required = "required" })
+            <div>
+                @Html.TextBoxFor(m => m.VerifyCode, new { placeholder = "验证码", required = "required", style = "width:150px;" })
+                <img style="float: right; cursor: hand; width: 100px; height: 40px;cursor:pointer" src="@Url.Content("~/Account/VerifyCode")" alt="看不清？点击更换" valign="top" onclick="this.src=this.src+'?'" />
+            </div>
             @Html.ValidationMessage("UserName")
             @Html.ValidationMessage("Password")
             @Html.ValidationMessage("VerifyCode")

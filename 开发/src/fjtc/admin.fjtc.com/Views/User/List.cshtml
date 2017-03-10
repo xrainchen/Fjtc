@@ -27,7 +27,8 @@
 <div class="pageContent">
     <div class="panelBar">
         <ul class="toolBar">
-            <li><a class="add" href="@Url.Action("Add")" target="dialog" title="添加用户" mask="true"><span>添加</span></a></li>
+            <li><a class="add" href="@Url.Action("Add")?navtab=add" rel="add" target="dialog" title="添加用户" mask="true"><span>添加</span></a></li>
+            <li><a class="add" href="javascript:;" target="dialog" rel="edit" title="编辑用户" mask="true" onclick="Edit(this)"><span>修改</span></a></li>
         </ul>
     </div>
     <table id="@tableId"></table>
@@ -38,20 +39,21 @@
         $("#@tableId").jqGrid({
             url: '@Url.Action("List")',
             mtype: 'post',
-            datatype: "local",
-            colNames: ['用户Id', '名称', '登录名', '创建人', '状态', '编号', '创建时间'],
+            datatype: "json",
+            colNames: ['用户Id', '姓名', '用户名', '工号', '创建人', '状态', '创建时间'],
             colModel: [
-                { name: 'Id', index: 'Id' },
-                { name: 'Name', index: 'Name' },
-                { name: 'LoginName', index: 'LoginName' },
-                { name: 'CreatedBy', index: 'CreatedBy' },
-                { name: 'Status', index: 'Status' },
-                { name: 'Number', index: 'Number' },
-                { name: 'CreatedTime', index: 'CreatedTime', formatter: JsonDateFormat }
+                { name: 'Id', index: 'Id',hidden:true },
+                { name: 'Name', index: 'Name', align:'center' },
+                { name: 'LoginName', index: 'LoginName', align: 'center' },
+                { name: 'Number', index: 'Number', align: 'center' },
+                { name: 'CreatedBy', index: 'CreatedBy', align: 'center' },
+                { name: 'StatusName', index: 'StatusName', align: 'center' },
+                { name: 'CreatedTime', index: 'CreatedTime', formatter: JsonDateFormat, align: 'center' }
             ],
-            rowNum: 10,
-            rowList: [10, 20, 30],
+            rowNum: 20,
+            rowList: [20, 50, 100],
             width: '100%',
+            height: '375px',
             prmNames: jqGridDefaultConfig.prmNames,
             jsonReader: jqGridDefaultConfig.jsonReader,
             postData: FormToJson({ formId: '@formId' }),
@@ -62,7 +64,13 @@
     }
 
     function Search() {
-        $("#@tableId").jqGrid('setGridParam', { page: 1, datatype: "json", postData: FormToJson({ formId: '@formId' }) }).trigger("reloadGrid"); 
+        $("#@tableId").jqGrid('setGridParam', { page: 1,postData: FormToJson({ formId: '@formId' }) }).trigger("reloadGrid");
+    }
+    function Edit(element) {
+        var row = $("#@tableId").jqGrid("getRowData", $("#@tableId").jqGrid('getGridParam', 'selrow'));
+        if (row.Id) {
+            $(element).attr("href", "@Url.Action("Edit")?navtab=edit&Id=" + row.Id);
+        }
     }
     $(function () {
         InitGrid();

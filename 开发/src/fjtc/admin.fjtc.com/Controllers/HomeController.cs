@@ -10,7 +10,7 @@ namespace admin.fjtc.com.Controllers
         /// <returns></returns>
         public ActionResult Index()
         {
-            return View();
+            return View(CurrentUser);
         }
     }
 }

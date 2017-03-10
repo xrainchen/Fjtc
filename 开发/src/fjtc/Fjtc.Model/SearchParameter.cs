@@ -38,5 +38,10 @@ namespace Fjtc.Model
         /// 返回数据
         /// </summary>
         public dynamic ReturnList { get; set; }
+
+        /// <summary>
+        /// 标签页
+        /// </summary>
+        public string NavTab { get; set; }
     }
 }

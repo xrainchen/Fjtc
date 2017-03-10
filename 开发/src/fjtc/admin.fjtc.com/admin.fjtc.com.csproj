@@ -514,6 +514,8 @@
     <Content Include="Views\Menu\List.cshtml" />
     <Content Include="Views\Role\List.cshtml" />
     <Content Include="Views\Sql\List.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\User\UpdatePassword.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

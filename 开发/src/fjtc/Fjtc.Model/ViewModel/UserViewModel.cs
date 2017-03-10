@@ -2,7 +2,7 @@
 
 namespace Fjtc.Model.ViewModel
 {
-    public class UserViewModel
+    public class UserViewModel:BaseViewModel
     {
         /// <summary>
         /// 主键
@@ -29,6 +29,22 @@ namespace Fjtc.Model.ViewModel
         /// 状态
         /// </summary>
         public int Status { get; set; }
+
+        public string StatusName
+        {
+            get
+            {
+                switch (Status)
+                {
+                    case -1:
+                        return "注销";
+                    case 1:
+                        return "正常";
+                }
+                return "异常";
+            }
+        }
+
         /// <summary>
         /// 编号
         /// </summary>
@@ -37,5 +53,9 @@ namespace Fjtc.Model.ViewModel
         /// 登录名
         /// </summary>
         public string LoginName { get; set; }
+        /// <summary>
+        /// 用户类型  0：超级管理员 1：操作员
+        /// </summary>
+        public UserTypeEnum UserType { get; set; }
     }
 }

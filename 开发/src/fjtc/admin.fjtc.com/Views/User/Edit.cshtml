@@ -1,0 +1,41 @@
+﻿@{
+    Layout = null;
+}
+@model Fjtc.Model.ViewModel.UserViewModel
+<div class="pageContent">
+    <form method="post" action="@Url.Action("Edit")" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone);">
+        <div class="pageFormContent" layoutH="56">
+            @Html.HiddenFor(m => m.Id)
+            @Html.HiddenFor(m => m.NavTab)
+            <p>
+                <label>用户名：</label>
+                @Html.TextBoxFor(m => m.LoginName, new { @readonly = true, @class = "required" })
+            </p>
+            <p>
+                <label>密码：</label>
+                @Html.PasswordFor(m => m.Password, new { placeholder = "留空表示不修改" })
+            </p>
+            <p>
+                <label>名字：</label>
+                @Html.TextBoxFor(m => m.Name)
+            </p>
+            <p>
+                <label>工号：</label>
+                @Html.TextBoxFor(m => m.Number, new { @readonly = true, @class = "required" })
+            </p>
+            <p>
+                <label>状态：</label>
+                <input type="radio" name="Status" value="1" @(Model.Status == 1 ? "checked" : "") />正常
+                <input type="radio" name="Status" value="-1" @(Model.Status == -1 ? "checked" : "") />注销
+            </p>
+        </div>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+                <li>
+                    <div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div>
+                </li>
+            </ul>
+        </div>
+    </form>
+</div>
