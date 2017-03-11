@@ -484,6 +484,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\PowerController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\SqlController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -516,6 +517,7 @@
     <Content Include="Views\Sql\List.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
     <Content Include="Views\User\UpdatePassword.cshtml" />
+    <Content Include="Views\Power\List.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

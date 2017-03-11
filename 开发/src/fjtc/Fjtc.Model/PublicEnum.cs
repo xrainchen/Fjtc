@@ -8,10 +8,24 @@
         /// <summary>
         /// 超级管理员
         /// </summary>
-        Administrator=0,
+        Administrator = 0,
         /// <summary>
         /// 用户
         /// </summary>
-        User=1
+        User = 1
+    }
+    /// <summary>
+    /// 用户状态
+    /// </summary>
+    public enum UserStatusEnum
+    {
+        /// <summary>
+        /// 注销
+        /// </summary>
+        Cancel = -1,
+        /// <summary>
+        /// 正常
+        /// </summary>
+        Normal = 1
     }
 }

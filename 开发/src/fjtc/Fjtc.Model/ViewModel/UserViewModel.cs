@@ -2,7 +2,7 @@
 
 namespace Fjtc.Model.ViewModel
 {
-    public class UserViewModel:BaseViewModel
+    public class UserViewModel : BaseViewModel
     {
         /// <summary>
         /// 主键
@@ -28,7 +28,7 @@ namespace Fjtc.Model.ViewModel
         /// <summary>
         /// 状态
         /// </summary>
-        public int Status { get; set; }
+        public UserStatusEnum Status { get; set; }
 
         public string StatusName
         {
@@ -36,9 +36,9 @@ namespace Fjtc.Model.ViewModel
             {
                 switch (Status)
                 {
-                    case -1:
+                    case UserStatusEnum.Normal:
                         return "注销";
-                    case 1:
+                    case UserStatusEnum.Cancel:
                         return "正常";
                 }
                 return "异常";

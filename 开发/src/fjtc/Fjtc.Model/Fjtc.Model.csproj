@@ -43,13 +43,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\Power.cs" />
     <Compile Include="Entity\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublicConst.cs" />
     <Compile Include="PublicEnum.cs" />
+    <Compile Include="SearchModel\PowerSearchParameter.cs" />
     <Compile Include="SearchModel\UserSearchParameter.cs" />
     <Compile Include="SearchParameter.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\PowerViewModel.cs" />
     <Compile Include="ViewModel\UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup />

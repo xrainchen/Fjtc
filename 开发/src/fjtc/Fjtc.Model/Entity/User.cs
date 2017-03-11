@@ -33,7 +33,7 @@ namespace Fjtc.Model.Entity
         /// <summary>
         /// 状态
         /// </summary>
-        public int Status { get; set; }
+        public UserStatusEnum Status { get; set; }
         /// <summary>
         /// 编号
         /// </summary>
