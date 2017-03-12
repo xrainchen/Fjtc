@@ -13,7 +13,7 @@
       <publishTime>03/02/2017 22:57:34</publishTime>
     </File>
     <File Include="bin/admin.fjtc.com.dll">
-      <publishTime>03/10/2017 23:02:59</publishTime>
+      <publishTime>03/12/2017 08:46:22</publishTime>
     </File>
     <File Include="bin/ApplicationInsights.config">
       <publishTime>03/02/2017 22:57:34</publishTime>
@@ -25,25 +25,25 @@
       <publishTime>03/08/2017 23:02:22</publishTime>
     </File>
     <File Include="bin/Fjtc.BLL.dll">
-      <publishTime>03/10/2017 23:02:54</publishTime>
+      <publishTime>03/12/2017 08:46:18</publishTime>
     </File>
     <File Include="bin/fjtc.com.dll">
       <publishTime>02/14/2017 20:43:47</publishTime>
     </File>
     <File Include="bin/Fjtc.Common.dll">
-      <publishTime>03/10/2017 23:02:53</publishTime>
+      <publishTime>03/12/2017 01:51:01</publishTime>
     </File>
     <File Include="bin/Fjtc.DAL.dll">
-      <publishTime>03/10/2017 23:02:54</publishTime>
+      <publishTime>03/12/2017 08:46:18</publishTime>
     </File>
     <File Include="bin/Fjtc.DbHelper.dll">
-      <publishTime>03/10/2017 23:02:53</publishTime>
+      <publishTime>03/12/2017 01:51:01</publishTime>
     </File>
     <File Include="bin/Fjtc.dll">
-      <publishTime>03/10/2017 23:02:53</publishTime>
+      <publishTime>03/12/2017 01:51:01</publishTime>
     </File>
     <File Include="bin/Fjtc.Model.dll">
-      <publishTime>03/10/2017 23:02:53</publishTime>
+      <publishTime>03/12/2017 08:46:18</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
       <publishTime>11/30/2016 16:07:42</publishTime>
@@ -1186,16 +1186,22 @@
       <publishTime>03/02/2017 22:57:34</publishTime>
     </File>
     <File Include="Views/Account/Index.cshtml">
-      <publishTime>03/10/2017 19:09:07</publishTime>
+      <publishTime>03/12/2017 08:41:26</publishTime>
+    </File>
+    <File Include="Views/Build/List.cshtml">
+      <publishTime>03/12/2017 08:14:53</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>03/10/2017 22:48:26</publishTime>
+      <publishTime>03/12/2017 08:45:21</publishTime>
     </File>
     <File Include="Views/Home/Login.cshtml">
       <publishTime>02/14/2017 22:27:57</publishTime>
     </File>
     <File Include="Views/Menu/List.cshtml">
       <publishTime>03/08/2017 22:17:38</publishTime>
+    </File>
+    <File Include="Views/Power/List.cshtml">
+      <publishTime>03/12/2017 02:11:30</publishTime>
     </File>
     <File Include="Views/Role/List.cshtml">
       <publishTime>03/08/2017 22:25:58</publishTime>
@@ -1222,7 +1228,7 @@
       <publishTime>03/02/2017 22:57:34</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>03/10/2017 23:09:07</publishTime>
+      <publishTime>03/12/2017 02:17:02</publishTime>
     </File>
   </ItemGroup>
 </Project>

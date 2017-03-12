@@ -1,5 +1,7 @@
 ﻿using RPoney;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Fjtc.Model.Entity
 {
@@ -54,5 +56,20 @@ namespace Fjtc.Model.Entity
         /// 用户类型  0：超级管理员 1：操作员
         /// </summary>
         public UserTypeEnum UserType { get; set; }
+        /// <summary>
+        /// 用户权限列表
+        /// </summary>
+        public IList<string> UserPowerList { get; set; }
+        /// <summary>
+        /// 权限判断
+        /// </summary>
+        /// <param name="powerCode"></param>
+        /// <returns></returns>
+        public bool HasPower(string powerCode)
+        {
+            if (UserType == UserTypeEnum.Administrator) return true;
+            if (null == UserPowerList) return false;
+            return UserPowerList.Any(p => p == powerCode);
+        }
     }
 }

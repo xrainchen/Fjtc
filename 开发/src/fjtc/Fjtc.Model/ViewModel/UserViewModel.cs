@@ -36,9 +36,9 @@ namespace Fjtc.Model.ViewModel
             {
                 switch (Status)
                 {
-                    case UserStatusEnum.Normal:
-                        return "注销";
                     case UserStatusEnum.Cancel:
+                        return "注销";
+                    case UserStatusEnum.Normal:
                         return "正常";
                 }
                 return "异常";
