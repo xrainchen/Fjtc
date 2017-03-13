@@ -5,7 +5,6 @@ using admin.fjtc.com.Controllers;
 using Fjtc.BLL.MpWeiXin;
 using Fjtc.Model.Entity;
 using RPoney.Log;
-using ServiceStack.Logging;
 
 namespace admin.fjtc.com.Areas.MpWeiXin.Controllers
 {
