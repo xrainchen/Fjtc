@@ -1,6 +1,7 @@
 ﻿@{
     Layout = null;
 }
+@using Fjtc.Model
 @model Fjtc.Model.ViewModel.UserViewModel
 <div class="pageContent">
     <form method="post" action="@Url.Action("Edit")" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone);">
@@ -25,8 +26,8 @@
             </p>
             <p>
                 <label>状态：</label>
-                <input type="radio" name="Status" value="1" @(Model.Status == 1 ? "checked" : "") />正常
-                <input type="radio" name="Status" value="-1" @(Model.Status == -1 ? "checked" : "") />注销
+                <input type="radio" name="Status" value="1" @(Model.Status == UserStatusEnum.Normal ? "checked" : "")/>正常
+                <input type="radio" name="Status" value="-1" @(Model.Status == UserStatusEnum.Cancel ? "checked" : "") />注销
             </p>
         </div>
         <div class="formBar">
