@@ -22,6 +22,21 @@ namespace admin.fjtc.com.Common
             };
             return json;
         }
+        public static ActionResult Success( string msg = "")
+        {
+            var json = new JsonResult()
+            {
+                Data = new
+                {
+                    statusCode = "200",
+                    message = msg,
+                    navTableId = "",
+                    callbackType = "",
+                    forwardUrl = ""
+                }
+            };
+            return json;
+        }
         public static ActionResult Warn(string msg = "")
         {
             var json = new JsonResult()

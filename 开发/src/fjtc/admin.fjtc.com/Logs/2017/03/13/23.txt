@@ -1,0 +1,74 @@
+2017-03-13 23:02:35,544 | 线程:[50] | 级别:ERROR | 对象:Default | 信息: RPoney.Log.TopLogMessage
+RPoney.Data.SqlException: Update 和 Delete 语句必须包含where 或 on！
+   在 RPoney.Data.Contract.ZSQLCStatic.CheckText(String sqltext, Boolean checkStar)
+   在 RPoney.Data.SqlClient.SqlHelper.CreateCommand(String cmdText, CommandType cmdType, Boolean addReturnValuePar, Boolean addDefalutOutPar, IDataParameter[] sqlpars)
+   在 RPoney.Data.SqlClient.SqlHelper.ExecuteNonQuery(String commandText, CommandType cmdType, Boolean withTransaction, IDataParameter[] dataParameters)
+   在 RPoney.Data.SqlClient.SqlHelper.ExecuteNonQuery(String commandText, IDataParameter[] dataParameters)
+   在 Fjtc.DAL.MpWeiXin.MpWeiXinAccessSettingDal.AddOrUpdate(MpWeiXinAccessSetting entity) 位置 D:\福建特产\Fjtc\开发\src\fjtc\Fjtc.DAL\MpWeiXin\MpWeiXinAccessSettingDal.cs:行号 31
+   在 admin.fjtc.com.Areas.MpWeiXin.Controllers.AdminDeveloperController.Save(MpWeiXinAccessSetting model) 位置 D:\福建特产\Fjtc\开发\src\fjtc\admin.fjtc.com\Areas\MpWeiXin\Controllers\AdminDeveloperController.cs:行号 38
+
+2017-03-13 23:04:01,065 | 线程:[56] | 级别:ERROR | 对象:Default | 信息: RPoney.Log.TopLogMessage
+查询语句：
+	IF (SELECT COUNT(1) FROM MpWeiXinAccessSetting with(nolock) WHERE UserId=@UserId)=0
+                            BEGIN
+                                   INSERT INTO MpWeiXinAccessSetting(UserId,AppId,AppSecret,Token)  Values(@UserId, @AppId, @Token)
+                            END
+                            ELSE
+                            BEGIN
+                                UPDATE MpWeiXinAccessSetting SET AppId=@AppId,AppSecret=@AppSecret,Token=@Token Where UserId=@UserId
+                            END
+参数：
+	@UserId:2
+	@AppSecret:ff8c7c07510ba188e5124ae1d68e5294
+	@AppId:wxc34f0f2445e5a4df
+	@Token:ff8c7c07510ba188e5124ae1d68e5294
+RPoney.Data.SqlException: FzCyjh.Data运行时出现错误 ---> System.Data.SqlClient.SqlException: INSERT 语句中列的数目大于 VALUES 子句中指定的值的数目。VALUES 子句中值的数目必须与 INSERT 语句中指定的列的数目匹配。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 RPoney.Data.SqlClient.SqlHelper.ExecuteNonQuery(String commandText, CommandType cmdType, Boolean withTransaction, IDataParameter[] dataParameters)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 RPoney.Data.SqlClient.SqlHelper.ExecuteNonQuery(String commandText, CommandType cmdType, Boolean withTransaction, IDataParameter[] dataParameters)
+   在 RPoney.Data.SqlClient.SqlHelper.ExecuteNonQuery(String commandText, IDataParameter[] dataParameters)
+   在 Fjtc.DAL.MpWeiXin.MpWeiXinAccessSettingDal.AddOrUpdate(MpWeiXinAccessSetting entity) 位置 D:\福建特产\Fjtc\开发\src\fjtc\Fjtc.DAL\MpWeiXin\MpWeiXinAccessSettingDal.cs:行号 31
+   在 admin.fjtc.com.Areas.MpWeiXin.Controllers.AdminDeveloperController.Save(MpWeiXinAccessSetting model) 位置 D:\福建特产\Fjtc\开发\src\fjtc\admin.fjtc.com\Areas\MpWeiXin\Controllers\AdminDeveloperController.cs:行号 38
+
+2017-03-13 23:09:20,883 | 线程:[36] | 级别:ERROR | 对象:Default | 信息: RPoney.Log.TopLogMessage
+查询语句：
+	IF (SELECT COUNT(1) FROM MpWeiXinAccessSetting with(nolock) WHERE UserId=@UserId)=0
+                            BEGIN
+                                   INSERT INTO MpWeiXinAccessSetting(UserId,AppId,AppSecret,Token)  Values(@UserId,@AppId,@AppSecret,@Token)
+                            END
+                            ELSE
+                            BEGIN
+                                UPDATE MpWeiXinAccessSetting SET AppId=@AppId,AppSecret=@AppSecret,Token=@Token Where UserId=@UserId
+                            END
+参数：
+	@UserId:2
+	@AppSecret:ff8c7c07510ba188e5124ae1d68e5294
+	@AppId:wxc34f0f2445e5a4df
+	@Token:weixin
+RPoney.Data.SqlException: FzCyjh.Data运行时出现错误 ---> System.Data.SqlClient.SqlException: 不能将值 NULL 插入列 'Id'，表 'bds252185582_db.dbo.MpWeiXinAccessSetting'；列不允许有 Null 值。INSERT 失败。
+语句已终止。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 RPoney.Data.SqlClient.SqlHelper.ExecuteNonQuery(String commandText, CommandType cmdType, Boolean withTransaction, IDataParameter[] dataParameters)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 RPoney.Data.SqlClient.SqlHelper.ExecuteNonQuery(String commandText, CommandType cmdType, Boolean withTransaction, IDataParameter[] dataParameters)
+   在 RPoney.Data.SqlClient.SqlHelper.ExecuteNonQuery(String commandText, IDataParameter[] dataParameters)
+   在 Fjtc.DAL.MpWeiXin.MpWeiXinAccessSettingDal.AddOrUpdate(MpWeiXinAccessSetting entity) 位置 D:\福建特产\Fjtc\开发\src\fjtc\Fjtc.DAL\MpWeiXin\MpWeiXinAccessSettingDal.cs:行号 31
+   在 admin.fjtc.com.Areas.MpWeiXin.Controllers.AdminDeveloperController.Save(MpWeiXinAccessSetting model) 位置 D:\福建特产\Fjtc\开发\src\fjtc\admin.fjtc.com\Areas\MpWeiXin\Controllers\AdminDeveloperController.cs:行号 37
+

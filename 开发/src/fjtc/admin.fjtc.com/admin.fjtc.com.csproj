@@ -476,6 +476,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\MpWeiXin\Controllers\AdminDeveloperController.cs" />
+    <Compile Include="Areas\MpWeiXin\MpWeiXinAreaRegistration.cs" />
     <Compile Include="Auth\CookieTickStorage.cs" />
     <Compile Include="Auth\ITicketStorage.cs" />
     <Compile Include="Auth\TicketStorageFactory.cs" />
@@ -508,6 +510,8 @@
     <Content Include="Config\RPoneyRedisLog.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Areas\MpWeiXin\Views\web.config" />
+    <Content Include="Areas\MpWeiXin\Views\AdminDeveloper\Setting.cshtml" />
     <None Include="Properties\PublishProfiles\admin.fjtc.com.pubxml" />
     <Content Include="Views\User\List.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
@@ -529,6 +533,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\MpWeiXin\Models\" />
+    <Folder Include="Areas\MpWeiXin\Views\Shared\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>

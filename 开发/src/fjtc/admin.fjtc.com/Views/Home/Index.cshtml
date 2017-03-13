@@ -59,7 +59,7 @@
             <div class="headerNav">
                 <ul class="nav">
                     <li><a href="@Url.Action("UpdatePassword","User")" target="dialog" rel="dialog_updatepassword">修改密码</a></li>
-                     <li><a href="@Url.Action("List", "Build")" target="dialog" title="个人信息" rel="dialog_showmyinfo">@(Model.Name + "|" + Model.LoginName)</a></li>
+                    <li><a href="@Url.Action("List", "Build")" target="dialog" title="个人信息" rel="dialog_showmyinfo">@(Model.Name + "|" + Model.LoginName)</a></li>
                     <li><a href="@Url.Action("LogOut","Account")">退出</a></li>
                 </ul>
                 <ul class="themeList" id="themeList">
@@ -116,14 +116,15 @@
                     </div>
                     <div class="accordionContent">
                         <ul class="tree treeFolder">
-                            <li><a href="@Url.Action("List", "Build")" target="navTab" rel="page1">开发者接入</a></li>
+                            <li><a href="@Url.Action("Setting", "AdminDeveloper", new {area="MpWeiXin" })" target="navTab" rel="page1">接入配置</a></li>
                             <li><a href="@Url.Action("List", "Build")" target="navTab" rel="page1">个性化菜单</a></li>
                             <li><a href="@Url.Action("List", "Build")" target="navTab" rel="page1">红包管理</a></li>
                         </ul>
                     </div>
                     <!--系统管理-->
                     <div class="accordionHeader">
-                        <h2><span>Folder</span>系统管理
+                        <h2>
+                            <span>Folder</span>系统管理
                         </h2>
                     </div>
                     <div class="accordionContent">
