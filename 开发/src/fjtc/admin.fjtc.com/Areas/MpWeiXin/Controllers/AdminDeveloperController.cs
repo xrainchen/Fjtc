@@ -20,7 +20,7 @@ namespace admin.fjtc.com.Areas.MpWeiXin.Controllers
         public ActionResult Setting()
         {
             var setting = new MpWeiXinAccessSettingBll().GetMpWeiXinAccessSetting(CurrentUser.Id);
-            return View(setting ?? new MpWeiXinAccessSetting());
+            return View(setting ?? new MpWeiXinAccessSetting { UserId = CurrentUser.Id });
         }
 
         [HttpPost]
@@ -29,7 +29,7 @@ namespace admin.fjtc.com.Areas.MpWeiXin.Controllers
             try
             {
                 var setting = new MpWeiXinAccessSettingBll().GetMpWeiXinAccessSetting(CurrentUser.Id);
-                var entity = setting ?? new MpWeiXinAccessSetting() { UserId = CurrentUser.Id };
+                var entity = setting ?? new MpWeiXinAccessSetting { UserId = CurrentUser.Id };
                 entity.AppId = model.AppId;
                 entity.AppSecret = model.AppSecret;
                 entity.Token = model.Token;
