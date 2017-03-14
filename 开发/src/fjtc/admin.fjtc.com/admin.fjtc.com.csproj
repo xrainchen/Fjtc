@@ -43,6 +43,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>D:\Lib.Framework\log4net\4.5\release\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -81,6 +84,12 @@
     </Reference>
     <Reference Include="RPoney.Log">
       <HintPath>D:\Lib.Framework\Rponey.Log\RPoney.Log.dll</HintPath>
+    </Reference>
+    <Reference Include="Senparc.Weixin">
+      <HintPath>D:\Lib.Framework\Senparc\Senparc.Weixin.4.11.4\lib\net45\Senparc.Weixin.dll</HintPath>
+    </Reference>
+    <Reference Include="Senparc.Weixin.MP">
+      <HintPath>D:\Lib.Framework\Senparc\Senparc.Weixin.MP.14.3.132\lib\net45\Senparc.Weixin.MP.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Common">
       <HintPath>D:\Lib.Framework\Redis\ServiceStack.Common.dll</HintPath>
@@ -476,7 +485,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\MpWeiXin\Controllers\AccessController.cs" />
     <Compile Include="Areas\MpWeiXin\Controllers\AdminDeveloperController.cs" />
+    <Compile Include="Areas\MpWeiXin\Models\MpWeiXinAccessModel.cs" />
     <Compile Include="Areas\MpWeiXin\MpWeiXinAreaRegistration.cs" />
     <Compile Include="Auth\CookieTickStorage.cs" />
     <Compile Include="Auth\ITicketStorage.cs" />
@@ -533,7 +544,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\MpWeiXin\Models\" />
+    <Folder Include="Areas\MpWeiXin\Views\Access\" />
     <Folder Include="Areas\MpWeiXin\Views\Shared\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
