@@ -14,31 +14,31 @@ namespace admin.fjtc.com.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public ActionResult List(UserSearchParameter searchParameter)
+        public ActionResult List(CMSUserSearchParameter searchParameter)
         {
             BindParameter(searchParameter);
             return View(searchParameter);
         }
 
         [HttpPost]
-        public ActionResult List(UserSearchParameter searchParameter, FormCollection collection)
+        public ActionResult List(CMSUserSearchParameter searchParameter, FormCollection collection)
         {
             BindParameter(searchParameter);
-            searchParameter.ReturnList = new UserBll().GetList(searchParameter);
+            searchParameter.ReturnList = new CMSUserBll().GetList(searchParameter);
             return Json(searchParameter);
         }
 
         [HttpGet]
-        public ActionResult Add(UserViewModel user)
+        public ActionResult Add(CMSUserViewModel user)
         {
             return View(user);
         }
 
         [HttpPost]
-        public ActionResult Add(UserViewModel user, FormCollection collection)
+        public ActionResult Add(CMSUserViewModel user, FormCollection collection)
         {
             var msg = string.Empty;
-            var result = new UserBll().AddUser(new User()
+            var result = new CMSUserBll().AddUser(new CMSUser()
             {
                 Name = user.Name,
                 CreatedBy = User.Identity.Name,
@@ -54,17 +54,17 @@ namespace admin.fjtc.com.Controllers
             return DwzHelper.Warn(msg);
         }
         [HttpGet]
-        public ActionResult Edit(UserViewModel user)
+        public ActionResult Edit(CMSUserViewModel user)
         {
-            var userModel = new UserBll().GetModel(user.Id);
+            var userModel = new CMSUserBll().GetModel(user.Id);
             userModel.Password = string.Empty;
             return View(userModel);
         }
         [HttpPost]
-        public ActionResult Edit(UserViewModel user, FormCollection collection)
+        public ActionResult Edit(CMSUserViewModel user, FormCollection collection)
         {
             var msg = string.Empty;
-            var result = new UserBll().UpdateUser(user, ref msg);
+            var result = new CMSUserBll().UpdateUser(user, ref msg);
             if (result)
             {
                 return DwzHelper.SuccessAndClose(user.NavTab, msg);
@@ -77,7 +77,7 @@ namespace admin.fjtc.com.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public ActionResult UpdatePassword(UserViewModel model)
+        public ActionResult UpdatePassword(CMSUserViewModel model)
         {
             return View(model);
         }
@@ -86,8 +86,8 @@ namespace admin.fjtc.com.Controllers
         {
             var password = collection.Get("Password");
             var msg = string.Empty;
-            var result = new UserBll().UpdatePassword(
-                new UserViewModel()
+            var result = new CMSUserBll().UpdatePassword(
+                new CMSUserViewModel()
                 {
                     Id = CurrentUser.Id,
                     Password = password

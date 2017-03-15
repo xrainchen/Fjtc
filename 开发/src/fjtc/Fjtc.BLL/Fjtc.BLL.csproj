@@ -49,7 +49,8 @@
     <Compile Include="MpWeiXin\MpWeiXinAccessSettingBll.cs" />
     <Compile Include="PowerBll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserBll.cs" />
+    <Compile Include="CMSUserBll.cs" />
+    <Compile Include="UserBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Fjtc.DAL\Fjtc.DAL.csproj">

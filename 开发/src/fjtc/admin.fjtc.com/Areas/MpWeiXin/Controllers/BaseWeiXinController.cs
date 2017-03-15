@@ -14,21 +14,21 @@ namespace admin.fjtc.com.Areas.MpWeiXin.Controllers
     /// </summary>
     public class BaseWeiXinController : Controller
     {
-        private User _user;
-        protected User CurrentUser
+        private CMSUser _user;
+        protected CMSUser CurrentUser
         {
             get
             {
                 if (_user == null)
                 {
-                    var tick = TicketStorageFactory.InstanceTicketStorage<User>();
+                    var tick = TicketStorageFactory.InstanceTicketStorage<CMSUser>();
                     _user = tick.GetTicket();
                     if (_user == null)
                     {
                         if (User.Identity.IsAuthenticated)
                         {
                             var username = User.Identity.Name;
-                            _user = new UserBll().GetModel(username);
+                            _user = new CMSUserBll().GetModel(username);
                             tick.SetTicket(_user);
                         }
                     }
@@ -37,7 +37,7 @@ namespace admin.fjtc.com.Areas.MpWeiXin.Controllers
             }
             set
             {
-                var tick = TicketStorageFactory.InstanceTicketStorage<User>();
+                var tick = TicketStorageFactory.InstanceTicketStorage<CMSUser>();
                 tick.SetTicket(value);
                 _user = value;
                 _user.Password = "";
@@ -83,7 +83,7 @@ namespace admin.fjtc.com.Areas.MpWeiXin.Controllers
                 }
                 else
                 {
-                    TicketStorageFactory.InstanceTicketStorage<User>().SetTicket(new UserBll().GetModel(username));
+                    TicketStorageFactory.InstanceTicketStorage<CMSUser>().SetTicket(new CMSUserBll().GetModel(username));
                 }
             }
         }

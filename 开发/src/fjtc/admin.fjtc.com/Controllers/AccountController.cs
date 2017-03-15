@@ -65,7 +65,7 @@ namespace admin.fjtc.com.Controllers
                 }
                 if (ModelState.Count == 0)
                 {
-                    var userBll = new Fjtc.BLL.UserBll();
+                    var userBll = new Fjtc.BLL.CMSUserBll();
                     var user = userBll.GetModel(loginModel.UserName);
                     if (user != null && user.EncryPassword(loginModel.Password) == user.Password)
                     {
@@ -75,7 +75,7 @@ namespace admin.fjtc.com.Controllers
                         }
                         else
                         {
-                            TicketStorageFactory.InstanceTicketStorage<User>().SetTicket(user);
+                            TicketStorageFactory.InstanceTicketStorage<CMSUser>().SetTicket(user);
                             return RedirectToAction("Index", "Home");
                         }
                     }
@@ -96,7 +96,7 @@ namespace admin.fjtc.com.Controllers
         public ActionResult LogOut()
         {
             Session.Abandon();
-            TicketStorageFactory.InstanceTicketStorage<User>().Cancellation();
+            TicketStorageFactory.InstanceTicketStorage<CMSUser>().Cancellation();
             return RedirectToAction("Index");
         }
         /// <summary>

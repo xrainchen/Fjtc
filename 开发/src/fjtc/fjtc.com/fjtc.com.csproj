@@ -43,6 +43,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\..\..\..\Lib.Framework\log4net\4.5\release\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -76,6 +79,33 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="RPoney.Data">
+      <HintPath>..\..\..\..\..\..\Lib.Framework\RPoney.Data\RPoney.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="RPoney.Framework">
+      <HintPath>..\..\..\..\..\..\Lib.Framework\Rponey.Framework\RPoney.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="RPoney.Log">
+      <HintPath>..\..\..\..\..\..\Lib.Framework\Rponey.Log\RPoney.Log.dll</HintPath>
+    </Reference>
+    <Reference Include="Senparc.Weixin">
+      <HintPath>..\..\..\..\..\..\Lib.Framework\Senparc\Senparc.Weixin.4.11.4\lib\net45\Senparc.Weixin.dll</HintPath>
+    </Reference>
+    <Reference Include="Senparc.Weixin.MP">
+      <HintPath>..\..\..\..\..\..\Lib.Framework\Senparc\Senparc.Weixin.MP.14.3.132\lib\net45\Senparc.Weixin.MP.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Common">
+      <HintPath>..\..\..\..\..\..\Lib.Framework\Redis\ServiceStack.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces">
+      <HintPath>..\..\..\..\..\..\Lib.Framework\Redis\ServiceStack.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Redis">
+      <HintPath>..\..\..\..\..\..\Lib.Framework\Redis\ServiceStack.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text">
+      <HintPath>..\..\..\..\..\..\Lib.Framework\Redis\ServiceStack.Text.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -117,12 +147,356 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\dwz_jui\dwz.frag.xml" />
+    <Content Include="Content\dwz_jui\favicon.ico" />
+    <Content Include="Content\dwz_jui\themes\azure\images\accordion\accordion.png" />
+    <Content Include="Content\dwz_jui\themes\azure\images\account_info_bg.png" />
+    <Content Include="Content\dwz_jui\themes\azure\images\alert\alertpanel.png" />
+    <Content Include="Content\dwz_jui\themes\azure\images\alert\alertpanel_icon.png" />
+    <Content Include="Content\dwz_jui\themes\azure\images\button\button_s.png" />
+    <Content Include="Content\dwz_jui\themes\azure\images\button\imgX.gif" />
+    <Content Include="Content\dwz_jui\themes\azure\images\button\imgX.png" />
+    <Content Include="Content\dwz_jui\themes\azure\images\dialog\dialogpanel.png" />
+    <Content Include="Content\dwz_jui\themes\azure\images\dialog\dialogpanel_icon.png" />
+    <Content Include="Content\dwz_jui\themes\azure\images\form\input_bg.png" />
+    <Content Include="Content\dwz_jui\themes\azure\images\form\input_bt.png" />
+    <Content Include="Content\dwz_jui\themes\azure\images\grid\grid.png" />
+    <Content Include="Content\dwz_jui\themes\azure\images\grid\resizeCol.png" />
+    <Content Include="Content\dwz_jui\themes\azure\images\grid\tableth.png" />
+    <Content Include="Content\dwz_jui\themes\azure\images\header_bg.png" />
+    <Content Include="Content\dwz_jui\themes\azure\images\icon.png" />
+    <Content Include="Content\dwz_jui\themes\azure\images\layout\taskbar.png" />
+    <Content Include="Content\dwz_jui\themes\azure\images\layout\taskbar_control.png" />
+    <Content Include="Content\dwz_jui\themes\azure\images\layout\taskbar_icon.png" />
+    <Content Include="Content\dwz_jui\themes\azure\images\layout\toggleSidebar.png" />
+    <Content Include="Content\dwz_jui\themes\azure\images\listLine.png" />
+    <Content Include="Content\dwz_jui\themes\azure\images\menu\menu.png" />
+    <Content Include="Content\dwz_jui\themes\azure\images\order_down.gif" />
+    <Content Include="Content\dwz_jui\themes\azure\images\order_up.gif" />
+    <Content Include="Content\dwz_jui\themes\azure\images\pageHeader_bg.png" />
+    <Content Include="Content\dwz_jui\themes\azure\images\panel\panel.png" />
+    <Content Include="Content\dwz_jui\themes\azure\images\panel\panel_icon.png" />
+    <Content Include="Content\dwz_jui\themes\azure\images\preview.png" />
+    <Content Include="Content\dwz_jui\themes\azure\images\progressBar\progressBar_l.gif" />
+    <Content Include="Content\dwz_jui\themes\azure\images\progressBar\progressBar_m.gif" />
+    <Content Include="Content\dwz_jui\themes\azure\images\progressBar\progressBar_s.gif" />
+    <Content Include="Content\dwz_jui\themes\azure\images\search-bg.gif" />
+    <Content Include="Content\dwz_jui\themes\azure\images\search-bt.gif" />
+    <Content Include="Content\dwz_jui\themes\azure\images\shadow\shadow_c_c.png" />
+    <Content Include="Content\dwz_jui\themes\azure\images\shadow\shadow_c_l.png" />
+    <Content Include="Content\dwz_jui\themes\azure\images\shadow\shadow_c_r.png" />
+    <Content Include="Content\dwz_jui\themes\azure\images\shadow\shadow_f_c.png" />
+    <Content Include="Content\dwz_jui\themes\azure\images\shadow\shadow_f_l.png" />
+    <Content Include="Content\dwz_jui\themes\azure\images\shadow\shadow_f_r.png" />
+    <Content Include="Content\dwz_jui\themes\azure\images\shadow\shadow_h_c.png" />
+    <Content Include="Content\dwz_jui\themes\azure\images\shadow\shadow_h_l.png" />
+    <Content Include="Content\dwz_jui\themes\azure\images\shadow\shadow_h_r.png" />
+    <Content Include="Content\dwz_jui\themes\azure\images\tabs\tabscontrol.png" />
+    <Content Include="Content\dwz_jui\themes\azure\images\tabs\tabspage.png" />
+    <Content Include="Content\dwz_jui\themes\azure\images\tabs\tabspage_icon.png" />
+    <Content Include="Content\dwz_jui\themes\azure\images\tabs\tabspanel.png" />
+    <Content Include="Content\dwz_jui\themes\azure\images\tree\check.png" />
+    <Content Include="Content\dwz_jui\themes\azure\images\tree\folder.png" />
+    <Content Include="Content\dwz_jui\themes\azure\images\tree\tree.png" />
+    <Content Include="Content\dwz_jui\themes\azure\style.css" />
+    <Content Include="Content\dwz_jui\themes\css\core.css" />
+    <Content Include="Content\dwz_jui\themes\css\ieHack.css" />
+    <Content Include="Content\dwz_jui\themes\css\login.css" />
+    <Content Include="Content\dwz_jui\themes\css\print.css" />
+    <Content Include="Content\dwz_jui\themes\default\images\accordion\accordion.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\account_info_bg.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\alert\alertpanel.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\alert\alertpanel_icon.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\button\button_s.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\button\imgX.gif" />
+    <Content Include="Content\dwz_jui\themes\default\images\button\toleft.gif" />
+    <Content Include="Content\dwz_jui\themes\default\images\button\toleftone.gif" />
+    <Content Include="Content\dwz_jui\themes\default\images\button\toright.gif" />
+    <Content Include="Content\dwz_jui\themes\default\images\button\torightone.gif" />
+    <Content Include="Content\dwz_jui\themes\default\images\dialog\dialogpanel.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\dialog\dialogpanel_icon.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\form\input_bg.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\form\input_bt.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\grid\grid.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\grid\resizeCol.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\grid\tableth.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\header_bg.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\icon.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\layout\taskbar.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\layout\taskbar_control.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\layout\taskbar_icon.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\layout\toggleSidebar.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\listLine.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\login_banner.jpg" />
+    <Content Include="Content\dwz_jui\themes\default\images\login_bg.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\login_content_bg.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\login_header_bg.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\login_list.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\login_logo.gif" />
+    <Content Include="Content\dwz_jui\themes\default\images\login_sub.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\login_title.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\logo.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\menu\menu.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\order_down.gif" />
+    <Content Include="Content\dwz_jui\themes\default\images\order_up.gif" />
+    <Content Include="Content\dwz_jui\themes\default\images\pageHeader_bg.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\panel\panel.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\panel\panel_icon.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\progressBar\progressBar_l.gif" />
+    <Content Include="Content\dwz_jui\themes\default\images\progressBar\progressBar_m.gif" />
+    <Content Include="Content\dwz_jui\themes\default\images\progressBar\progressBar_s.gif" />
+    <Content Include="Content\dwz_jui\themes\default\images\search-bg.gif" />
+    <Content Include="Content\dwz_jui\themes\default\images\search-bt.gif" />
+    <Content Include="Content\dwz_jui\themes\default\images\shadow\shadow_c_c.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\shadow\shadow_c_l.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\shadow\shadow_c_r.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\shadow\shadow_f_c.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\shadow\shadow_f_l.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\shadow\shadow_f_r.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\shadow\shadow_h_c.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\shadow\shadow_h_l.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\shadow\shadow_h_r.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\tabs\tabscontrol.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\tabs\tabspage.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\tabs\tabspage_icon.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\tabs\tabspanel.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\themeButton.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\tree\check.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\tree\folder.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\tree\tree.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\wx.png" />
+    <Content Include="Content\dwz_jui\themes\default\images\zfb.png" />
+    <Content Include="Content\dwz_jui\themes\default\style.css" />
+    <Content Include="Content\dwz_jui\themes\green\images\accordion\accordion.png" />
+    <Content Include="Content\dwz_jui\themes\green\images\account_info_bg.png" />
+    <Content Include="Content\dwz_jui\themes\green\images\alert\alertpanel.png" />
+    <Content Include="Content\dwz_jui\themes\green\images\alert\alertpanel_icon.png" />
+    <Content Include="Content\dwz_jui\themes\green\images\button\button_s.png" />
+    <Content Include="Content\dwz_jui\themes\green\images\button\imgX.gif" />
+    <Content Include="Content\dwz_jui\themes\green\images\dialog\dialogpanel.png" />
+    <Content Include="Content\dwz_jui\themes\green\images\dialog\dialogpanel_icon.png" />
+    <Content Include="Content\dwz_jui\themes\green\images\form\input_bg.png" />
+    <Content Include="Content\dwz_jui\themes\green\images\form\input_bt.png" />
+    <Content Include="Content\dwz_jui\themes\green\images\grid\grid.png" />
+    <Content Include="Content\dwz_jui\themes\green\images\grid\resizeCol.png" />
+    <Content Include="Content\dwz_jui\themes\green\images\grid\tableth.png" />
+    <Content Include="Content\dwz_jui\themes\green\images\header_bg.png" />
+    <Content Include="Content\dwz_jui\themes\green\images\layout\toggleSidebar.png" />
+    <Content Include="Content\dwz_jui\themes\green\images\listLine.png" />
+    <Content Include="Content\dwz_jui\themes\green\images\logo.png" />
+    <Content Include="Content\dwz_jui\themes\green\images\pageHeader_bg.png" />
+    <Content Include="Content\dwz_jui\themes\green\images\panel\panel.png" />
+    <Content Include="Content\dwz_jui\themes\green\images\panel\panel_icon.png" />
+    <Content Include="Content\dwz_jui\themes\green\images\tabs\tabscontrol.png" />
+    <Content Include="Content\dwz_jui\themes\green\images\tabs\tabspage.png" />
+    <Content Include="Content\dwz_jui\themes\green\images\tabs\tabspage_icon.png" />
+    <Content Include="Content\dwz_jui\themes\green\images\tabs\tabspanel.png" />
+    <Content Include="Content\dwz_jui\themes\green\images\tree\tree.png" />
+    <Content Include="Content\dwz_jui\themes\green\style.css" />
+    <Content Include="Content\dwz_jui\themes\purple\images\accordion\accordion.png" />
+    <Content Include="Content\dwz_jui\themes\purple\images\account_info_bg.png" />
+    <Content Include="Content\dwz_jui\themes\purple\images\alert\alertpanel.png" />
+    <Content Include="Content\dwz_jui\themes\purple\images\alert\alertpanel_icon.png" />
+    <Content Include="Content\dwz_jui\themes\purple\images\button\button_s.png" />
+    <Content Include="Content\dwz_jui\themes\purple\images\button\imgX.gif" />
+    <Content Include="Content\dwz_jui\themes\purple\images\dialog\dialogpanel.png" />
+    <Content Include="Content\dwz_jui\themes\purple\images\dialog\dialogpanel_icon.png" />
+    <Content Include="Content\dwz_jui\themes\purple\images\form\input_bg.png" />
+    <Content Include="Content\dwz_jui\themes\purple\images\form\input_bt.png" />
+    <Content Include="Content\dwz_jui\themes\purple\images\grid\grid.png" />
+    <Content Include="Content\dwz_jui\themes\purple\images\grid\resizeCol.png" />
+    <Content Include="Content\dwz_jui\themes\purple\images\grid\tableth.png" />
+    <Content Include="Content\dwz_jui\themes\purple\images\header_bg.png" />
+    <Content Include="Content\dwz_jui\themes\purple\images\layout\taskbar.png" />
+    <Content Include="Content\dwz_jui\themes\purple\images\layout\taskbar_control.png" />
+    <Content Include="Content\dwz_jui\themes\purple\images\layout\taskbar_icon.png" />
+    <Content Include="Content\dwz_jui\themes\purple\images\layout\toggleSidebar.png" />
+    <Content Include="Content\dwz_jui\themes\purple\images\login_bg.png" />
+    <Content Include="Content\dwz_jui\themes\purple\images\login_content_bg.png" />
+    <Content Include="Content\dwz_jui\themes\purple\images\login_header_bg.png" />
+    <Content Include="Content\dwz_jui\themes\purple\images\login_list.png" />
+    <Content Include="Content\dwz_jui\themes\purple\images\menu\menu.png" />
+    <Content Include="Content\dwz_jui\themes\purple\images\pageHeader_bg.png" />
+    <Content Include="Content\dwz_jui\themes\purple\images\panel\panel.png" />
+    <Content Include="Content\dwz_jui\themes\purple\images\panel\panel_icon.png" />
+    <Content Include="Content\dwz_jui\themes\purple\images\progressBar\progressBar_l.gif" />
+    <Content Include="Content\dwz_jui\themes\purple\images\progressBar\progressBar_m.gif" />
+    <Content Include="Content\dwz_jui\themes\purple\images\progressBar\progressBar_s.gif" />
+    <Content Include="Content\dwz_jui\themes\purple\images\shadow\shadow_c_c.png" />
+    <Content Include="Content\dwz_jui\themes\purple\images\shadow\shadow_c_l.png" />
+    <Content Include="Content\dwz_jui\themes\purple\images\shadow\shadow_c_r.png" />
+    <Content Include="Content\dwz_jui\themes\purple\images\shadow\shadow_f_c.png" />
+    <Content Include="Content\dwz_jui\themes\purple\images\shadow\shadow_f_l.png" />
+    <Content Include="Content\dwz_jui\themes\purple\images\shadow\shadow_f_r.png" />
+    <Content Include="Content\dwz_jui\themes\purple\images\shadow\shadow_h_c.png" />
+    <Content Include="Content\dwz_jui\themes\purple\images\shadow\shadow_h_l.png" />
+    <Content Include="Content\dwz_jui\themes\purple\images\shadow\shadow_h_r.png" />
+    <Content Include="Content\dwz_jui\themes\purple\images\tabs\tabscontrol.png" />
+    <Content Include="Content\dwz_jui\themes\purple\images\tabs\tabspage.png" />
+    <Content Include="Content\dwz_jui\themes\purple\images\tabs\tabspage_icon.png" />
+    <Content Include="Content\dwz_jui\themes\purple\images\tabs\tabspanel.png" />
+    <Content Include="Content\dwz_jui\themes\purple\images\tree\check.png" />
+    <Content Include="Content\dwz_jui\themes\purple\images\tree\folder.png" />
+    <Content Include="Content\dwz_jui\themes\purple\images\tree\tree.png" />
+    <Content Include="Content\dwz_jui\themes\purple\style.css" />
+    <Content Include="Content\dwz_jui\themes\silver\images\accordion\accordion.png" />
+    <Content Include="Content\dwz_jui\themes\silver\images\account_info_bg.png" />
+    <Content Include="Content\dwz_jui\themes\silver\images\alert\alertpanel.png" />
+    <Content Include="Content\dwz_jui\themes\silver\images\alert\alertpanel_icon.png" />
+    <Content Include="Content\dwz_jui\themes\silver\images\button\button_s.png" />
+    <Content Include="Content\dwz_jui\themes\silver\images\button\imgX.gif" />
+    <Content Include="Content\dwz_jui\themes\silver\images\dialog\dialogpanel.png" />
+    <Content Include="Content\dwz_jui\themes\silver\images\dialog\dialogpanel_icon.png" />
+    <Content Include="Content\dwz_jui\themes\silver\images\form\input_bg.png" />
+    <Content Include="Content\dwz_jui\themes\silver\images\form\input_bt.png" />
+    <Content Include="Content\dwz_jui\themes\silver\images\grid\grid.png" />
+    <Content Include="Content\dwz_jui\themes\silver\images\grid\resizeCol.png" />
+    <Content Include="Content\dwz_jui\themes\silver\images\grid\tableth.png" />
+    <Content Include="Content\dwz_jui\themes\silver\images\header_bg.png" />
+    <Content Include="Content\dwz_jui\themes\silver\images\layout\taskbar.png" />
+    <Content Include="Content\dwz_jui\themes\silver\images\layout\taskbar_control.png" />
+    <Content Include="Content\dwz_jui\themes\silver\images\layout\taskbar_icon.png" />
+    <Content Include="Content\dwz_jui\themes\silver\images\layout\toggleSidebar.png" />
+    <Content Include="Content\dwz_jui\themes\silver\images\listLine.png" />
+    <Content Include="Content\dwz_jui\themes\silver\images\menu\menu.png" />
+    <Content Include="Content\dwz_jui\themes\silver\images\pageHeader_bg.png" />
+    <Content Include="Content\dwz_jui\themes\silver\images\panel\panel.png" />
+    <Content Include="Content\dwz_jui\themes\silver\images\panel\panel_icon.png" />
+    <Content Include="Content\dwz_jui\themes\silver\images\progressBar\progressBar_l.gif" />
+    <Content Include="Content\dwz_jui\themes\silver\images\progressBar\progressBar_m.gif" />
+    <Content Include="Content\dwz_jui\themes\silver\images\progressBar\progressBar_s.gif" />
+    <Content Include="Content\dwz_jui\themes\silver\images\shadow\shadow_c_c.png" />
+    <Content Include="Content\dwz_jui\themes\silver\images\shadow\shadow_c_l.png" />
+    <Content Include="Content\dwz_jui\themes\silver\images\shadow\shadow_c_r.png" />
+    <Content Include="Content\dwz_jui\themes\silver\images\shadow\shadow_f_c.png" />
+    <Content Include="Content\dwz_jui\themes\silver\images\shadow\shadow_f_l.png" />
+    <Content Include="Content\dwz_jui\themes\silver\images\shadow\shadow_f_r.png" />
+    <Content Include="Content\dwz_jui\themes\silver\images\shadow\shadow_h_c.png" />
+    <Content Include="Content\dwz_jui\themes\silver\images\shadow\shadow_h_l.png" />
+    <Content Include="Content\dwz_jui\themes\silver\images\shadow\shadow_h_r.png" />
+    <Content Include="Content\dwz_jui\themes\silver\images\tabs\tabscontrol.png" />
+    <Content Include="Content\dwz_jui\themes\silver\images\tabs\tabspage.png" />
+    <Content Include="Content\dwz_jui\themes\silver\images\tabs\tabspage_icon.png" />
+    <Content Include="Content\dwz_jui\themes\silver\images\tabs\tabspanel.png" />
+    <Content Include="Content\dwz_jui\themes\silver\images\tree\check.png" />
+    <Content Include="Content\dwz_jui\themes\silver\images\tree\folder.png" />
+    <Content Include="Content\dwz_jui\themes\silver\images\tree\tree.png" />
+    <Content Include="Content\dwz_jui\themes\silver\style.css" />
+    <Content Include="Content\jqGrid\css\ellipsis-xbl.xml" />
+    <Content Include="Content\jqGrid\css\ui.jqgrid.css" />
+    <Content Include="Content\jquery.ui-1.8.16\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\jquery.ui-1.8.16\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\jquery.ui-1.8.16\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\jquery.ui-1.8.16\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\jquery.ui-1.8.16\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\jquery.ui-1.8.16\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\jquery.ui-1.8.16\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\jquery.ui-1.8.16\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\jquery.ui-1.8.16\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\jquery.ui-1.8.16\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\jquery.ui-1.8.16\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\jquery.ui-1.8.16\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\jquery.ui-1.8.16\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\jquery.ui-1.8.16\jquery-ui.custom.css" />
+    <Content Include="Content\uploadify\Change Log.txt" />
+    <Content Include="Content\uploadify\css\uploadify.css" />
+    <Content Include="Content\uploadify\img\add.jpg" />
+    <Content Include="Content\uploadify\img\cancel.jpg" />
+    <Content Include="Content\uploadify\img\delete.jpg" />
+    <Content Include="Content\uploadify\img\upload.jpg" />
+    <Content Include="Content\uploadify\img\uploadify-cancel.png" />
+    <Content Include="Content\uploadify\scripts\jquery.uploadify.js" />
+    <Content Include="Content\uploadify\scripts\jquery.uploadify.min.js" />
+    <Content Include="Content\uploadify\scripts\uploadify.swf" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\AdvancedQuery.js" />
+    <Content Include="Scripts\AdvancedQuery.min.js" />
+    <Content Include="Scripts\Default.js" />
+    <Content Include="Scripts\doublemultiple.js" />
+    <Content Include="Scripts\dwz_jui\chart\g.bar.js" />
+    <Content Include="Scripts\dwz_jui\chart\g.dot.js" />
+    <Content Include="Scripts\dwz_jui\chart\g.line.js" />
+    <Content Include="Scripts\dwz_jui\chart\g.pie.js" />
+    <Content Include="Scripts\dwz_jui\chart\g.raphael.js" />
+    <Content Include="Scripts\dwz_jui\chart\raphael-min.js" />
+    <Content Include="Scripts\dwz_jui\dwz.min.js" />
+    <Content Include="Scripts\dwz_jui\dwz.regional.zh.js" />
+    <Content Include="Scripts\dwz_jui\source\dwz.accordion.js" />
+    <Content Include="Scripts\dwz_jui\source\dwz.ajax.js" />
+    <Content Include="Scripts\dwz_jui\source\dwz.alertMsg.js" />
+    <Content Include="Scripts\dwz_jui\source\dwz.barDrag.js" />
+    <Content Include="Scripts\dwz_jui\source\dwz.checkbox.js" />
+    <Content Include="Scripts\dwz_jui\source\dwz.combox.js" />
+    <Content Include="Scripts\dwz_jui\source\dwz.contextmenu.js" />
+    <Content Include="Scripts\dwz_jui\source\dwz.core.js" />
+    <Content Include="Scripts\dwz_jui\source\dwz.cssTable.js" />
+    <Content Include="Scripts\dwz_jui\source\dwz.database.js" />
+    <Content Include="Scripts\dwz_jui\source\dwz.datepicker.js" />
+    <Content Include="Scripts\dwz_jui\source\dwz.dialog.js" />
+    <Content Include="Scripts\dwz_jui\source\dwz.dialogDrag.js" />
+    <Content Include="Scripts\dwz_jui\source\dwz.drag.js" />
+    <Content Include="Scripts\dwz_jui\source\dwz.effects.js" />
+    <Content Include="Scripts\dwz_jui\source\dwz.history.js" />
+    <Content Include="Scripts\dwz_jui\source\dwz.navTab.js" />
+    <Content Include="Scripts\dwz_jui\source\dwz.pagination.js" />
+    <Content Include="Scripts\dwz_jui\source\dwz.panel.js" />
+    <Content Include="Scripts\dwz_jui\source\dwz.print.js" />
+    <Content Include="Scripts\dwz_jui\source\dwz.regional.zh.js" />
+    <Content Include="Scripts\dwz_jui\source\dwz.resize.js" />
+    <Content Include="Scripts\dwz_jui\source\dwz.scrollCenter.js" />
+    <Content Include="Scripts\dwz_jui\source\dwz.sortDrag.js" />
+    <Content Include="Scripts\dwz_jui\source\dwz.stable.js" />
+    <Content Include="Scripts\dwz_jui\source\dwz.switchEnv.js" />
+    <Content Include="Scripts\dwz_jui\source\dwz.tab.js" />
+    <Content Include="Scripts\dwz_jui\source\dwz.taskBar.js" />
+    <Content Include="Scripts\dwz_jui\source\dwz.theme.js" />
+    <Content Include="Scripts\dwz_jui\source\dwz.tree.js" />
+    <Content Include="Scripts\dwz_jui\source\dwz.ui.js" />
+    <Content Include="Scripts\dwz_jui\source\dwz.util.date.js" />
+    <Content Include="Scripts\dwz_jui\source\dwz.util.number.js" />
+    <Content Include="Scripts\dwz_jui\source\dwz.validate.method.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-cn.js" />
+    <Content Include="Scripts\jqGrid\i18n\grid.locale-en.js" />
+    <Content Include="Scripts\jqGrid\jqGrid.extend.js" />
+    <Content Include="Scripts\jqGrid\jquery.jqGrid.min.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.js" />
+    <Content Include="Scripts\jquery-migrate-1.2.1.js" />
+    <Content Include="Scripts\jquery.bgiframe.js" />
+    <Content Include="Scripts\jquery.cookie.js" />
+    <Content Include="Scripts\jquery.easing.1.3.js" />
+    <Content Include="Scripts\jquery.linq.min.js" />
+    <Content Include="Scripts\jquery.metadata.js" />
+    <Content Include="Scripts\jquery.multi-select.js" />
+    <Content Include="Scripts\jquery.quicksearch.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\linq.min.js" />
+    <Content Include="Scripts\lookupExtend.js" />
+    <Content Include="Scripts\lookupExtend.min.js" />
+    <Content Include="Scripts\My97DatePicker\calendar.js" />
+    <Content Include="Scripts\My97DatePicker\lang\en.js" />
+    <Content Include="Scripts\My97DatePicker\lang\zh-cn.js" />
+    <Content Include="Scripts\My97DatePicker\lang\zh-tw.js" />
+    <Content Include="Scripts\My97DatePicker\skin\datePicker.gif" />
+    <Content Include="Scripts\My97DatePicker\skin\default\datepicker.css" />
+    <Content Include="Scripts\My97DatePicker\skin\default\img.gif" />
+    <Content Include="Scripts\My97DatePicker\skin\WdatePicker.css" />
+    <Content Include="Scripts\My97DatePicker\skin\whyGreen\bg.jpg" />
+    <Content Include="Scripts\My97DatePicker\skin\whyGreen\datepicker.css" />
+    <Content Include="Scripts\My97DatePicker\skin\whyGreen\img.gif" />
+    <Content Include="Scripts\My97DatePicker\WdatePicker.js" />
+    <Content Include="Scripts\speedup.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Auth\CookieTickStorage.cs" />
+    <Compile Include="Auth\ITicketStorage.cs" />
+    <Compile Include="Auth\TicketStorageFactory.cs" />
+    <Compile Include="Common\JsonResultHelper.cs" />
     <Compile Include="Config\SiteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -134,6 +508,10 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\User\Register.cshtml" />
+    <Content Include="Scripts\jquery.validate.extend.js" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -143,10 +521,32 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
+    <Folder Include="Areas\Admin\Controllers\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Fjtc.BLL\Fjtc.BLL.csproj">
+      <Project>{6325681c-f223-40a5-bd24-06746962a62a}</Project>
+      <Name>Fjtc.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fjtc.Common\Fjtc.Common.csproj">
+      <Project>{84299fd4-9efa-44c8-9367-472122f8d080}</Project>
+      <Name>Fjtc.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fjtc.DAL\Fjtc.DAL.csproj">
+      <Project>{77c5a01b-43b1-48d5-9a6a-4dad01c135f3}</Project>
+      <Name>Fjtc.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fjtc.DbHelper\Fjtc.DbHelper.csproj">
+      <Project>{6a1eb09f-02c2-458d-ba42-a9de9d33a1bf}</Project>
+      <Name>Fjtc.DbHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fjtc.Model\Fjtc.Model.csproj">
+      <Project>{40db96cb-9095-45d6-9c1c-7a81dc08aa33}</Project>
+      <Name>Fjtc.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Fjtc\Fjtc.csproj">
       <Project>{97bad071-c55d-4854-92d6-227a628e44bf}</Project>
       <Name>Fjtc</Name>

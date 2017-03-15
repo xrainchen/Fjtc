@@ -9,7 +9,7 @@ namespace admin.fjtc.com.Auth
     /// <summary>
     /// Cookie票据存储
     /// </summary>
-    public class CookieTickStorage : ITicketStorage<User>
+    public class CookieTickStorage : ITicketStorage<CMSUser>
     {
         public void Cancellation()
         {
@@ -29,7 +29,7 @@ namespace admin.fjtc.com.Auth
             }
         }
 
-        public User GetTicket()
+        public CMSUser GetTicket()
         {
             if (HttpContext.Current.Request.Cookies[FormsAuthentication.FormsCookieName] != null)
             {
@@ -40,14 +40,14 @@ namespace admin.fjtc.com.Auth
                     {
                         var hash = cookie1.Value;
                         var ticket = FormsAuthentication.Decrypt(hash);
-                        var user = ticket.UserData.DeserializeFromJSON<User>();
+                        var user = ticket.UserData.DeserializeFromJSON<CMSUser>();
                         if (user != null && user.Id > 0)
                             return user;
                     }
                     else
                     {
                         var username = HttpContext.Current.User.Identity.Name;
-                        var user = new Fjtc.BLL.UserBll().GetModel(username);
+                        var user = new Fjtc.BLL.CMSUserBll().GetModel(username);
                         SetTicket(user);
                         return user;
                     }
@@ -57,7 +57,7 @@ namespace admin.fjtc.com.Auth
             return null;
         }
 
-        public void SetTicket(User model)
+        public void SetTicket(CMSUser model)
         {
             if (model == null) return;
             model.Password = string.Empty;

@@ -22,7 +22,7 @@ namespace Fjtc.BLL.MpWeiXin
         {
             if (_mpWeiXinAccessSettingDal.AddOrUpdate(entity))
             {
-                var user = new UserBll().GetModel(entity.UserId);
+                var user = new CMSUserBll().GetModel(entity.UserId);
                 AccessSettingDic.TryRemove(user.LoginName, out entity);
                 return true;
             }
