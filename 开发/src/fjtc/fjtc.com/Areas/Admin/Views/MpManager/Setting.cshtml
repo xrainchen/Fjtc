@@ -1,0 +1,31 @@
+﻿@using Fjtc.Model
+@model Fjtc.Model.Entity.MpWeiXinAccessSetting
+@{
+    Layout = null;
+}
+<div class="pageContent">
+    <form method="post" action="@Url.Action("Save", new { area = "Admin" })" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone);">
+        <div class="pageFormContent" layoutH="180">
+            <p>
+                <label>AppId：</label>
+                @Html.TextBoxFor(m => m.AppId)
+            </p>
+            <p>
+                <label>AppSecret：</label>
+                @Html.TextBoxFor(m => m.AppSecret)
+            </p>
+            <p>
+                <label>Token：</label>
+                @Html.TextBoxFor(m => m.Token)
+            </p>
+        </div>
+        <div>
+            授权地址<span>@(Url.Action("Auth", "MpWeiXin"))</span>
+        </div>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+            </ul>
+        </div>
+    </form>
+</div>

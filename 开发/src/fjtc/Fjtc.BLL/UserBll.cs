@@ -20,5 +20,10 @@ namespace Fjtc.BLL
         {
             return _dal.IsExistMobilePhone(mobilephone);
         }
+
+        public User GetModel(string loginName)
+        {
+            return _dal.GetModel(loginName);
+        }
     }
 }

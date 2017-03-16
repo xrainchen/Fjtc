@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using Fjtc.DbHelper;
 using Fjtc.Model.Entity;
 using RPoney;
+using RPoney.Data;
 using RPoney.Log;
 
 
@@ -11,13 +12,32 @@ namespace Fjtc.DAL
 {
     public class UserDal
     {
+
+        public User GetModel(string loginName)
+        {
+            string desction = "查询系统用户";
+            try
+            {
+                string sqlStr = @"SELECT * FROM dbo.[User](NOLOCK) WHERE LoginName=@Name";
+                SqlParameter[] paramet = new[] {
+                    new SqlParameter("@Name",SqlDbType.NVarChar,50) { Value = loginName },
+                };
+                var model = ModelConvertHelper<User>.ToModel(DataBaseManager.MainDb().ExecuteFillDataTable(sqlStr, paramet));
+                return model;
+            }
+            catch (Exception ex)
+            {
+                LoggerManager.Error(this.GetType().Name, $"{desction}异常：", ex);
+                return null;
+            }
+        }
         public bool AddUser(User user)
         {
             try
             {
-                var sql = @"IF (SELECT COUNT(1) FROM User with(nolock) WHERE LoginName=@LoginName OR MobilePhone=@MobilePhone) = 0
+                var sql = @"IF (SELECT COUNT(1) FROM [User] with(nolock) WHERE LoginName=@LoginName OR MobilePhone=@MobilePhone) = 0
                             BEGIN
-                                INSERT INTO User(Name,LoginName,Password,HeadPhoto,CreatedTime,MobilePhone,BindHost)  Values(@Name,@LoginName,@Password,@HeadPhoto,@CreatedTime,@MobilePhone,@BindHost);
+                                INSERT INTO [User](Name,LoginName,Password,HeadPhoto,CreatedTime,MobilePhone,BindHost)  Values(@Name,@LoginName,@Password,@HeadPhoto,@CreatedTime,@MobilePhone,@BindHost);
                                 SELECT 1;
                             END
                             ELSE
@@ -46,7 +66,7 @@ namespace Fjtc.DAL
         {
             try
             {
-                var sql = "SELECT COUNT(1) FROM User with(nolock) WHERE LoginName=@LoginName";
+                var sql = "SELECT COUNT(1) FROM [User] with(nolock) WHERE LoginName=@LoginName";
                 IDataParameter[] parameters ={
                 new SqlParameter("@LoginName", SqlDbType.VarChar,32) {Value = loginName},
                 };
@@ -63,7 +83,7 @@ namespace Fjtc.DAL
         {
             try
             {
-                var sql = "SELECT COUNT(1) FROM User with(nolock) WHERE MobilePhone=@MobilePhone";
+                var sql = "SELECT COUNT(1) FROM [User] with(nolock) WHERE MobilePhone=@MobilePhone";
                 IDataParameter[] parameters ={
                 new SqlParameter("@MobilePhone", SqlDbType.VarChar,32) {Value = mobilephone},
                 };

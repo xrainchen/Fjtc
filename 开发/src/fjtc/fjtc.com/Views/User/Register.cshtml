@@ -13,15 +13,21 @@
     <script>
         $(function () {
             $("#registerform").validate({
-                debug:true,
+                //debug: true,
                 rules: {
                     LoginName: {
                         required: true,
                         rangelength: [6, 16]
                     },
+                    Name: {
+                        stringCheck:true
+                    },
                     Password: {
                         required: true,
                         rangelength: [6, 16]
+                    },
+                    MobilePhone: {
+                        isMobile:true
                     }
                 },
                 messages: {
@@ -41,10 +47,17 @@
 <body>
     <div>
         <form id="registerform" method="POST" action="@Url.Action("Register")">
+            @Html.AntiForgeryToken()
             <p>
                 <label>
                     用户名：
                     @Html.TextBoxFor(m => m.LoginName)
+                </label>
+            </p>
+            <p>
+                <label>
+                    昵称：
+                    @Html.TextBoxFor(m => m.Name)
                 </label>
             </p>
             <p>
@@ -54,7 +67,20 @@
                 </label>
             </p>
             <p>
-                <input class="submit" type="submit" value="注册" />
+                <label>
+                    手机号：
+                    @Html.TextBoxFor(m => m.MobilePhone)
+                </label>
+            </p>
+            <p>
+                <label>
+                    验证码：
+                    <input type="text" name="CheckCode" />
+                    <img src="@Url.Action("VerifyCode")" onclick="this.src = this.src + '?'" />
+                </label>
+            </p>
+            <p>
+                <input type="submit" value="注册" />
             </p>
         </form>
     </div>

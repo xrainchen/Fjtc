@@ -1,5 +1,7 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using fjtc.com.Common;
+using fjtc.com.Models;
 using Fjtc.BLL;
 using Fjtc.Common;
 using Fjtc.Model.Entity;
@@ -20,13 +22,30 @@ namespace fjtc.com.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Register(UserViewModel model, FormCollection collection)
         {
-            var message = string.Empty;
+            var checkCode = collection["CheckCode"].ToUpper();
+            if (Session["CheckCode"] == null || !checkCode.Equals(Session["CheckCode"].ToString(), StringComparison.CurrentCultureIgnoreCase))
+            {
+                return Json(JsonResultHelper.Warn("对不起,您填写的验证码不正确！"));
+            }
+            Session["CheckCode"] = null;
             var userBll = new UserBLL();
-            var user = new User();
+            if (userBll.IsExistLoginName(model.LoginName))
+                return Json(JsonResultHelper.Warn("对不起,该用户名已被注册！"));
+            if (userBll.IsExistMobilePhone(model.MobilePhone))
+                return Json(JsonResultHelper.Warn("对不起,该手机号已被注册！"));
+            var user = new User()
+            {
+                LoginName = model.LoginName,
+                MobilePhone = model.MobilePhone,
+                Name = model.Name,
+                BindHost = $"{model.LoginName}.weixin.rponey.cc",
+                HeadPhoto = "http://b.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=f0c5c08030d3d539c16807c70fb7c566/8ad4b31c8701a18bbef9f231982f07082838feba.jpg"
+            };
+            user.Password = user.EncryPassword(model.Password);
             var result = userBll.AddUser(user);
             if (result)
-                return Json(JsonResultHelper.Success("注册成功"));
-            return Json(JsonResultHelper.Warn(message));
+                return RedirectToAction("Index", "Account", new { area = "Admin" });
+            return Json(JsonResultHelper.Warn("注册失败"));
         }
         /// <summary>
         /// 验证码
