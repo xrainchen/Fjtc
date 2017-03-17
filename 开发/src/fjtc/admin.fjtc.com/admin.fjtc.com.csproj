@@ -490,6 +490,8 @@
     <Compile Include="Areas\MpWeiXin\Controllers\BaseWeiXinController.cs" />
     <Compile Include="Areas\MpWeiXin\Models\MpWeiXinAccessModel.cs" />
     <Compile Include="Areas\MpWeiXin\MpWeiXinAreaRegistration.cs" />
+    <Compile Include="Areas\User\Controllers\UserController.cs" />
+    <Compile Include="Areas\User\UserAreaRegistration.cs" />
     <Compile Include="Auth\CookieTickStorage.cs" />
     <Compile Include="Auth\ITicketStorage.cs" />
     <Compile Include="Auth\TicketStorageFactory.cs" />
@@ -503,7 +505,7 @@
     <Compile Include="Controllers\PowerController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\SqlController.cs" />
-    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\CmsUserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -523,18 +525,20 @@
     <Content Include="Config\RPoneyRedisLog.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Areas\MpWeiXin\Views\web.config" />
     <Content Include="Areas\MpWeiXin\Views\AdminDeveloper\Setting.cshtml" />
+    <Content Include="Areas\MpWeiXin\Views\web.config" />
+    <Content Include="Areas\User\Views\web.config" />
+    <Content Include="Areas\User\Views\User\List.cshtml" />
     <None Include="Properties\PublishProfiles\admin.fjtc.com.pubxml" />
-    <Content Include="Views\User\List.cshtml" />
+    <Content Include="Views\CmsUser\List.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
-    <Content Include="Views\User\Add.cshtml" />
+    <Content Include="Views\CmsUser\Add.cshtml" />
     <Content Include="Views\Shared\_Pager.cshtml" />
     <Content Include="Views\Menu\List.cshtml" />
     <Content Include="Views\Role\List.cshtml" />
     <Content Include="Views\Sql\List.cshtml" />
-    <Content Include="Views\User\Edit.cshtml" />
-    <Content Include="Views\User\UpdatePassword.cshtml" />
+    <Content Include="Views\CmsUser\Edit.cshtml" />
+    <Content Include="Views\CmsUser\UpdatePassword.cshtml" />
     <Content Include="Views\Power\List.cshtml" />
     <Content Include="Views\Build\List.cshtml" />
     <Content Include="Views\Default\Index.cshtml" />
@@ -550,6 +554,8 @@
     <Folder Include="Areas\MpWeiXin\Views\Access\" />
     <Folder Include="Areas\MpWeiXin\Views\BaseWeiXin\" />
     <Folder Include="Areas\MpWeiXin\Views\Shared\" />
+    <Folder Include="Areas\User\Models\" />
+    <Folder Include="Areas\User\Views\Shared\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>

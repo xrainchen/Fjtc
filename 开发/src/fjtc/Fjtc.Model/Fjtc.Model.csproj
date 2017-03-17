@@ -53,6 +53,7 @@
     <Compile Include="ReturnJsonResultModel.cs" />
     <Compile Include="SearchModel\PowerSearchParameter.cs" />
     <Compile Include="SearchModel\CMSUserSearchParameter.cs" />
+    <Compile Include="SearchModel\UserSearchParameter.cs" />
     <Compile Include="SearchParameter.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\PowerViewModel.cs" />

@@ -1,5 +1,8 @@
-﻿using Fjtc.DAL;
+﻿using System.Collections.Generic;
+using Fjtc.DAL;
+using Fjtc.Model;
 using Fjtc.Model.Entity;
+using Fjtc.Model.ViewModel;
 
 namespace Fjtc.BLL
 {
@@ -24,6 +27,11 @@ namespace Fjtc.BLL
         public User GetModel(string loginName)
         {
             return _dal.GetModel(loginName);
+        }
+
+        public IList<UserViewModel> GetList(SearchParameter searchObj)
+        {
+            return _dal.GetList(searchObj);
         }
     }
 }

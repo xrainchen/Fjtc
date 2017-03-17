@@ -7,6 +7,7 @@ namespace Fjtc.Model
     /// </summary>
     public class SearchParameter
     {
+        #region 分页
         /// <summary>
         /// 页码
         /// </summary>
@@ -29,7 +30,9 @@ namespace Fjtc.Model
                 if (PageSize < 1) return 1;
                 return (Count + PageSize - 1) / PageSize;
             }
-        }
+        } 
+        #endregion
+        
         /// <summary>
         /// 排序方式
         /// </summary>

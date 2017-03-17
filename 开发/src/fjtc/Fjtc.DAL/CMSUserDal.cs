@@ -9,7 +9,6 @@ using Fjtc.Model.Entity;
 using Fjtc.Model.SearchModel;
 using Fjtc.Model.ViewModel;
 using RPoney.Data;
-using RPoney.Data.SqlClient;
 using RPoney.Log;
 
 namespace Fjtc.DAL
@@ -25,7 +24,7 @@ namespace Fjtc.DAL
                 SqlParameter[] paramet = new[] {
                     new SqlParameter("@Name",SqlDbType.NVarChar,50) { Value = userName },
                 };
-                var model = ModelConvertHelper<CMSUser>.ToModel(DataBaseManager.MainDb().ExecuteFillDataTable(sqlStr, paramet));
+                var model = ModelConvertHelper<CMSUser>.ToModel(DataBaseManager.CmsDb().ExecuteFillDataTable(sqlStr, paramet));
                 return model;
             }
             catch (Exception ex)
@@ -43,7 +42,7 @@ namespace Fjtc.DAL
                 SqlParameter[] paramet = new[] {
                     new SqlParameter("@Id",SqlDbType.BigInt) { Value = id },
                 };
-                var model = ModelConvertHelper<CMSUserViewModel>.ToModel(DataBaseManager.MainDb().ExecuteFillDataTable(sqlStr, paramet));
+                var model = ModelConvertHelper<CMSUserViewModel>.ToModel(DataBaseManager.CmsDb().ExecuteFillDataTable(sqlStr, paramet));
                 return model;
             }
             catch (Exception ex)
@@ -69,7 +68,7 @@ namespace Fjtc.DAL
                 new SqlParameter("@Number", SqlDbType.VarChar,16) {Value=user.Number},
                 new SqlParameter("@LoginName",SqlDbType.NVarChar,32) {Value =  user.LoginName}
                 };
-                var isSuccess = DataBaseManager.MainDb().ExecuteNonQuery(insertSql, parameters) > 0;
+                var isSuccess = DataBaseManager.CmsDb().ExecuteNonQuery(insertSql, parameters) > 0;
                 msg = isSuccess ? "添加成功" : "添加失败,用户已添加";
                 return isSuccess;
             }
@@ -96,7 +95,7 @@ namespace Fjtc.DAL
                 new SqlParameter("@LoginName", SqlDbType.NVarChar,32) {Value=user.LoginName},
                 new SqlParameter("@Status",SqlDbType.Int) {Value =  user.Status},
                 };
-                var isSuccess = DataBaseManager.MainDb().ExecuteNonQuery(insertSql, parameters) > 0;
+                var isSuccess = DataBaseManager.CmsDb().ExecuteNonQuery(insertSql, parameters) > 0;
                 msg = isSuccess ? "更新成功" : "更新失败,用户名已存在";
                 return isSuccess;
             }
@@ -120,11 +119,10 @@ namespace Fjtc.DAL
                 where += $" and LoginName like '%{search.LoginName}%'";
                 //paramlist.Add(new SqlParameter("@LoginName", search.LoginName));
             }
-            var pageSql = DataBaseManager.GetPageString(tbname, filter, orderField, where, searachParam.Page,
-                searachParam.PageSize);
+            var pageSql = DataBaseManager.GetPageString(tbname, filter, orderField, where, searachParam.Page,searachParam.PageSize);
             var countSql = DataBaseManager.GetCountString(tbname, where);
             searachParam.Count = int.Parse(DataBaseManager.MainDb().ExecuteScalar(countSql, paramlist.ToArray()).ToString());
-            return ModelConvertHelper<CMSUserViewModel>.ToModels(DataBaseManager.MainDb().ExecuteFillDataTable(pageSql, paramlist.ToArray()));
+            return ModelConvertHelper<CMSUserViewModel>.ToModels(DataBaseManager.CmsDb().ExecuteFillDataTable(pageSql, paramlist.ToArray()));
         }
 
         public bool UpdatePassword(CMSUserViewModel user, ref string msg)
@@ -136,7 +134,7 @@ namespace Fjtc.DAL
                 new SqlParameter("@Id", SqlDbType.BigInt) {Value = user.Id},
                 new SqlParameter("@Password",SqlDbType.VarChar,32) {Value =  user.Password}
                 };
-                var isSuccess = DataBaseManager.MainDb().ExecuteNonQuery(insertSql, parameters) > 0;
+                var isSuccess = DataBaseManager.CmsDb().ExecuteNonQuery(insertSql, parameters) > 0;
                 msg = isSuccess ? "修改密码成功" : "修改密码失败,";
                 return isSuccess;
             }

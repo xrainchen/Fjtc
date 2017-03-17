@@ -1,0 +1,67 @@
+﻿@model Fjtc.Model.SearchModel.UserSearchParameter
+@{
+    Layout = null;
+    var tableId = Guid.NewGuid().ToString().Replace("-", "");
+    var pagerId = Guid.NewGuid().ToString().Replace("-", "");
+    var formId = Guid.NewGuid().ToString().Replace("-", "");
+}
+<div class="pageHeader">
+    <form id="@formId" onsubmit="return navTabSearch(this);" action="@Url.Action("List","User",new {area="User"})" method="post">
+        @Html.Partial("_Pager", Model)
+        <div class="searchBar">
+            <table class="searchContent">
+                <tr>
+                    <td>
+                        用户名：@Html.TextBoxFor(m => m.LoginName)
+                    </td>
+                    <td>
+                        手机号：@Html.TextBoxFor(m => m.MobilePhone)
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="subBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="button" onclick="Search()">查询</button></div></div></li>
+            </ul>
+        </div>
+    </form>
+</div>
+<div class="pageContent">
+    <table id="@tableId"></table>
+    <div id="@pagerId"></div>
+</div>
+<script>
+    function InitGrid() {
+        $("#@tableId").jqGrid({
+            url: '@Url.Action("List","User",new {area="User"})',
+            mtype: 'post',
+            datatype: "json",
+            colNames: ['用户Id', '昵称', '用户名', '手机号','绑定域名', '注册时间'],
+            colModel: [
+                { name: 'Id', index: 'Id', hidden: true },
+                { name: 'Name', index: 'Name', align: 'center' },
+                { name: 'LoginName', index: 'LoginName', align: 'center' },
+                { name: 'MobilePhone', index: 'MobilePhone', align: 'center' },
+                { name: 'BindHost', index: 'BindHost', align: 'center' },
+                { name: 'CreatedTime', index: 'CreatedTime', formatter: JsonDateFormat, align: 'center' }
+            ],
+            rowNum: 20,
+            rowList: [20, 50, 100],
+            width: '100%',
+            height: '375px',
+            prmNames: jqGridDefaultConfig.prmNames,
+            jsonReader: jqGridDefaultConfig.jsonReader,
+            postData: FormToJson({ formId: '@formId' }),
+            pager: '#@pagerId',
+            viewrecords: true,
+            caption: "客户列表"
+        }).navGrid("#@tableId", { edit: false, add: false, del: false });
+    }
+    function Search() {
+        $("#@tableId").jqGrid('setGridParam', { page: 1, postData: FormToJson({ formId: '@formId' }) }).trigger("reloadGrid");
+    }
+    $(function () {
+        InitGrid();
+    });
+</script>

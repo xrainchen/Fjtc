@@ -1,8 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using Fjtc.DbHelper;
+using Fjtc.Model;
 using Fjtc.Model.Entity;
+using Fjtc.Model.SearchModel;
+using Fjtc.Model.ViewModel;
 using RPoney;
 using RPoney.Data;
 using RPoney.Log;
@@ -94,6 +98,35 @@ namespace Fjtc.DAL
                 LoggerManager.Error(GetType().Name, "查询登录名是否存在异常", ex);
                 return false;
             }
+        }
+
+        public IList<UserViewModel> GetList(SearchParameter searchObj)
+        {
+            var tbname = " [User] u with(nolock) ";
+            var filter = " Id,Name,LoginName,HeadPhoto,MobilePhone,BindHost,CreatedTime";
+            var where = "";
+            var orderField = " u.CreatedTime desc";
+            var paramlist = new List<SqlParameter>();
+            var searchParm = searchObj as UserSearchParameter;
+            if (!string.IsNullOrWhiteSpace(searchParm.Name))
+            {
+                where += " and Name like @Name";
+                paramlist.Add(new SqlParameter("@Name", SqlDbType.NVarChar) { Value = "%" + searchParm.Name + "%" });
+            }
+            if (!string.IsNullOrWhiteSpace(searchParm.LoginName))
+            {
+                where += " and LoginName like @LoginName";
+                paramlist.Add(new SqlParameter("@LoginName", SqlDbType.NVarChar) { Value = "%" + searchParm.LoginName + "%" });
+            }
+            if (!string.IsNullOrWhiteSpace(searchParm.MobilePhone))
+            {
+                where += " and MobilePhone=@MobilePhone";
+                paramlist.Add(new SqlParameter("@MobilePhone", SqlDbType.NVarChar) { Value = searchParm.MobilePhone });
+            }
+            var pageSql = DataBaseManager.GetPageString(tbname, filter, orderField, where, searchObj.Page, searchObj.PageSize);
+            var countSql = DataBaseManager.GetCountString(tbname, where);
+            searchObj.Count = int.Parse(DataBaseManager.MainDb().ExecuteScalar(countSql, paramlist.ToArray()).ToString());
+            return ModelConvertHelper<UserViewModel>.ToModels(DataBaseManager.MainDb().ExecuteFillDataTable(pageSql, paramlist.ToArray()));
         }
     }
 }

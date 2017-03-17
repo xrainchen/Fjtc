@@ -52,6 +52,15 @@ namespace Fjtc.DbHelper
             return MainDb(ConfigurationManager.AppSettings["DBCFileName"]);
         }
 
+        /// <summary>
+        /// 内容管理系统库
+        /// </summary>
+        /// <returns></returns>
+        public static IDbHelper CmsDb()
+        {
+            return MainDb(ConfigurationManager.AppSettings["CmsDBCFileName"]);
+        }
+
         public static IDbHelper MainDb(string dBCFileName)
         {
             var isServer = ConfigurationManager.AppSettings["IsServer"];

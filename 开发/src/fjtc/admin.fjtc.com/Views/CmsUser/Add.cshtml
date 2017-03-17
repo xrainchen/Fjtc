@@ -1,0 +1,41 @@
+﻿@{
+    Layout = null;
+}
+@using Fjtc.Model
+@model Fjtc.Model.ViewModel.CMSUserViewModel
+<div class="pageContent">
+    <form method="post" action="@Url.Action("Add")" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone);">
+        <div class="pageFormContent" layoutH="56">
+            @Html.HiddenFor(m=>m.NavTab)
+            <p>
+                <label>用户名：</label>
+                @Html.TextBoxFor(m => m.LoginName)
+            </p>
+            <p>
+                <label>密码：</label>
+                @Html.PasswordFor(m => m.Password)
+            </p>
+            <p>
+                <label>名字：</label>
+                @Html.TextBoxFor(m => m.Name)
+            </p>
+            <p>
+                <label>工号：</label>
+                @Html.TextBoxFor(m => m.Number)
+            </p>
+            <p>
+                <label>状态：</label>
+                <input type="radio" name="Status" value="@UserStatusEnum.Normal" />正常
+                <input type="radio" name="Status" value="@UserStatusEnum.Cancel" />注销
+            </p>
+        </div>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+                <li>
+                    <div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div>
+                </li>
+            </ul>
+        </div>
+    </form>
+</div>
