@@ -5,10 +5,6 @@
     /// </summary>
     public class MpWeiXinAccessModel
     {
-        /// <summary>
-        /// 用户Id
-        /// </summary>
-        public long Id { get; set; }
 
         public string Signature { get; set; }
 

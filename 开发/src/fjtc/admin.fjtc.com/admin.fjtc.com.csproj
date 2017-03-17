@@ -487,6 +487,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\MpWeiXin\Controllers\AccessController.cs" />
     <Compile Include="Areas\MpWeiXin\Controllers\AdminDeveloperController.cs" />
+    <Compile Include="Areas\MpWeiXin\Controllers\BaseWeiXinController.cs" />
     <Compile Include="Areas\MpWeiXin\Models\MpWeiXinAccessModel.cs" />
     <Compile Include="Areas\MpWeiXin\MpWeiXinAreaRegistration.cs" />
     <Compile Include="Auth\CookieTickStorage.cs" />
@@ -496,6 +497,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BuildController.cs" />
+    <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\PowerController.cs" />
@@ -535,6 +537,7 @@
     <Content Include="Views\User\UpdatePassword.cshtml" />
     <Content Include="Views\Power\List.cshtml" />
     <Content Include="Views\Build\List.cshtml" />
+    <Content Include="Views\Default\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -545,6 +548,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\MpWeiXin\Views\Access\" />
+    <Folder Include="Areas\MpWeiXin\Views\BaseWeiXin\" />
     <Folder Include="Areas\MpWeiXin\Views\Shared\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>

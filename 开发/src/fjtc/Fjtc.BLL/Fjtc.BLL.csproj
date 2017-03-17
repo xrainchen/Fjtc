@@ -30,6 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Senparc.Weixin">
+      <HintPath>..\..\..\..\..\..\Lib.Framework\Senparc\Senparc.Weixin.4.11.4\lib\net45\Senparc.Weixin.dll</HintPath>
+    </Reference>
+    <Reference Include="Senparc.Weixin.MP">
+      <HintPath>..\..\..\..\..\..\Lib.Framework\Senparc\Senparc.Weixin.MP.14.3.132\lib\net45\Senparc.Weixin.MP.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,7 +49,8 @@
     <Compile Include="MpWeiXin\MpWeiXinAccessSettingBll.cs" />
     <Compile Include="PowerBll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserBll.cs" />
+    <Compile Include="CMSUserBll.cs" />
+    <Compile Include="UserBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Fjtc.DAL\Fjtc.DAL.csproj">

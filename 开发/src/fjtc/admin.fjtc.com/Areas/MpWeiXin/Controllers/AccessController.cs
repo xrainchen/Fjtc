@@ -7,7 +7,10 @@ using Senparc.Weixin.MP;
 
 namespace admin.fjtc.com.Areas.MpWeiXin.Controllers
 {
-    public class AccessController : Controller
+    /// <summary>
+    /// 开发者接入页面
+    /// </summary>
+    public class AccessController : BaseWeiXinController
     {
         // GET: MpWeiXin/Access
 
@@ -20,16 +23,14 @@ namespace admin.fjtc.com.Areas.MpWeiXin.Controllers
         public ActionResult Index(MpWeiXinAccessModel model)
         {
             LoggerManager.Debug(GetType().Name, "请求数据", model.SerializeToJSON());
-            var setting = new MpWeiXinAccessSettingBll().GetMpWeiXinAccessSetting(model.Id);
-            if (null == setting) return Content($"对不起,不存在{model.Id}的配置信息");
-            if (CheckSignature.Check(model.Signature, model.Timestamp, model.Nonce, setting.Token))
+            if (CheckSignature.Check(model.Signature, model.Timestamp, model.Nonce, CurrentAccessSetting.Token))
             {
                 return Content(model.Echostr);
             }
             var errorMsg = "failed:" + model.Signature + "," +
-                           CheckSignature.GetSignature(model.Timestamp, model.Nonce, setting.Token) +
+                           CheckSignature.GetSignature(model.Timestamp, model.Nonce, CurrentAccessSetting.Token) +
                            "。如果您在浏览器中看到这条信息，表明此Url可以填入微信后台。";
-            LoggerManager.Error(this.GetType().Name, $"公众平台授权接入失败", errorMsg);
+            LoggerManager.Error(this.GetType().Name, "公众平台授权接入失败", errorMsg);
             return Content(errorMsg);
         }
     }
