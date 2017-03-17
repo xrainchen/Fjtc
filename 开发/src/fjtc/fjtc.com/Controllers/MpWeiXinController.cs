@@ -11,6 +11,11 @@ namespace fjtc.com.Controllers
     /// </summary>
     public class MpWeiXinController : BaseController
     {
+        /// <summary>
+        /// 授权：请以xxxxxx.weixin.rponey.cc  域名访问   xxxx是商户域名标识
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult Auth(MpWeiXinAccessModel model)
         {
@@ -19,10 +24,8 @@ namespace fjtc.com.Controllers
             {
                 return Content(model.Echostr);
             }
-            var errorMsg = "failed:" + model.Signature + "," +
-                           CheckSignature.GetSignature(model.Timestamp, model.Nonce, CurrentAccessSetting.Token) +
-                           "。如果您在浏览器中看到这条信息，表明此Url可以填入微信后台。";
-            LoggerManager.Error(this.GetType().Name, "公众平台授权接入失败", errorMsg);
+            var errorMsg = "failed:" + model.Signature + "," + CheckSignature.GetSignature(model.Timestamp, model.Nonce, CurrentAccessSetting.Token) + "。如果您在浏览器中看到这条信息，表明此Url可以填入微信后台。";
+            LoggerManager.Error(GetType().Name, "公众平台授权接入失败", errorMsg);
             return Content(errorMsg);
         }
     }

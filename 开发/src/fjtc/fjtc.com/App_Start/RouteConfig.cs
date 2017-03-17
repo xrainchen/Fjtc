@@ -12,6 +12,7 @@ namespace fjtc.com
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
+                namespaces:new [] { "fjtc.com.Controllers" },
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
         }

@@ -44,7 +44,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="log4net">
-      <HintPath>..\..\..\..\..\..\Lib.Framework\log4net\4.5\release\log4net.dll</HintPath>
+      <HintPath>D:\Lib.Framework\log4net\4.5\release\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
@@ -80,31 +80,31 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="RPoney.Data">
-      <HintPath>..\..\..\..\..\..\Lib.Framework\RPoney.Data\RPoney.Data.dll</HintPath>
+      <HintPath>D:\Lib.Framework\RPoney.Data\RPoney.Data.dll</HintPath>
     </Reference>
     <Reference Include="RPoney.Framework">
-      <HintPath>..\..\..\..\..\..\Lib.Framework\Rponey.Framework\RPoney.Framework.dll</HintPath>
+      <HintPath>D:\Lib.Framework\Rponey.Framework\RPoney.Framework.dll</HintPath>
     </Reference>
     <Reference Include="RPoney.Log">
-      <HintPath>..\..\..\..\..\..\Lib.Framework\Rponey.Log\RPoney.Log.dll</HintPath>
+      <HintPath>D:\Lib.Framework\Rponey.Log\RPoney.Log.dll</HintPath>
     </Reference>
     <Reference Include="Senparc.Weixin">
-      <HintPath>..\..\..\..\..\..\Lib.Framework\Senparc\Senparc.Weixin.4.11.4\lib\net45\Senparc.Weixin.dll</HintPath>
+      <HintPath>D:\Lib.Framework\Senparc\Senparc.Weixin.4.11.4\lib\net45\Senparc.Weixin.dll</HintPath>
     </Reference>
     <Reference Include="Senparc.Weixin.MP">
-      <HintPath>..\..\..\..\..\..\Lib.Framework\Senparc\Senparc.Weixin.MP.14.3.132\lib\net45\Senparc.Weixin.MP.dll</HintPath>
+      <HintPath>D:\Lib.Framework\Senparc\Senparc.Weixin.MP.14.3.132\lib\net45\Senparc.Weixin.MP.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Common">
-      <HintPath>..\..\..\..\..\..\Lib.Framework\Redis\ServiceStack.Common.dll</HintPath>
+      <HintPath>.D:\Lib.Framework\Redis\ServiceStack.Common.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Interfaces">
-      <HintPath>..\..\..\..\..\..\Lib.Framework\Redis\ServiceStack.Interfaces.dll</HintPath>
+      <HintPath>D:\Lib.Framework\Redis\ServiceStack.Interfaces.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Redis">
-      <HintPath>..\..\..\..\..\..\Lib.Framework\Redis\ServiceStack.Redis.dll</HintPath>
+      <HintPath>D:\Lib.Framework\Redis\ServiceStack.Redis.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Text">
-      <HintPath>..\..\..\..\..\..\Lib.Framework\Redis\ServiceStack.Text.dll</HintPath>
+      <HintPath>D:\Lib.Framework\Redis\ServiceStack.Text.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -530,6 +530,7 @@
     <Content Include="Areas\Admin\Views\Account\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\MpManager\Setting.cshtml" />
+    <None Include="Properties\PublishProfiles\fjtc.com.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

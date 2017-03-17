@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Web.Mvc;
 using fjtc.com.Common;
-using fjtc.com.Models;
 using Fjtc.BLL;
 using Fjtc.Common;
 using Fjtc.Model.Entity;

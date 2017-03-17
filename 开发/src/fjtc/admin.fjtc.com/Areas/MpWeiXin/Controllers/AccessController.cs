@@ -1,6 +1,5 @@
 ﻿using System.Web.Mvc;
 using admin.fjtc.com.Areas.MpWeiXin.Models;
-using Fjtc.BLL.MpWeiXin;
 using RPoney;
 using RPoney.Log;
 using Senparc.Weixin.MP;
