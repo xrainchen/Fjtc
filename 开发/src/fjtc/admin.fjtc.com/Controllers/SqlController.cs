@@ -1,16 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace admin.fjtc.com.Controllers
 {
-    public class SqlController : Controller
+    public class SqlController : BaseController
     {
         // GET: Sql
         public ActionResult List()
         {
+            if (!CurrentUser.IsAdministrator())
+            {
+                return Content("对不起,您无权访问");
+            }
             return View();
         }
     }

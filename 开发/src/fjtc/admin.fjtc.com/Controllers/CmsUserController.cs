@@ -7,7 +7,7 @@ using Fjtc.Model.ViewModel;
 
 namespace admin.fjtc.com.Controllers
 {
-    public class CmsUserController : BaseController
+    public class CMSUserController : BaseController
     {
         /// <summary>
         /// 用户列表页

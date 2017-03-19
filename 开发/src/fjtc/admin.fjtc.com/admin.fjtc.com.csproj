@@ -502,13 +502,14 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BuildController.cs" />
     <Compile Include="Controllers\CMSDictionaryController.cs" />
+    <Compile Include="Controllers\CMSSystemLogController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\CMSMenuController.cs" />
     <Compile Include="Controllers\CMSPowerController.cs" />
     <Compile Include="Controllers\CMSRoleController.cs" />
     <Compile Include="Controllers\SqlController.cs" />
-    <Compile Include="Controllers\CmsUserController.cs" />
+    <Compile Include="Controllers\CMSUserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -549,6 +550,7 @@
     <Content Include="Views\CMSMenu\AddSub.cshtml" />
     <Content Include="Views\CMSMenu\Edit.cshtml" />
     <Content Include="Views\CMSDictionary\List.cshtml" />
+    <Content Include="Views\CMSSystemLog\List.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

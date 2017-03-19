@@ -71,5 +71,10 @@ namespace Fjtc.Model.Entity
             if (null == UserPowerList) return false;
             return UserPowerList.Any(p => p == powerCode);
         }
+
+        public bool IsAdministrator()
+        {
+            return UserType == UserTypeEnum.Administrator;
+        }
     }
 }
