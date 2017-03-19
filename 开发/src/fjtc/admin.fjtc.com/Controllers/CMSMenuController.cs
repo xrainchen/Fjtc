@@ -11,14 +11,14 @@ namespace admin.fjtc.com.Controllers
     {
         // GET: CMSMenu
         [HttpGet]
-        public ActionResult List()
+        public ActionResult List(CMSMenuSearchParameter searchParameter)
         {
-            var searchParameter = new CMSMenuSearchParameter { ReturnList = new CMSMenuBll().GetTreeList() };
+            searchParameter.ReturnList = new CMSMenuBll().GetTreeList();
             return View(searchParameter);
         }
 
         [HttpPost]
-        public ActionResult List(CMSMenuSearchParameter searchParameter)
+        public ActionResult List(CMSMenuSearchParameter searchParameter, FormCollection collection)
         {
             return Json(new CMSMenuBll().GetList(searchParameter));
         }
@@ -47,9 +47,7 @@ namespace admin.fjtc.com.Controllers
             menu.ParentMenus = new CMSMenuBll().GetList(new CMSMenuSearchParameter() { ParentId = virtualRoot.Id });
             return View(menu);
         }
-
-
-
+        
 
         [HttpPost]
         public ActionResult Add(CMSMenu menu, FormCollection collection)

@@ -43,7 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\CMSDictionary.cs" />
     <Compile Include="Entity\CMSMenu.cs" />
+    <Compile Include="Entity\CMSRole.cs" />
     <Compile Include="Entity\MpWeiXinAccessSetting.cs" />
     <Compile Include="Entity\CMSPower.cs" />
     <Compile Include="Entity\CMSUser.cs" />
@@ -52,8 +54,10 @@
     <Compile Include="PublicConst.cs" />
     <Compile Include="PublicEnum.cs" />
     <Compile Include="ReturnJsonResultModel.cs" />
+    <Compile Include="SearchModel\CMSDictionarySearchParameter.cs" />
     <Compile Include="SearchModel\CMSMenuSearchParameter.cs" />
     <Compile Include="SearchModel\CMSPowerSearchParameter.cs" />
+    <Compile Include="SearchModel\CMSRoleSearchParameter.cs" />
     <Compile Include="SearchModel\CMSUserSearchParameter.cs" />
     <Compile Include="SearchModel\ProductUserSearchParameter.cs" />
     <Compile Include="SearchParameter.cs" />

@@ -501,11 +501,12 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BuildController.cs" />
+    <Compile Include="Controllers\CMSDictionaryController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\CMSMenuController.cs" />
     <Compile Include="Controllers\CMSPowerController.cs" />
-    <Compile Include="Controllers\RoleController.cs" />
+    <Compile Include="Controllers\CMSRoleController.cs" />
     <Compile Include="Controllers\SqlController.cs" />
     <Compile Include="Controllers\CmsUserController.cs" />
     <Compile Include="Global.asax.cs">
@@ -537,7 +538,7 @@
     <Content Include="Views\CmsUser\Add.cshtml" />
     <Content Include="Views\Shared\_Pager.cshtml" />
     <Content Include="Views\CMSMenu\List.cshtml" />
-    <Content Include="Views\Role\List.cshtml" />
+    <Content Include="Views\CMSRole\List.cshtml" />
     <Content Include="Views\Sql\List.cshtml" />
     <Content Include="Views\CmsUser\Edit.cshtml" />
     <Content Include="Views\CmsUser\UpdatePassword.cshtml" />
@@ -547,6 +548,7 @@
     <Content Include="Views\CMSMenu\Add.cshtml" />
     <Content Include="Views\CMSMenu\AddSub.cshtml" />
     <Content Include="Views\CMSMenu\Edit.cshtml" />
+    <Content Include="Views\CMSDictionary\List.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
