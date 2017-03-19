@@ -504,7 +504,7 @@
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\CMSMenuController.cs" />
-    <Compile Include="Controllers\PowerController.cs" />
+    <Compile Include="Controllers\CMSPowerController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\SqlController.cs" />
     <Compile Include="Controllers\CmsUserController.cs" />
@@ -541,7 +541,7 @@
     <Content Include="Views\Sql\List.cshtml" />
     <Content Include="Views\CmsUser\Edit.cshtml" />
     <Content Include="Views\CmsUser\UpdatePassword.cshtml" />
-    <Content Include="Views\Power\List.cshtml" />
+    <Content Include="Views\CMSPower\List.cshtml" />
     <Content Include="Views\Build\List.cshtml" />
     <Content Include="Views\Default\Index.cshtml" />
     <Content Include="Views\CMSMenu\Add.cshtml" />
