@@ -1,0 +1,52 @@
+﻿@using Fjtc.Model.Entity
+@model Fjtc.Model.SearchModel.CMSPowerSearchParameter
+@{
+    Layout = null;
+    var returlList = Model.ReturnList as CMSPower;
+}
+<div class="pageContent">
+    <table class="table" width="100%" layoutH="138">
+        <thead>
+            <tr>
+                <th width="80">Id</th>
+                <th width="120">权限名称</th>
+                <th width="100">权限码</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (returlList != null && returlList.Children != null)
+            {
+                foreach (var root in returlList.Children)
+                {
+                    <tr>
+                        <td>@root.Id</td>
+                        <td>@root.Name</td>
+                        <td>@root.PowerCode</td>
+                    </tr>
+                    if (root.Children != null)
+                    {
+                        foreach (var second in root.Children)
+                        {
+                            <tr>
+                                <td>-------|@second.Id</td>
+                                <td>@second.Name</td>
+                                <td>@second.PowerCode</td>
+                            </tr>
+                            if (second.Children != null)
+                            {
+                                foreach (var third in second.Children)
+                                {
+                                    <tr>
+                                        <td>-------|-------|@third.Id</td>
+                                        <td>@third.Name</td>
+                                        <td>@third.PowerCode</td>
+                                    </tr>
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        </tbody>
+    </table>
+</div>
