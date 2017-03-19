@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-using Fjtc.Model.Entity;
 
 namespace Fjtc.Model.ViewModel
 {
-    public class PowerViewModel:BaseViewModel
+    public class CMSPowerViewModel:BaseViewModel
     {
         /// <summary>
         /// 主键
@@ -24,7 +23,7 @@ namespace Fjtc.Model.ViewModel
         /// <summary>
         /// 子节点
         /// </summary>
-        public IList<PowerViewModel> Children { get; set; }
+        public IList<CMSPowerViewModel> Children { get; set; }
         /// <summary>
         /// 是否有子节点
         /// </summary>

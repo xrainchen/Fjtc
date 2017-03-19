@@ -1,4 +1,4 @@
-﻿@model Fjtc.Model.SearchModel.UserSearchParameter
+﻿@model Fjtc.Model.SearchModel.ProductUserSearchParameter
 @{
     Layout = null;
     var tableId = Guid.NewGuid().ToString().Replace("-", "");
@@ -6,7 +6,7 @@
     var formId = Guid.NewGuid().ToString().Replace("-", "");
 }
 <div class="pageHeader">
-    <form id="@formId" onsubmit="return navTabSearch(this);" action="@Url.Action("List","User",new {area="User"})" method="post">
+    <form id="@formId" onsubmit="return navTabSearch(this);" method="post">
         @Html.Partial("_Pager", Model)
         <div class="searchBar">
             <table class="searchContent">
@@ -34,7 +34,7 @@
 <script>
     function InitGrid() {
         $("#@tableId").jqGrid({
-            url: '@Url.Action("List","User",new {area="User"})',
+            url: '@Url.Action("List","ProductUser",new {area="ProductUser"})',
             mtype: 'post',
             datatype: "json",
             colNames: ['用户Id', '昵称', '用户名', '手机号','绑定域名', '注册时间'],

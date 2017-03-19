@@ -45,11 +45,11 @@ namespace fjtc.com.Areas.Admin.Controllers
                 }
                 if (ModelState.Count == 0)
                 {
-                    var userBll = new Fjtc.BLL.UserBLL();
+                    var userBll = new Fjtc.BLL.ProductUserBLL();
                     var user = userBll.GetModel(model.UserName);
                     if (user != null && user.EncryPassword(model.Password) == user.Password)
                     {
-                        TicketStorageFactory.InstanceTicketStorage<User>().SetTicket(user);
+                        TicketStorageFactory.InstanceTicketStorage<ProductUser>().SetTicket(user);
                         return RedirectToAction("Index", "Home", new { area = "Admin" });
                     }
                     else

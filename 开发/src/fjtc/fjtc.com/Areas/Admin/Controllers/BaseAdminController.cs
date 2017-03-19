@@ -13,21 +13,21 @@ namespace fjtc.com.Areas.Admin.Controllers
     {
         // GET: Admin/BaseControl
 
-        private User _user;
-        protected User CurrentUser
+        private ProductUser _user;
+        protected ProductUser CurrentUser
         {
             get
             {
                 if (_user == null)
                 {
-                    var tick = TicketStorageFactory.InstanceTicketStorage<User>();
+                    var tick = TicketStorageFactory.InstanceTicketStorage<ProductUser>();
                     _user = tick.GetTicket();
                     if (_user == null)
                     {
                         if (User.Identity.IsAuthenticated)
                         {
                             var username = User.Identity.Name;
-                            _user = new UserBLL().GetModel(username);
+                            _user = new ProductUserBLL().GetModel(username);
                             tick.SetTicket(_user);
                         }
                     }
@@ -38,7 +38,7 @@ namespace fjtc.com.Areas.Admin.Controllers
             }
             set
             {
-                var tick = TicketStorageFactory.InstanceTicketStorage<User>();
+                var tick = TicketStorageFactory.InstanceTicketStorage<ProductUser>();
                 tick.SetTicket(value);
                 _user = value;
                 _user.Password = "";

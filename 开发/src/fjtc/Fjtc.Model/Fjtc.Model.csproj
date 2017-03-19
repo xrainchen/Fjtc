@@ -43,22 +43,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\CMSMenu.cs" />
     <Compile Include="Entity\MpWeiXinAccessSetting.cs" />
-    <Compile Include="Entity\Power.cs" />
+    <Compile Include="Entity\CMSPower.cs" />
     <Compile Include="Entity\CMSUser.cs" />
-    <Compile Include="Entity\User.cs" />
+    <Compile Include="Entity\ProductUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublicConst.cs" />
     <Compile Include="PublicEnum.cs" />
     <Compile Include="ReturnJsonResultModel.cs" />
-    <Compile Include="SearchModel\PowerSearchParameter.cs" />
+    <Compile Include="SearchModel\CMSMenuSearchParameter.cs" />
+    <Compile Include="SearchModel\CMSPowerSearchParameter.cs" />
     <Compile Include="SearchModel\CMSUserSearchParameter.cs" />
-    <Compile Include="SearchModel\UserSearchParameter.cs" />
+    <Compile Include="SearchModel\ProductUserSearchParameter.cs" />
     <Compile Include="SearchParameter.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
-    <Compile Include="ViewModel\PowerViewModel.cs" />
+    <Compile Include="ViewModel\CMSMenuViewModel.cs" />
+    <Compile Include="ViewModel\CMSPowerViewModel.cs" />
     <Compile Include="ViewModel\CMSUserViewModel.cs" />
-    <Compile Include="ViewModel\UserViewModel.cs" />
+    <Compile Include="ViewModel\ProductUserViewModel.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -2,15 +2,15 @@
 
 namespace admin.fjtc.com.Areas.User
 {
-    public class UserAreaRegistration : AreaRegistration 
+    public class ProductUserAreaRegistration : AreaRegistration 
     {
-        public override string AreaName => "User";
+        public override string AreaName => "ProductUser";
 
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
-                "User_default",
-                "User/{controller}/{action}/{id}",
+                "ProductUser_default",
+                "ProductUser/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
             );
         }

@@ -37,7 +37,6 @@ namespace admin.fjtc.com.Controllers
         [HttpPost]
         public ActionResult Add(CMSUserViewModel user, FormCollection collection)
         {
-            var msg = string.Empty;
             var result = new CMSUserBll().AddUser(new CMSUser()
             {
                 Name = user.Name,
@@ -46,12 +45,12 @@ namespace admin.fjtc.com.Controllers
                 Status = user.Status,
                 Number = user.Number,
                 LoginName = user.LoginName
-            }, ref msg);
+            });
             if (result)
             {
-                return DwzHelper.SuccessAndClose(user.NavTab, msg);
+                return DwzHelper.SuccessAndClose(user.NavTab, "添加成功");
             }
-            return DwzHelper.Warn(msg);
+            return DwzHelper.Warn("添加失败");
         }
         [HttpGet]
         public ActionResult Edit(CMSUserViewModel user)
@@ -63,13 +62,12 @@ namespace admin.fjtc.com.Controllers
         [HttpPost]
         public ActionResult Edit(CMSUserViewModel user, FormCollection collection)
         {
-            var msg = string.Empty;
-            var result = new CMSUserBll().UpdateUser(user, ref msg);
+            var result = new CMSUserBll().UpdateUser(user);
             if (result)
             {
-                return DwzHelper.SuccessAndClose(user.NavTab, msg);
+                return DwzHelper.SuccessAndClose(user.NavTab, "密码修改成功");
             }
-            return DwzHelper.Warn(msg);
+            return DwzHelper.Warn("密码修改失败");
         }
 
         /// <summary>
@@ -85,14 +83,12 @@ namespace admin.fjtc.com.Controllers
         public ActionResult UpdatePassword(FormCollection collection)
         {
             var password = collection.Get("Password");
-            var msg = string.Empty;
             var result = new CMSUserBll().UpdatePassword(
                 new CMSUserViewModel()
                 {
                     Id = CurrentUser.Id,
                     Password = password
-                }
-                , ref msg);
+                });
             if (result)
             {
                 return DwzHelper.SuccessAndClose("", "密码修改成功");

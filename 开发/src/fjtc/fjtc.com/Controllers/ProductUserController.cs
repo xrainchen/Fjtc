@@ -8,18 +8,18 @@ using Fjtc.Model.ViewModel;
 
 namespace fjtc.com.Controllers
 {
-    public class UserController : Controller
+    public class ProductUserController : Controller
     {
-        // GET: User
+        // GET: ProductUser
         [HttpGet]
         public ActionResult Register()
         {
-            return View(new UserViewModel());
+            return View(new ProductUserViewModel());
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Register(UserViewModel model, FormCollection collection)
+        public ActionResult Register(ProductUserViewModel model, FormCollection collection)
         {
             var checkCode = collection["CheckCode"].ToUpper();
             if (Session["CheckCode"] == null || !checkCode.Equals(Session["CheckCode"].ToString(), StringComparison.CurrentCultureIgnoreCase))
@@ -27,12 +27,12 @@ namespace fjtc.com.Controllers
                 return Json(JsonResultHelper.Warn("对不起,您填写的验证码不正确！"));
             }
             Session["CheckCode"] = null;
-            var userBll = new UserBLL();
+            var userBll = new ProductUserBLL();
             if (userBll.IsExistLoginName(model.LoginName))
                 return Json(JsonResultHelper.Warn("对不起,该用户名已被注册！"));
             if (userBll.IsExistMobilePhone(model.MobilePhone))
                 return Json(JsonResultHelper.Warn("对不起,该手机号已被注册！"));
-            var user = new User()
+            var user = new ProductUser()
             {
                 LoginName = model.LoginName,
                 MobilePhone = model.MobilePhone,

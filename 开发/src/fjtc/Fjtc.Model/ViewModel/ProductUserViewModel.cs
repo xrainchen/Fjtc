@@ -1,13 +1,8 @@
 ﻿using System;
-using RPoney;
 
-namespace Fjtc.Model.Entity
+namespace Fjtc.Model.ViewModel
 {
-    /// <summary>
-    /// 用户表
-    /// </summary>
-    [Serializable]
-    public class User
+    public class ProductUserViewModel:BaseViewModel
     {
         public long Id { get; set; }
         /// <summary>
@@ -38,12 +33,5 @@ namespace Fjtc.Model.Entity
         /// 绑定域名
         /// </summary>
         public string BindHost { get; set; }
-        /// <summary>
-        /// 获取加密的密码 todo:
-        /// </summary>
-        public string EncryPassword(string password)
-        {
-            return $"{password}fjtc.com".Md5();
-        }
     }
 }

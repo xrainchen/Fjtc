@@ -28,4 +28,13 @@
         /// </summary>
         Normal = 1
     }
+    /// <summary>
+    /// CMS菜单类型枚举
+    /// </summary>
+    public enum CmsMenuTypeEnum
+    {
+        Folder = 1,
+        Menu = 2,
+        Button = 3
+    }
 }

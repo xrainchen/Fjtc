@@ -17,28 +17,28 @@ namespace Fjtc.BLL
         {
             return _user.GetModel(id);
         }
-        public bool AddUser(CMSUser user, ref string msg)
+        public bool AddUser(CMSUser user)
         {
             user.Password = user.EncryPassword(user.Password);
-            return _user.AddUser(user, ref msg);
+            return _user.AddUser(user);
         }
-        public bool UpdateUser(CMSUserViewModel user, ref string msg)
+        public bool UpdateUser(CMSUserViewModel user)
         {
             if (!string.IsNullOrEmpty(user.Password))
             {
                 user.Password = new CMSUser().EncryPassword(user.Password);
             }
-            return _user.UpdateUser(user, ref msg);
+            return _user.UpdateUser(user);
         }
         public IList<CMSUserViewModel> GetList(SearchParameter searachParam)
         {
             return _user.GetList(searachParam);
         }
 
-        public bool UpdatePassword(CMSUserViewModel user, ref string msg)
+        public bool UpdatePassword(CMSUserViewModel user)
         {
             user.Password = new CMSUser().EncryPassword(user.Password);
-            return _user.UpdatePassword(user, ref msg);
+            return _user.UpdatePassword(user);
         }
     }
 }

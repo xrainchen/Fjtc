@@ -14,19 +14,19 @@ using RPoney.Log;
 
 namespace Fjtc.DAL
 {
-    public class UserDal
+    public class ProductUserDal
     {
 
-        public User GetModel(string loginName)
+        public ProductUser GetModel(string loginName)
         {
             string desction = "查询系统用户";
             try
             {
-                string sqlStr = @"SELECT * FROM dbo.[User](NOLOCK) WHERE LoginName=@Name";
+                string sqlStr = @"SELECT * FROM dbo.[ProductUser](NOLOCK) WHERE LoginName=@Name";
                 SqlParameter[] paramet = new[] {
                     new SqlParameter("@Name",SqlDbType.NVarChar,50) { Value = loginName },
                 };
-                var model = ModelConvertHelper<User>.ToModel(DataBaseManager.MainDb().ExecuteFillDataTable(sqlStr, paramet));
+                var model = ModelConvertHelper<ProductUser>.ToModel(DataBaseManager.MainDb().ExecuteFillDataTable(sqlStr, paramet));
                 return model;
             }
             catch (Exception ex)
@@ -35,13 +35,13 @@ namespace Fjtc.DAL
                 return null;
             }
         }
-        public bool AddUser(User user)
+        public bool AddUser(ProductUser user)
         {
             try
             {
-                var sql = @"IF (SELECT COUNT(1) FROM [User] with(nolock) WHERE LoginName=@LoginName OR MobilePhone=@MobilePhone) = 0
+                var sql = @"IF (SELECT COUNT(1) FROM [ProductUser] with(nolock) WHERE LoginName=@LoginName OR MobilePhone=@MobilePhone) = 0
                             BEGIN
-                                INSERT INTO [User](Name,LoginName,Password,HeadPhoto,CreatedTime,MobilePhone,BindHost)  Values(@Name,@LoginName,@Password,@HeadPhoto,@CreatedTime,@MobilePhone,@BindHost);
+                                INSERT INTO [ProductUser](Name,LoginName,Password,HeadPhoto,CreatedTime,MobilePhone,BindHost)  Values(@Name,@LoginName,@Password,@HeadPhoto,@CreatedTime,@MobilePhone,@BindHost);
                                 SELECT 1;
                             END
                             ELSE
@@ -70,7 +70,7 @@ namespace Fjtc.DAL
         {
             try
             {
-                var sql = "SELECT COUNT(1) FROM [User] with(nolock) WHERE LoginName=@LoginName";
+                var sql = "SELECT COUNT(1) FROM [ProductUser] with(nolock) WHERE LoginName=@LoginName";
                 IDataParameter[] parameters ={
                 new SqlParameter("@LoginName", SqlDbType.VarChar,32) {Value = loginName},
                 };
@@ -87,7 +87,7 @@ namespace Fjtc.DAL
         {
             try
             {
-                var sql = "SELECT COUNT(1) FROM [User] with(nolock) WHERE MobilePhone=@MobilePhone";
+                var sql = "SELECT COUNT(1) FROM [ProductUser] with(nolock) WHERE MobilePhone=@MobilePhone";
                 IDataParameter[] parameters ={
                 new SqlParameter("@MobilePhone", SqlDbType.VarChar,32) {Value = mobilephone},
                 };
@@ -100,14 +100,14 @@ namespace Fjtc.DAL
             }
         }
 
-        public IList<UserViewModel> GetList(SearchParameter searchObj)
+        public IList<ProductUserViewModel> GetList(SearchParameter searchObj)
         {
-            var tbname = " [User] u with(nolock) ";
+            var tbname = " [ProductUser] u with(nolock) ";
             var filter = " Id,Name,LoginName,HeadPhoto,MobilePhone,BindHost,CreatedTime";
             var where = "";
             var orderField = " u.CreatedTime desc";
             var paramlist = new List<SqlParameter>();
-            var searchParm = searchObj as UserSearchParameter;
+            var searchParm = searchObj as ProductUserSearchParameter;
             if (!string.IsNullOrWhiteSpace(searchParm.Name))
             {
                 where += " and Name like @Name";
@@ -126,7 +126,7 @@ namespace Fjtc.DAL
             var pageSql = DataBaseManager.GetPageString(tbname, filter, orderField, where, searchObj.Page, searchObj.PageSize);
             var countSql = DataBaseManager.GetCountString(tbname, where);
             searchObj.Count = int.Parse(DataBaseManager.MainDb().ExecuteScalar(countSql, paramlist.ToArray()).ToString());
-            return ModelConvertHelper<UserViewModel>.ToModels(DataBaseManager.MainDb().ExecuteFillDataTable(pageSql, paramlist.ToArray()));
+            return ModelConvertHelper<ProductUserViewModel>.ToModels(DataBaseManager.MainDb().ExecuteFillDataTable(pageSql, paramlist.ToArray()));
         }
     }
 }

@@ -481,7 +481,9 @@
     <Content Include="Scripts\My97DatePicker\skin\whyGreen\img.gif" />
     <Content Include="Scripts\My97DatePicker\WdatePicker.js" />
     <Content Include="Scripts\speedup.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -490,8 +492,8 @@
     <Compile Include="Areas\MpWeiXin\Controllers\BaseWeiXinController.cs" />
     <Compile Include="Areas\MpWeiXin\Models\MpWeiXinAccessModel.cs" />
     <Compile Include="Areas\MpWeiXin\MpWeiXinAreaRegistration.cs" />
-    <Compile Include="Areas\User\Controllers\UserController.cs" />
-    <Compile Include="Areas\User\UserAreaRegistration.cs" />
+    <Compile Include="Areas\ProductUser\Controllers\ProductUserController.cs" />
+    <Compile Include="Areas\ProductUser\ProductUserAreaRegistration.cs" />
     <Compile Include="Auth\CookieTickStorage.cs" />
     <Compile Include="Auth\ITicketStorage.cs" />
     <Compile Include="Auth\TicketStorageFactory.cs" />
@@ -501,7 +503,7 @@
     <Compile Include="Controllers\BuildController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\CMSMenuController.cs" />
     <Compile Include="Controllers\PowerController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\SqlController.cs" />
@@ -527,14 +529,14 @@
     </Content>
     <Content Include="Areas\MpWeiXin\Views\AdminDeveloper\Setting.cshtml" />
     <Content Include="Areas\MpWeiXin\Views\web.config" />
-    <Content Include="Areas\User\Views\web.config" />
-    <Content Include="Areas\User\Views\User\List.cshtml" />
+    <Content Include="Areas\ProductUser\Views\web.config" />
+    <Content Include="Areas\ProductUser\Views\ProductUser\List.cshtml" />
     <None Include="Properties\PublishProfiles\admin.fjtc.com.pubxml" />
     <Content Include="Views\CmsUser\List.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\CmsUser\Add.cshtml" />
     <Content Include="Views\Shared\_Pager.cshtml" />
-    <Content Include="Views\Menu\List.cshtml" />
+    <Content Include="Views\CMSMenu\List.cshtml" />
     <Content Include="Views\Role\List.cshtml" />
     <Content Include="Views\Sql\List.cshtml" />
     <Content Include="Views\CmsUser\Edit.cshtml" />
@@ -542,6 +544,9 @@
     <Content Include="Views\Power\List.cshtml" />
     <Content Include="Views\Build\List.cshtml" />
     <Content Include="Views\Default\Index.cshtml" />
+    <Content Include="Views\CMSMenu\Add.cshtml" />
+    <Content Include="Views\CMSMenu\AddSub.cshtml" />
+    <Content Include="Views\CMSMenu\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -554,8 +559,8 @@
     <Folder Include="Areas\MpWeiXin\Views\Access\" />
     <Folder Include="Areas\MpWeiXin\Views\BaseWeiXin\" />
     <Folder Include="Areas\MpWeiXin\Views\Shared\" />
-    <Folder Include="Areas\User\Models\" />
-    <Folder Include="Areas\User\Views\Shared\" />
+    <Folder Include="Areas\ProductUser\Models\" />
+    <Folder Include="Areas\ProductUser\Views\Shared\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>

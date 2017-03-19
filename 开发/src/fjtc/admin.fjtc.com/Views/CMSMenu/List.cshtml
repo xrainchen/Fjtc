@@ -1,0 +1,51 @@
+﻿@using Fjtc.Model.Entity
+@model Fjtc.Model.SearchModel.CMSMenuSearchParameter
+@{
+    Layout = null;
+    var returnList = Model.ReturnList as IList<CMSMenu>;
+}
+<div class="panelBar">
+    <ul class="toolBar">
+        <li class=""><a class="add" href="@Url.Action("Add", "CMSMenu")" rel="addMenu" target="dialog" title="添加主菜单" mask="true"><span>添加主菜单</span></a></li>
+        <li class=""><a class="add" href="@Url.Action("AddSub", "CMSMenu")" rel="addMenu" target="dialog" title="添加子菜单" mask="true"><span>添加子菜单</span></a></li>
+    </ul>
+</div>
+<div style="float: left; display: block; margin: 10px; overflow: auto; width: 200px; height: 400px; border: solid 1px #CCC; line-height: 21px; background: #FFF;">
+    <ul class="tree treeFolder">
+        @if (returnList.Any())
+        {
+            foreach (var item in returnList.Where(p => p.ParentId == 1))
+            {
+                <li>
+                    <span class='menuItem' dataId="@item.Id">@item.Name</span>
+                    <ul>
+                        @{
+                            if (item.Children != null && item.Children.Any())
+                            {
+                                foreach (var menu in item.Children)
+                                {
+                                    <li>
+                                        <a class='menuItem' dataId="@menu.Id" href='javascript:;'>@menu.Name</a>
+                                    </li>
+                                }
+                            }
+                        }
+                    </ul>
+                </li>
+                                }
+                            }
+    </ul>
+</div>
+<div id="editContent" style="float: left; display: block; margin: 10px; overflow: auto; width: 600px; height: 400px; border: solid 1px #CCC; line-height: 21px; background: #FFF;">
+
+</div>
+<script>
+    $(".menuItem").click(function () {
+        debugger;
+        var id = $(this).attr("dataId");
+        $.get("@Url.Action("Edit", "CMSMenu")?Id=" + id,
+        function (data) {
+            $("#editContent").html(data);
+        });
+    });
+</script>

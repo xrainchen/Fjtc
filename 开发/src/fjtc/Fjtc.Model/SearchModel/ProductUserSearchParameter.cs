@@ -3,7 +3,7 @@
     /// <summary>
     /// 用户搜索参数模型
     /// </summary>
-    public class UserSearchParameter : SearchParameter
+    public class ProductUserSearchParameter : SearchParameter
     {
         public string Name { get; set; }
         public string MobilePhone { get; set; }

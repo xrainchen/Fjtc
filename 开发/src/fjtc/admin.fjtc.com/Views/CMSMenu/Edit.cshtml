@@ -1,0 +1,44 @@
+﻿@{
+    Layout = null;
+}
+@using Fjtc.Model
+@model Fjtc.Model.Entity.CMSMenu
+<div class="pageContent">
+    <form method="post" action="@Url.Action("Edit","CMSMenu")" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone);">
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+            </ul>
+        </div>
+        <div class="pageFormContent" layoutH="56">
+            @Html.HiddenFor(m => m.ParentId)
+            @Html.HiddenFor(m => m.Id)
+            <p>
+                <label>名称：</label>
+                @Html.TextBoxFor(m => m.Name)
+            </p>
+            <p>
+                <label>菜单类型：</label>
+                <input type="radio" name="MenuType" value="@CmsMenuTypeEnum.Folder" @(Model.MenuType==CmsMenuTypeEnum.Folder?"checked='checked'":"")/>目录
+                <input type="radio" name="MenuType" value="@CmsMenuTypeEnum.Menu"  @(Model.MenuType==CmsMenuTypeEnum.Menu ? "checked='checked'":"")/>菜单
+                <input type="radio" name="MenuType" value="@CmsMenuTypeEnum.Button"  @(Model.MenuType==CmsMenuTypeEnum.Button ? "checked='checked'":"")/>按钮
+            </p>
+            <p>
+                <label>菜单链接：</label>
+                @Html.TextBoxFor(m => m.Url)
+            </p>
+            <p>
+                <label>权限码：</label>
+                @Html.TextBoxFor(m => m.PowerValue)
+            </p>
+            <p>
+                <label>原始路径：</label>
+                @Html.TextBoxFor(m => m.OrganPath)
+            </p>
+            <p>
+                <label>序号：</label>
+                @Html.TextBoxFor(m => m.Sort)
+            </p>
+        </div>
+    </form>
+</div>

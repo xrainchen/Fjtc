@@ -13,17 +13,17 @@ namespace admin.fjtc.com.Controllers
     {
         // GET: Power
         [HttpGet]
-        public ActionResult List(PowerSearchParameter searchObj)
+        public ActionResult List(CMSPowerSearchParameter searchObj)
         {
-            searchObj.ReturnList = new PowerBll().GetPowerTree();
+            searchObj.ReturnList = new CMSPowerBll().GetPowerTree();
             return View(searchObj);
         }
         [HttpPost]
-        public ActionResult List(PowerSearchParameter searchObj, FormCollection collection)
+        public ActionResult List(CMSPowerSearchParameter searchObj, FormCollection collection)
         {
             try
             {
-                searchObj.ReturnList = new PowerBll().GetAllPower();
+                searchObj.ReturnList = new CMSPowerBll().GetAllPower();
                 searchObj.Count = 1000;
                 return Json(searchObj);
             }

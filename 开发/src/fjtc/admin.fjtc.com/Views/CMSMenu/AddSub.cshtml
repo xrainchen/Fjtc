@@ -1,0 +1,54 @@
+﻿@{
+    Layout = null;
+}
+@using Fjtc.Model
+@model Fjtc.Model.ViewModel.CMSMenuViewModel
+<div class="pageContent">
+    <form method="post" action="@Url.Action("Add","CMSMenu")" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone);">
+        <div class="pageFormContent" layoutH="56">
+            <p>
+                <label>父级目录：</label>
+                <select name="parentId">
+                    @foreach (var item in Model.ParentMenus)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
+            </p>
+            <p>
+                <label>名称：</label>
+                <input type="text" name="Name" />
+            </p>
+            <p>
+                <label>菜单类型：</label>
+                <input type="radio" name="MenuType" value="@CmsMenuTypeEnum.Folder" />目录
+                <input type="radio" name="MenuType" value="@CmsMenuTypeEnum.Menu" checked="checked" />菜单
+                <input type="radio" name="MenuType" value="@CmsMenuTypeEnum.Button" />按钮
+            </p>
+            <p>
+                <label>菜单链接：</label>
+                <input type="text" name="Url" />
+            </p>
+            <p>
+                <label>权限码：</label>
+                <input type="text" name="PowerValue" />
+            </p>
+            <p>
+                <label>原始路径：</label>
+                <input type="text" name="OrganPath" />
+            </p>
+            <p>
+                <label>序号：</label>
+                <input type="text" name="Sort" />
+            </p>
+        </div>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+                <li>
+                    <div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div>
+                </li>
+            </ul>
+        </div>
+    </form>
+</div>

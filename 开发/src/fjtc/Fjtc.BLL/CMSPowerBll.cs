@@ -5,15 +5,15 @@ using Fjtc.Model.ViewModel;
 
 namespace Fjtc.BLL
 {
-    public class PowerBll
+    public class CMSPowerBll
     {
-        readonly PowerDal _powerDal = new PowerDal();
-        public IList<PowerViewModel> GetAllPower()
+        readonly CMSPowerDal _powerDal = new CMSPowerDal();
+        public IList<CMSPowerViewModel> GetAllPower()
         {
             return _powerDal.GetAllPower();
         }
 
-        public Power GetPowerTree()
+        public CMSPower GetPowerTree()
         {
             return _powerDal.GetPowerTree();
         }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace Fjtc.Model.Entity
@@ -8,7 +7,7 @@ namespace Fjtc.Model.Entity
     /// 权限
     /// </summary>
     [Serializable]
-    public class Power
+    public class CMSPower
     {
         /// <summary>
         /// 主键
@@ -29,6 +28,6 @@ namespace Fjtc.Model.Entity
         /// <summary>
         /// 子节点
         /// </summary>
-        public IList<Power> Children { get; set; }
+        public IList<CMSPower> Children { get; set; }
     }
 }

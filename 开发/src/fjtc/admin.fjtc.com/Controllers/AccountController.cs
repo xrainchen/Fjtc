@@ -1,6 +1,4 @@
-﻿using System;
-using System.Web.Mvc;
-using System.Web.Security;
+﻿using System.Web.Mvc;
 using admin.fjtc.com.Auth;
 using Fjtc.Common;
 using admin.fjtc.com.Models;

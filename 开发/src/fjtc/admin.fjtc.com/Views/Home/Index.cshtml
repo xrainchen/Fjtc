@@ -1,6 +1,8 @@
-﻿@model Fjtc.Model.Entity.CMSUser
+﻿@using Fjtc.Model.Entity
+@model Fjtc.Model.Entity.CMSUser
 @{
     Layout = null;
+    var menuList = ViewBag.UserMenu as IList<CMSMenu>;
 }
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -82,72 +84,28 @@
             <div id="sidebar">
                 <div class="toggleCollapse"><h2>主菜单</h2><div>收缩</div></div>
                 <div class="accordion" fillSpace="sidebar">
-                    <!--微信分销-->
-                    <div class="accordionHeader">
-                        <h2>
-                            <span>Folder</span>微信分销
-                        </h2>
-                    </div>
-                    <div class="accordionContent">
-                        <ul class="tree treeFolder">
-                            <li><a href="@Url.Action("List", "Build")" target="navTab" rel="page1">产品管理</a></li>
-                            <li><a href="@Url.Action("List", "Build")" target="navTab" rel="page1">订单管理</a></li>
-                            <li><a href="@Url.Action("List", "Build")" target="navTab" rel="page1">交易分析</a></li>
-                        </ul>
-                    </div>
-                    <!--商城管理-->
-                    <div class="accordionHeader">
-                        <h2>
-                            <span>Folder</span>商城管理
-                        </h2>
-                    </div>
-                    <div class="accordionContent">
-                        <ul class="tree treeFolder">
-                            <li><a href="@Url.Action("List", "Build")" target="navTab" rel="page1">产品管理</a></li>
-                            <li><a href="@Url.Action("List", "Build")" target="navTab" rel="page1">订单管理</a></li>
-                            <li><a href="@Url.Action("List", "Build")" target="navTab" rel="page1">交易分析</a></li>
-                        </ul>
-                    </div>
-                    <!--微信公众平台-->
-                    <div class="accordionHeader">
-                        <h2>
-                            <span>Folder</span>微信公众平台
-                        </h2>
-                    </div>
-                    <div class="accordionContent">
-                        <ul class="tree treeFolder">
-                            <li><a href="@Url.Action("Setting", "AdminDeveloper", new {area = "MpWeiXin"})" target="navTab" rel="page1">接入配置</a></li>
-                            <li><a href="@Url.Action("List", "Build")" target="navTab" rel="page1">个性化菜单</a></li>
-                            <li><a href="@Url.Action("List", "Build")" target="navTab" rel="page1">红包管理</a></li>
-                        </ul>
-                    </div>
-                    <!--微信公众平台-->
-                    <div class="accordionHeader">
-                        <h2>
-                            <span>Folder</span>客户管理
-                        </h2>
-                    </div>
-                    <div class="accordionContent">
-                        <ul class="tree treeFolder">
-                            <li><a href="@Url.Action("List", "User", new {area="User" })" target="navTab" rel="page7">客户列表</a></li>
-                        </ul>
-                    </div>
-                    <!--系统管理-->
-                    <div class="accordionHeader">
-                        <h2>
-                            <span>Folder</span>系统管理
-                        </h2>
-                    </div>
-                    <div class="accordionContent">
-                        <ul class="tree treeFolder">
-                            <li><a href="@Url.Action("List", "CmsUser")" target="navTab" rel="page1">用户管理</a></li>
-                            <li><a href="@Url.Action("List","Menu")" target="navTab" rel="page2">菜单管理</a></li>
-                            <li><a href="@Url.Action("List","Role")" target="navTab" rel="page3">角色管理</a></li>
-                            <li><a href="@Url.Action("List", "Sql")" target="navTab" rel="page4">T-SQL查询</a></li>
-                            <li><a href="@Url.Action("List", "Power")" target="navTab" rel="page5">权限码查询</a></li>
-                            <li><a href="@Url.Action("List","Build")" target="navTab" rel="page6">日志管理</a></li>
-                        </ul>
-                    </div>
+                   @if (menuList != null)
+                   {
+                       foreach (var menu in menuList)
+                       {
+                        <div class="accordionHeader">
+                            <h2>
+                                <span>Folder</span>@menu.Name
+                            </h2>
+                        </div>
+                        <div class="accordionContent">
+                            <ul class="tree treeFolder">
+                                @if (menu.Children != null)
+                                {
+                                    foreach (var child in menu.Children)
+                                    {
+                                        <li><a href="@child.Url" target="navTab" rel="@child.OrganPath">@child.Name</a></li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+                       }
+                   }
                 </div>
             </div>
         </div>
