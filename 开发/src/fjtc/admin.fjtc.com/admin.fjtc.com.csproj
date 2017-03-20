@@ -551,6 +551,7 @@
     <Content Include="Views\CMSMenu\Edit.cshtml" />
     <Content Include="Views\CMSDictionary\List.cshtml" />
     <Content Include="Views\CMSSystemLog\List.cshtml" />
+    <Content Include="Views\CMSRole\Add.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CMSMenuBll.cs" />
+    <Compile Include="CMSRoleBll.cs" />
     <Compile Include="MpWeiXin\MpWeiXinAccessSettingBll.cs" />
     <Compile Include="CMSPowerBll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

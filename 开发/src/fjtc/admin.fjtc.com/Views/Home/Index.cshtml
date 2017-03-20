@@ -99,7 +99,7 @@
                                 {
                                     foreach (var child in menu.Children)
                                     {
-                                        <li><a href="@child.Url" target="navTab" rel="@child.OrganPath">@child.Name</a></li>
+                                        <li><a href="@(child.Url+"?navtab="+child.OrganPath)" target="navTab" rel="@child.OrganPath">@child.Name</a></li>
                                     }
                                 }
                             </ul>

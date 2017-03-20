@@ -1,17 +1,89 @@
-﻿
+﻿@model Fjtc.Model.SearchModel.CMSRoleSearchParameter
 @{
     Layout = null;
+    var tableId = Guid.NewGuid().ToString().Replace("-", "");
+    var pagerId = Guid.NewGuid().ToString().Replace("-", "");
+    var formId = Guid.NewGuid().ToString().Replace("-", "");
 }
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>List</title>
-</head>
-<body>
-    <div> 
+<div class="pageHeader">
+    <form id="@formId" onsubmit="return navTabSearch(this);" action="@Url.Action("List")" method="post">
+        @Html.Partial("_Pager", Model)
+        <div class="searchBar">
+            <table class="searchContent">
+                <tr>
+                    <td>
+                        角色：@Html.TextBoxFor(m => m.Name)
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="subBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="button" onclick="Search()">查询</button></div></div></li>
+            </ul>
+        </div>
+    </form>
+</div>
+<div class="pageContent">
+    <div class="panelBar">
+        <ul class="toolBar">
+            <li><a class="add" href="@Url.Action("Add","CMSRole")?navtab=add" rel="add" target="dialog" title="添加角色" mask="true"><span>添加</span></a></li>
+            <li><a class="edit" href="javascript:;" target="dialog" rel="edit" title="编辑角色" mask="true" onclick="Edit(this)"><span>修改</span></a></li>
+            <li>
+                <a class="delete" href="javascript:;" onclick="Delete()"><span>删除</span></a>
+            </li>
+        </ul>
     </div>
-</body>
-</html>
+    <table id="@tableId"></table>
+    <div id="@pagerId"></div>
+</div>
+<script>
+    function InitGrid() {
+        $("#@tableId").jqGrid({
+            url: '@Url.Action("List", "CMSRole")',
+            mtype: 'post',
+            datatype: "json",
+            colNames: ['Id', '角色', '创建人', '创建时间'],
+            colModel: [
+                { name: 'Id', index: 'Id', hidden: true },
+                { name: 'Name', index: 'Name', align: 'center' },
+                { name: 'CreatedBy', index: 'CreatedBy', align: 'center' },
+                { name: 'CreatedTime', index: 'CreatedTime',align: 'center' }
+            ],
+            rowNum: 20,
+            rowList: [20, 50, 100],
+            width: '100%',
+            height: '375px',
+            prmNames: jqGridDefaultConfig.prmNames,
+            jsonReader: jqGridDefaultConfig.jsonReader,
+            postData: FormToJson({ formId: '@formId' }),
+            pager: '#@pagerId',
+            viewrecords: true,
+            caption: "角色"
+        }).navGrid("#@tableId", { edit: false, add: false, del: false });
+    }
+
+    function Search() {
+        $("#@tableId").jqGrid('setGridParam', { page: 1, postData: FormToJson({ formId: '@formId' }) }).trigger("reloadGrid");
+    }
+    function Edit(element) {
+        var row = $("#@tableId").jqGrid("getRowData", $("#@tableId").jqGrid('getGridParam', 'selrow'));
+        if (row.Id) {
+            $(element).attr("href", "@Url.Action("Add", "CMSRole")?navtab=edit&id=" + row.Id);
+        }
+    }
+
+    function Delete() {
+        var row = $("#@tableId").jqGrid("getRowData", $("#@tableId").jqGrid('getGridParam', 'selrow'));
+        if (row.Id) {
+            alertMsg.confirm("您确定要删除角色"+row.Name+"?", {
+                okCall: function () {
+                    $.post("@Url.Action("Delete", "CMSRole")?navtab=edit", { Id: row.Id }, DWZ.ajaxDone, "json");
+                }
+            });
+        }
+    }
+    $(function () {
+        InitGrid();
+    });
+</script>

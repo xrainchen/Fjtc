@@ -30,9 +30,9 @@ namespace Fjtc.Model
                 if (PageSize < 1) return 1;
                 return (Count + PageSize - 1) / PageSize;
             }
-        } 
+        }
         #endregion
-        
+
         /// <summary>
         /// 排序方式
         /// </summary>
@@ -46,5 +46,13 @@ namespace Fjtc.Model
         /// 标签页
         /// </summary>
         public string NavTab { get; set; }
+
+
+        #region 通用搜索
+        /// <summary>
+        /// 名称
+        /// </summary>
+        public string Name { get; set; }
+        #endregion
     }
 }

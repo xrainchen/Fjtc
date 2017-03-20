@@ -124,8 +124,11 @@ namespace Fjtc.DAL
                 var paramlist = new List<SqlParameter>();
                 if (!string.IsNullOrWhiteSpace(search.LoginName))
                 {
-                    where += $" and LoginName like '%{search.LoginName}%'";
-                    //paramlist.Add(new SqlParameter("@LoginName", search.LoginName));
+                    where += " and LoginName like @LoginName";
+                    paramlist.Add(new SqlParameter("@LoginName", SqlDbType.NVarChar,32)
+                    {
+                        Value= $"'%{search.LoginName}%'"
+                    });
                 }
                 var pageSql = DataBaseManager.GetPageString(tbname, filter, orderField, where, searachParam.Page, searachParam.PageSize);
                 var countSql = DataBaseManager.GetCountString(tbname, where);

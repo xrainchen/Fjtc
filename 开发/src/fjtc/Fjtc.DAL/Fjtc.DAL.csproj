@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CMSMenuDal.cs" />
+    <Compile Include="CMSRoleDal.cs" />
     <Compile Include="MpWeiXin\MpWeiXinAccessSettingDal.cs" />
     <Compile Include="CMSPowerDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

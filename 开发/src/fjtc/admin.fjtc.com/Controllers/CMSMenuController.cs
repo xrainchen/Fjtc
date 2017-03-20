@@ -28,7 +28,7 @@ namespace admin.fjtc.com.Controllers
             var model = new CMSMenuViewModel();
             if (menu.ParentId > 0)
             {
-                var parent = new CMSMenuBll().Get(menu.Id);
+                var parent = new CMSMenuBll().Get(menu.ParentId);
                 model.ParentId = parent.Id;
                 model.ParentOrganPath = parent.OrganPath;
             }

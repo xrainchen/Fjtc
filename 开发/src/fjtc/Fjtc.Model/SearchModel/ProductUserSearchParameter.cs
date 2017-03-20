@@ -5,7 +5,6 @@
     /// </summary>
     public class ProductUserSearchParameter : SearchParameter
     {
-        public string Name { get; set; }
         public string MobilePhone { get; set; }
 
         public string LoginName { get; set; }
