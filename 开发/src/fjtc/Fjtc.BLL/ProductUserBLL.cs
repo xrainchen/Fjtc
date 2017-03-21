@@ -28,7 +28,10 @@ namespace Fjtc.BLL
         {
             return _dal.GetModel(loginName);
         }
-
+        public ProductUser Get(long id)
+        {
+            return _dal.Get(id);
+        }
         public IList<ProductUserViewModel> GetList(SearchParameter searchObj)
         {
             return _dal.GetList(searchObj);

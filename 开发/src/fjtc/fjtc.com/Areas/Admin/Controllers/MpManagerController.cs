@@ -19,6 +19,7 @@ namespace fjtc.com.Areas.Admin.Controllers
         public ActionResult Setting()
         {
             var setting = new MpWeiXinAccessSettingBll().GetMpWeiXinAccessSetting(CurrentUser.Id);
+            ViewBag.CurrentUser = CurrentUser;
             return View(setting ?? new MpWeiXinAccessSetting { UserId = CurrentUser.Id });
         }
 

@@ -69,8 +69,7 @@ namespace fjtc.com.Controllers
                     {
                         if (userNameList[1].Equals("weixin", StringComparison.OrdinalIgnoreCase))
                         {
-                            username = userNameList[0];
-                            _currentAccessSetting = new MpWeiXinAccessSettingBll().GetMpWeiXinAccessSetting(username);
+                            _currentAccessSetting = new MpWeiXinAccessSettingBll().GetMpWeiXinAccessSettingByHost(Request.Url?.Host);
                         }
                     }
                 }

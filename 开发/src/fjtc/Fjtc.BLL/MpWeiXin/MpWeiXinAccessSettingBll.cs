@@ -18,12 +18,28 @@ namespace Fjtc.BLL.MpWeiXin
         {
             return AccessSettingDic.GetOrAdd(userName, x => _mpWeiXinAccessSettingDal.GetMpWeiXinAccessSetting(userName));
         }
+
+        public MpWeiXinAccessSetting GetMpWeiXinAccessSettingByHost(string host)
+        {
+            if (!AccessSettingDic.ContainsKey(host) || AccessSettingDic[host] == null)
+            {
+                AccessSettingDic.AddOrUpdate(
+                    host,
+                    x => _mpWeiXinAccessSettingDal.GetMpWeiXinAccessSettingByHost(host),
+                    (x, setting) => _mpWeiXinAccessSettingDal.GetMpWeiXinAccessSettingByHost(host)
+                    );
+
+            }
+            return AccessSettingDic.GetOrAdd(host,
+                x =>
+            _mpWeiXinAccessSettingDal.GetMpWeiXinAccessSettingByHost(host));
+        }
         public bool AddOrUpdate(MpWeiXinAccessSetting entity)
         {
             if (_mpWeiXinAccessSettingDal.AddOrUpdate(entity))
             {
-                var user = new CMSUserBll().GetModel(entity.UserId);
-                AccessSettingDic.TryRemove(user.LoginName, out entity);
+                var user = new ProductUserBLL().Get(entity.UserId);
+                AccessSettingDic.TryRemove(user.BindHost, out entity);
                 return true;
             }
             return false;

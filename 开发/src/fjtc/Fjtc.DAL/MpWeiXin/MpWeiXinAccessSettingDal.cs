@@ -32,7 +32,7 @@ namespace Fjtc.DAL.MpWeiXin
         {
             try
             {
-                var sqlStr = "select mwxas.* from MpWeiXinAccessSetting mwxas with(nolock) left join CMSUser u on u.Id=mwxas.userId where u.LoginName=@LoginName";
+                var sqlStr = "select mwxas.* from MpWeiXinAccessSetting mwxas with(nolock) left join ProductUser u on u.Id=mwxas.userId where u.LoginName=@LoginName";
                 var paramet = new[] {
                     new SqlParameter("@LoginName",SqlDbType.NVarChar,64) { Value = userName },
                 };
@@ -45,6 +45,25 @@ namespace Fjtc.DAL.MpWeiXin
                 return null;
             }
         }
+
+        public MpWeiXinAccessSetting GetMpWeiXinAccessSettingByHost(string host)
+        {
+            try
+            {
+                var sqlStr = "select mwxas.* from MpWeiXinAccessSetting mwxas with(nolock) left join ProductUser u on u.Id=mwxas.userId where u.BindHost=@BindHost";
+                var paramet = new[] {
+                    new SqlParameter("@BindHost",SqlDbType.NVarChar,64) { Value = host },
+                };
+                var model = ModelConvertHelper<MpWeiXinAccessSetting>.ToModel(DataBaseManager.MainDb().ExecuteFillDataTable(sqlStr, paramet));
+                return model;
+            }
+            catch (Exception ex)
+            {
+                LoggerManager.Debug(GetType().Name, $"获取绑定{host}域名接入配置异常", ex);
+                return null;
+            }
+        }
+
 
         public bool AddOrUpdate(MpWeiXinAccessSetting entity)
         {

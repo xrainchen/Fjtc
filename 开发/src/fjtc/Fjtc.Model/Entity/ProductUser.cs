@@ -39,6 +39,14 @@ namespace Fjtc.Model.Entity
         /// </summary>
         public string BindHost { get; set; }
         /// <summary>
+        /// 公司名称
+        /// </summary>
+        public string Company { get; set; }
+        /// <summary>
+        /// 站点名称
+        /// </summary>
+        public string SiteName { get; set; }
+        /// <summary>
         /// 获取加密的密码 todo:
         /// </summary>
         public string EncryPassword(string password)

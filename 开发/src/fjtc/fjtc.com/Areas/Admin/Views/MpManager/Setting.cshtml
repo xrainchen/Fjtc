@@ -1,7 +1,9 @@
 ﻿@using Fjtc.Model
+@using Fjtc.Model.Entity
 @model Fjtc.Model.Entity.MpWeiXinAccessSetting
 @{
     Layout = null;
+    var currentUser = ViewBag.CurrentUser as ProductUser;
 }
 <div class="pageContent">
     <form method="post" action="@Url.Action("Save", new { area = "Admin" })" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone);">
@@ -20,7 +22,9 @@
             </p>
         </div>
         <div>
-            授权地址<span>@(Url.Action("Auth", "MpWeiXin"))</span>
+            <p style="font-size: 20px;">
+                授权地址:@("http:" + currentUser.BindHost + Url.Action("Auth", "MpWeiXin", new { area = "" }))
+            </p>
         </div>
         <div class="formBar">
             <ul>

@@ -2,7 +2,6 @@
 using fjtc.com.Auth;
 using fjtc.com.Models;
 using Fjtc.Common;
-using Fjtc.Model;
 using Fjtc.Model.Entity;
 
 namespace fjtc.com.Areas.Admin.Controllers
@@ -60,6 +59,18 @@ namespace fjtc.com.Areas.Admin.Controllers
             }
             return View("Index");
         }
+        /// <summary>
+        /// 登出
+        /// </summary>
+        /// <returns></returns>
+        [AllowAnonymous]
+        public ActionResult LogOut()
+        {
+            Session.Abandon();
+            TicketStorageFactory.InstanceTicketStorage<ProductUser>().Cancellation();
+            return RedirectToAction("Index");
+        }
+
         [AllowAnonymous]
         public ActionResult VerifyCode()
         {

@@ -35,19 +35,31 @@ namespace Fjtc.DAL
                 return null;
             }
         }
+
+        public ProductUser Get(long id)
+        {
+            string desction = "查询系统用户";
+            try
+            {
+                string sqlStr = @"SELECT * FROM dbo.[ProductUser](NOLOCK) WHERE Id=@Id";
+                SqlParameter[] paramet = new[] {
+                    new SqlParameter("@Id",SqlDbType.BigInt) { Value = id },
+                };
+                var model = ModelConvertHelper<ProductUser>.ToModel(DataBaseManager.MainDb().ExecuteFillDataTable(sqlStr, paramet));
+                return model;
+            }
+            catch (Exception ex)
+            {
+                LoggerManager.Error(this.GetType().Name, $"{desction}异常：", ex);
+                return null;
+            }
+        }
         public bool AddUser(ProductUser user)
         {
             try
             {
-                var sql = @"IF (SELECT COUNT(1) FROM [ProductUser] with(nolock) WHERE LoginName=@LoginName OR MobilePhone=@MobilePhone) = 0
-                            BEGIN
-                                INSERT INTO [ProductUser](Name,LoginName,Password,HeadPhoto,CreatedTime,MobilePhone,BindHost)  Values(@Name,@LoginName,@Password,@HeadPhoto,@CreatedTime,@MobilePhone,@BindHost);
-                                SELECT 1;
-                            END
-                            ELSE
-                            BEGIN
-                            SELECT 0;
-                            END";
+                var sql = @"INSERT INTO [ProductUser](Name,LoginName,Password,HeadPhoto,CreatedTime,MobilePhone,BindHost,Company,SiteName)
+                            Values(@Name,@LoginName,@Password,@HeadPhoto,@CreatedTime,@MobilePhone,@BindHost,@Company,@SiteName);";
                 IDataParameter[] parameters ={
                 new SqlParameter("@Name",SqlDbType.NVarChar,32) {Value =  user.Name},
                 new SqlParameter("@LoginName", SqlDbType.VarChar,32) {Value=user.LoginName},
@@ -55,9 +67,11 @@ namespace Fjtc.DAL
                 new SqlParameter("@HeadPhoto", SqlDbType.VarChar) {Value = user.HeadPhoto},
                 new SqlParameter("@CreatedTime",SqlDbType.DateTime) {Value =  DateTime.Now},
                 new SqlParameter("@MobilePhone", SqlDbType.VarChar,16) {Value=user.MobilePhone},
-                new SqlParameter("@BindHost",SqlDbType.VarChar,32) {Value =  user.BindHost}
+                new SqlParameter("@BindHost",SqlDbType.VarChar,32) {Value =  user.BindHost},
+                new SqlParameter("@Company",SqlDbType.NVarChar,64) {Value =  user.BindHost},
+                new SqlParameter("@SiteName",SqlDbType.NVarChar,64) {Value =  user.BindHost},
                 };
-                return DataBaseManager.MainDb().ExecuteScalar(sql, parameters).CInt(0, false) > 0;
+                return DataBaseManager.MainDb().ExecuteNonQuery(sql, parameters).CInt(0, false) > 0;
             }
             catch (Exception ex)
             {
