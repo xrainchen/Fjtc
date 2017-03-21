@@ -28,7 +28,7 @@
       <publishTime>03/19/2017 22:44:13</publishTime>
     </File>
     <File Include="bin/Config/log4net.config">
-      <publishTime>03/19/2017 22:44:13</publishTime>
+      <publishTime>03/21/2017 23:40:16</publishTime>
     </File>
     <File Include="bin/Config/RPoneyRedisLog.config">
       <publishTime>03/19/2017 22:44:13</publishTime>
@@ -37,7 +37,7 @@
       <publishTime>03/21/2017 22:49:57</publishTime>
     </File>
     <File Include="bin/fjtc.com.dll">
-      <publishTime>03/21/2017 22:50:01</publishTime>
+      <publishTime>03/22/2017 00:20:27</publishTime>
     </File>
     <File Include="bin/Fjtc.Common.dll">
       <publishTime>03/21/2017 22:49:56</publishTime>
@@ -55,7 +55,7 @@
       <publishTime>03/21/2017 22:49:56</publishTime>
     </File>
     <File Include="bin/log4net.dll">
-      <publishTime>03/14/2017 22:04:03</publishTime>
+      <publishTime>01/02/2017 06:32:48</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
       <publishTime>11/30/2016 16:07:42</publishTime>
@@ -184,7 +184,7 @@
       <publishTime>01/28/2015 04:04:32</publishTime>
     </File>
     <File Include="Config/log4net.config">
-      <publishTime>03/19/2017 22:44:13</publishTime>
+      <publishTime>03/21/2017 23:40:16</publishTime>
     </File>
     <File Include="Config/RPoneyRedisLog.config">
       <publishTime>03/19/2017 22:44:13</publishTime>
