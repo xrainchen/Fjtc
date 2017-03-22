@@ -37,14 +37,20 @@
             url: '@Url.Action("List","ProductUser",new {area="ProductUser"})',
             mtype: 'post',
             datatype: "json",
-            colNames: ['用户id', '昵称', '用户名', '手机号','绑定域名', '注册时间'],
             colModel: [
-                { name: 'id', index: 'id', hidden: true },
-                { name: 'Name', index: 'Name', align: 'center' },
-                { name: 'LoginName', index: 'LoginName', align: 'center' },
-                { name: 'MobilePhone', index: 'MobilePhone', align: 'center' },
-                { name: 'BindHost', index: 'BindHost', align: 'center' },
-                { name: 'CreatedTime', index: 'CreatedTime', formatter: JsonDateFormat, align: 'center' }
+                { label: '用户id', name: 'Id', index: 'Id', hidden: true },
+                { label: '昵称', name: 'Name', index: 'Name', align: 'center' },
+                { label: '用户名', name: 'LoginName', index: 'LoginName', align: 'center' },
+                { label: '手机号', name: 'MobilePhone', index: 'MobilePhone', align: 'center' },
+                { label: '绑定域名', name: 'BindHost', index: 'BindHost', align: 'center' },
+                { label: '注册时间', name: 'CreatedTime', index: 'CreatedTime', formatter: JsonDateFormat, align: 'center' },
+                {
+                    label: '操作', name: '', index: 'operate', align: 'center',
+                    formatter: function (cellvalue, options, rowObject) {
+                        var detail = "<a href='javascript:;'>重置密码</a>||<a href='javascript:;'>重置域名</a>";
+                        return detail;
+                    }
+                }
             ],
             rowNum: 20,
             rowList: [20, 50, 100],
