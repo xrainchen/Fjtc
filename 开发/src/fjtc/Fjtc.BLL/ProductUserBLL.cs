@@ -19,6 +19,10 @@ namespace Fjtc.BLL
             return _dal.IsExistLoginName(loginName);
         }
 
+        public bool IsExistBindHost(string bindHost)
+        {
+            return _dal.IsExistBindHost(bindHost);
+        }
         public bool IsExistMobilePhone(string mobilephone)
         {
             return _dal.IsExistMobilePhone(mobilephone);
@@ -35,6 +39,11 @@ namespace Fjtc.BLL
         public IList<ProductUserViewModel> GetList(SearchParameter searchObj)
         {
             return _dal.GetList(searchObj);
+        }
+
+        public bool UpdatePassword(string password, long id)
+        {
+            return _dal.UpdatePassword(password, id);
         }
     }
 }

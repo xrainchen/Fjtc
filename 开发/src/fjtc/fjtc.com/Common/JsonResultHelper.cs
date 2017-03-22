@@ -23,5 +23,16 @@ namespace fjtc.com.Common
                 Message = msg
             };
         }
+        public static ReturnJsonResultModel Redirect(string redirectUrl)
+        {
+            return new ReturnJsonResultModel()
+            {
+                ReturnData = null,
+                ReturnCode = 200,
+                CallBackType= "redirect",
+                RedirectUrl = redirectUrl
+            };
+        }
+
     }
 }

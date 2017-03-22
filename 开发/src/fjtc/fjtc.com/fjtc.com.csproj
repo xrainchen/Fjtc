@@ -484,6 +484,7 @@
     <Content Include="Scripts\My97DatePicker\skin\whyGreen\datepicker.css" />
     <Content Include="Scripts\My97DatePicker\skin\whyGreen\img.gif" />
     <Content Include="Scripts\My97DatePicker\WdatePicker.js" />
+    <Content Include="Scripts\rponey\rponey.js" />
     <Content Include="Scripts\speedup.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -494,6 +495,7 @@
     <Compile Include="Areas\Admin\Controllers\BaseAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\MpManagerController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductUserAdminController.cs" />
     <Compile Include="Auth\CookieTickStorage.cs" />
     <Compile Include="Auth\ITicketStorage.cs" />
     <Compile Include="Auth\TicketStorageFactory.cs" />
@@ -530,7 +532,9 @@
     <Content Include="Areas\Admin\Views\Account\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\MpManager\Setting.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductUserAdmin\UpdatePassword.cshtml" />
     <None Include="Properties\PublishProfiles\fjtc.com.pubxml" />
+    <Content Include="Scripts\rponey\rponey.alertMsg.js" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

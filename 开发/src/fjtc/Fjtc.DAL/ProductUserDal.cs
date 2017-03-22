@@ -109,11 +109,26 @@ namespace Fjtc.DAL
             }
             catch (Exception ex)
             {
+                LoggerManager.Error(GetType().Name, "查询绑定域名是否存在异常", ex);
+                return false;
+            }
+        }
+        public bool IsExistBindHost(string bindHost)
+        {
+            try
+            {
+                var sql = "SELECT COUNT(1) FROM [ProductUser] with(nolock) WHERE BindHost=@BindHost";
+                IDataParameter[] parameters ={
+                new SqlParameter("@BindHost", SqlDbType.VarChar,32) {Value = bindHost},
+                };
+                return DataBaseManager.MainDb().ExecuteScalar(sql, parameters).CInt(0, false) > 0;
+            }
+            catch (Exception ex)
+            {
                 LoggerManager.Error(GetType().Name, "查询登录名是否存在异常", ex);
                 return false;
             }
         }
-
         public IList<ProductUserViewModel> GetList(SearchParameter searchObj)
         {
             var tbname = " [ProductUser] u with(nolock) ";
@@ -141,6 +156,16 @@ namespace Fjtc.DAL
             var countSql = DataBaseManager.GetCountString(tbname, where);
             searchObj.Count = int.Parse(DataBaseManager.MainDb().ExecuteScalar(countSql, paramlist.ToArray()).ToString());
             return ModelConvertHelper<ProductUserViewModel>.ToModels(DataBaseManager.MainDb().ExecuteFillDataTable(pageSql, paramlist.ToArray()));
+        }
+
+        public bool UpdatePassword(string password, long id)
+        {
+            var sql = "update ProductUser set Password=@Password where Id=@Id";
+            IDataParameter[] parameters ={
+                new SqlParameter("@Id",SqlDbType.NVarChar,32) {Value = id},
+                new SqlParameter("@Password",SqlDbType.VarChar,32) {Value =  password}
+                };
+            return DataBaseManager.MainDb().ExecuteNonQuery(sql, parameters).CInt(0, false) > 0;
         }
     }
 }
