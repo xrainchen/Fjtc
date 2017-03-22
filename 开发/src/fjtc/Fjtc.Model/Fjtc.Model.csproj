@@ -46,6 +46,7 @@
     <Compile Include="Entity\CMSDictionary.cs" />
     <Compile Include="Entity\CMSMenu.cs" />
     <Compile Include="Entity\CMSRole.cs" />
+    <Compile Include="Entity\IEntity.cs" />
     <Compile Include="Entity\MpWeiXinAccessSetting.cs" />
     <Compile Include="Entity\CMSPower.cs" />
     <Compile Include="Entity\CMSUser.cs" />
