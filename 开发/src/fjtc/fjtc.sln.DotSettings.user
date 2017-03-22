@@ -7,4 +7,5 @@
   &lt;Assembly Path="D:\福建特产\Fjtc\开发\src\fjtc\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll" /&gt;&#xD;
   &lt;Assembly Path="D:\Lib.Framework\Senparc\Senparc.Weixin.MP.14.3.132\lib\net45\Senparc.Weixin.MP.dll" /&gt;&#xD;
   &lt;Assembly Path="D:\project\Fjtc\开发\src\fjtc\fjtc.com\Bin\ServiceStack.Common.dll" /&gt;&#xD;
+  &lt;Assembly Path="D:\Lib.Framework\Senparc\Senparc.Weixin.4.11.4\lib\net45\Senparc.Weixin.dll" /&gt;&#xD;
 &lt;/AssemblyExplorer&gt;</s:String></wpf:ResourceDictionary>
