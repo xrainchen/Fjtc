@@ -495,6 +495,8 @@
     <Compile Include="Areas\Admin\Controllers\BaseAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\MpManagerController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MpRedPackController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MpUserController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductUserAdminController.cs" />
     <Compile Include="Auth\CookieTickStorage.cs" />
     <Compile Include="Auth\ITicketStorage.cs" />
@@ -533,6 +535,8 @@
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\MpManager\Setting.cshtml" />
     <Content Include="Areas\Admin\Views\ProductUserAdmin\UpdatePassword.cshtml" />
+    <Content Include="Areas\Admin\Views\MpUser\List.cshtml" />
+    <Content Include="Areas\Admin\Views\MpRedPack\List.cshtml" />
     <None Include="Properties\PublishProfiles\fjtc.com.pubxml" />
     <Content Include="Scripts\rponey\rponey.alertMsg.js" />
     <None Include="Web.Debug.config">
@@ -569,6 +573,10 @@
     <ProjectReference Include="..\Fjtc.Model\Fjtc.Model.csproj">
       <Project>{40db96cb-9095-45d6-9c1c-7a81dc08aa33}</Project>
       <Name>Fjtc.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fjtc.MpWeiXin\Fjtc.MpWeiXin.csproj">
+      <Project>{8e313094-8437-48f4-985d-267286939d10}</Project>
+      <Name>Fjtc.MpWeiXin</Name>
     </ProjectReference>
     <ProjectReference Include="..\Fjtc\Fjtc.csproj">
       <Project>{97bad071-c55d-4854-92d6-227a628e44bf}</Project>
