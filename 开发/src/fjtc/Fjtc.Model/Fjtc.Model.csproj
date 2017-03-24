@@ -50,6 +50,7 @@
     <Compile Include="Entity\MpWeiXinAccessSetting.cs" />
     <Compile Include="Entity\CMSPower.cs" />
     <Compile Include="Entity\CMSUser.cs" />
+    <Compile Include="Entity\MpWeiXinUser.cs" />
     <Compile Include="Entity\ProductUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublicConst.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="SearchModel\CMSPowerSearchParameter.cs" />
     <Compile Include="SearchModel\CMSRoleSearchParameter.cs" />
     <Compile Include="SearchModel\CMSUserSearchParameter.cs" />
+    <Compile Include="SearchModel\MpWeiXinUserSerachParameter.cs" />
     <Compile Include="SearchModel\ProductUserSearchParameter.cs" />
     <Compile Include="SearchParameter.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />

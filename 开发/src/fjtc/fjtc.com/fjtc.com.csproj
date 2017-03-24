@@ -537,6 +537,7 @@
     <Content Include="Areas\Admin\Views\ProductUserAdmin\UpdatePassword.cshtml" />
     <Content Include="Areas\Admin\Views\MpUser\List.cshtml" />
     <Content Include="Areas\Admin\Views\MpRedPack\List.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Pager.cshtml" />
     <None Include="Properties\PublishProfiles\fjtc.com.pubxml" />
     <Content Include="Scripts\rponey\rponey.alertMsg.js" />
     <None Include="Web.Debug.config">
@@ -550,7 +551,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\BaseControl\" />
-    <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>

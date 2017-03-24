@@ -2,7 +2,6 @@
 using fjtc.com.Common;
 using Fjtc.BLL;
 using Fjtc.Model.Entity;
-using Fjtc.Model.ViewModel;
 
 namespace fjtc.com.Areas.Admin.Controllers
 {

@@ -21,13 +21,13 @@ namespace Fjtc.MpWeiXin.CommonAPIs
             return Senparc.Weixin.MP.CommonAPIs.CommonApi.GetToken(appid, appSecret);
         }
 
-        public static WeixinUserInfoResult GetUserInfo(string accessTokenOrAppid, string nextOpenId = "")
+        public static WeixinUserInfoResult GetUserInfo(string accessTokenOrAppid, string openId)
         {
-            return Senparc.Weixin.MP.CommonAPIs.CommonApi.GetUserInfo(accessTokenOrAppid, nextOpenId);
+            return Senparc.Weixin.MP.CommonAPIs.CommonApi.GetUserInfo(accessTokenOrAppid, openId);
         }
-        public static async Task<WeixinUserInfoResult> GetUserInfoAsync(string accessTokenOrAppid, string nextOpenId = "")
+        public static async Task<WeixinUserInfoResult> GetUserInfoAsync(string accessTokenOrAppid, string openId)
         {
-            return await Senparc.Weixin.MP.CommonAPIs.CommonApi.GetUserInfoAsync(accessTokenOrAppid, nextOpenId);
+            return await Senparc.Weixin.MP.CommonAPIs.CommonApi.GetUserInfoAsync(accessTokenOrAppid, openId);
         }
     }
 }

@@ -19,15 +19,7 @@ namespace Fjtc.DAL
         {
             try
             {
-                var insertSql = @"IF (SELECT COUNT(1) FROM CMSMenu with(nolock) WHERE PowerValue=@PowerValue) = 0
-                            BEGIN
-                                INSERT INTO CMSMenu(Name,Url,ParentId,CreatedTime,CreatedBy,PowerValue,Sort,OrganPath,MenuType)  Values(@Name,@Url,@ParentId,@CreatedTime,@CreatedBy,@PowerValue,@Sort,@OrganPath,@MenuType)
-                                SELECT 1;
-                            END
-                            ELSE
-                            BEGIN
-                                SELECT 0;
-                            END";
+                var insertSql = @"INSERT INTO CMSMenu(Name,Url,ParentId,CreatedTime,CreatedBy,PowerValue,Sort,OrganPath,MenuType)  Values(@Name,@Url,@ParentId,@CreatedTime,@CreatedBy,@PowerValue,@Sort,@OrganPath,@MenuType)";
                 IDataParameter[] parameters ={
                 new SqlParameter("@Name",SqlDbType.NVarChar,32) {Value =  entity.Name},
                 new SqlParameter("@Url", SqlDbType.VarChar,1024) {Value=entity.Url},
@@ -39,7 +31,7 @@ namespace Fjtc.DAL
                 new SqlParameter("@OrganPath",SqlDbType.NVarChar,256) {Value =  entity.OrganPath},
                 new SqlParameter("@MenuType",SqlDbType.Int) {Value =  (int)entity.MenuType}
                 };
-                return DataBaseManager.CmsDb().ExecuteScalar(insertSql, parameters).CInt(0, false) > 0;
+                return DataBaseManager.CmsDb().ExecuteNonQuery(insertSql, parameters).CInt(0, false) > 0;
             }
             catch (Exception ex)
             {

@@ -67,6 +67,7 @@
     <Compile Include="IEntityDal.cs" />
     <Compile Include="MpWeiXin\MpWeiXinAccessSettingDal.cs" />
     <Compile Include="CMSPowerDal.cs" />
+    <Compile Include="MpWeiXin\MpWeiXinUserDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CMSUserDal.cs" />
     <Compile Include="ProductUserDal.cs" />

@@ -3,8 +3,11 @@ using System.ComponentModel;
 using System.Web.Mvc;
 using fjtc.com.Auth;
 using Fjtc.BLL;
+using Fjtc.BLL.MpWeiXin;
 using Fjtc.Model;
 using Fjtc.Model.Entity;
+using Senparc.Weixin.MP.Containers;
+using Senparc.Weixin.MP.Entities;
 
 namespace fjtc.com.Areas.Admin.Controllers
 {
@@ -32,8 +35,6 @@ namespace fjtc.com.Areas.Admin.Controllers
                         }
                     }
                 }
-                //if (_user != null)
-                //    _user.UserOperList = new UserBll().GetUserOperationList(_user.Id);
                 return _user;
             }
             set
@@ -43,6 +44,15 @@ namespace fjtc.com.Areas.Admin.Controllers
                 _user = value;
                 _user.Password = "";
             }
+        }
+        protected AccessTokenResult AccessToken()
+        {
+            var mpWeiXinAccessSetting = new MpWeiXinAccessSettingBll().GetMpWeiXinAccessSettingByHost(CurrentUser.BindHost);
+            if(!AccessTokenContainer.CheckRegistered(mpWeiXinAccessSetting.AppId))//检查是否已经注册
+            {
+                AccessTokenContainer.Register(mpWeiXinAccessSetting.AppId, mpWeiXinAccessSetting.AppSecret);//如果没有注册则进行注册
+            }
+            return AccessTokenContainer.GetAccessTokenResult(mpWeiXinAccessSetting.AppId); //获取AccessToken结果
         }
         /// <summary>
         /// 权限过滤器
