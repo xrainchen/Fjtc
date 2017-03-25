@@ -91,7 +91,18 @@
                         <ul class="tree treeFolder">
                             <li><a href="@Url.Action("Setting", "MpManager", new {area = "Admin"})" target="navTab" rel="page1">接入配置</a></li>
                             <li><a href="@Url.Action("List", "MpUser", new {area = "Admin"})" target="navTab" rel="page2">粉丝列表</a></li>
-                            <li><a href="@Url.Action("List", "MpRedPack", new {area="Admin" })" target="navTab" rel="page3">红包管理</a></li>
+                            <li><a href="@Url.Action("List", "MpRedPack", new {area = "Admin"})" target="navTab" rel="page3">红包管理</a></li>
+                        </ul>
+                    </div>
+                    <!--系统管理-->
+                    <div class="accordionHeader">
+                        <h2>
+                            <span>Folder</span>系统管理
+                        </h2>
+                    </div>
+                    <div class="accordionContent">
+                        <ul class="tree treeFolder">
+                            <li><a href="@Url.Action("Index", "ProductUserAdmin", new {area = "Admin"})" target="navTab" rel="page1">个人中心</a></li>
                         </ul>
                     </div>
                 </div>

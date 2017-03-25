@@ -8,8 +8,6 @@ namespace fjtc.com.Areas.Admin.Controllers
     public class ProductUserAdminController : BaseAdminControl
     {
         // GET: Admin/ProductUserAdmin
-
-
         [HttpGet]
         public ActionResult UpdatePassword(ProductUser model)
         {
@@ -25,6 +23,12 @@ namespace fjtc.com.Areas.Admin.Controllers
                 return DwzHelper.SuccessAndClose("", "密码修改成功");
             }
             return DwzHelper.Warn("密码修改失败");
+        }
+
+        [HttpGet]
+        public ActionResult Index()
+        {
+            return View();
         }
     }
 }

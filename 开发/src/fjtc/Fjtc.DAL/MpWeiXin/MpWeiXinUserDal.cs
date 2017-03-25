@@ -7,6 +7,7 @@ using Fjtc.Model.Entity;
 using RPoney;
 using RPoney.Log;
 using Fjtc.Model;
+using Fjtc.Model.SearchModel;
 
 namespace Fjtc.DAL.MpWeiXin
 {
@@ -14,17 +15,50 @@ namespace Fjtc.DAL.MpWeiXin
     {
         public IList<MpWeiXinUser> GetList(SearchParameter serachParameter)
         {
+            var search = serachParameter as MpWeiXinUserSerachParameter;
             var tbname = "MpWeiXinUser with(nolock)";
             var filter = "*";
-            var orderBy = "Id";
+            var orderBy = "SubscribeTime desc";
             var where = "";
             var parameters = new List<SqlParameter>();
-            var pageSql = DataBaseManager.GetPageString(tbname, filter, orderBy, where,
-                serachParameter.Page, serachParameter.PageSize);
+            if (search.ProductUserId.HasValue)
+            {
+                where += " and ProductUserId=@ProductUserId";
+                parameters.Add(new SqlParameter("@ProductUserId", SqlDbType.BigInt) { Value = search.ProductUserId });
+            }
+            if (!string.IsNullOrWhiteSpace(search.Country))
+            {
+                where += " and Country=@Country";
+                parameters.Add(new SqlParameter("@Country", SqlDbType.NVarChar) { Value = search.Country });
+            }
+            if (!string.IsNullOrWhiteSpace(search.Province))
+            {
+                where += " and Province=@Province";
+                parameters.Add(new SqlParameter("@Province", SqlDbType.NVarChar) { Value = search.Province });
+            }
+            if (!string.IsNullOrWhiteSpace(search.City))
+            {
+                where += " and City=@City";
+                parameters.Add(new SqlParameter("@City", SqlDbType.NVarChar) { Value = search.City });
+            }
+            if (!string.IsNullOrWhiteSpace(search.Name))
+            {
+                where += " and NickName like @NickName";
+                parameters.Add(new SqlParameter("@NickName", SqlDbType.NVarChar) { Value = $"%{search.Name}%" });
+            }
+            if (search.BeginSearchTime.HasValue)
+            {
+                where += " and DATEADD(S,SubscribeTime + 8 * 3600,'1970-01-01 00:00:00')>=@BeginSearchTime";
+                parameters.Add(new SqlParameter("@BeginSearchTime", SqlDbType.DateTime) { Value = search.BeginSearchTime });
+            }
+            if (search.EndSearchTime.HasValue)
+            {
+                where += " and DATEADD(S,SubscribeTime + 8 * 3600,'1970-01-01 00:00:00')<=@EndSearchTime";
+                parameters.Add(new SqlParameter("@EndSearchTime", SqlDbType.DateTime) { Value = search.EndSearchTime });
+            }
+            var pageSql = DataBaseManager.GetPageString(tbname, filter, orderBy, where, search.Page, search.PageSize);
             var pageCount = DataBaseManager.GetCountString(tbname, where);
-            serachParameter.Count = DataBaseManager.MainDb()
-                .ExecuteScalar(pageCount, parameters.ToArray())
-                .CInt(0, false);
+            serachParameter.Count = DataBaseManager.MainDb().ExecuteScalar(pageCount, parameters.ToArray()).CInt(0, false);
             return
                 RPoney.Data.ModelConvertHelper<MpWeiXinUser>.ToModels(
                     DataBaseManager.MainDb().ExecuteFillDataTable(pageSql, parameters.ToArray()));
@@ -48,12 +82,12 @@ namespace Fjtc.DAL.MpWeiXin
                                 {(string.IsNullOrWhiteSpace(entity.UnionId) ? "" : ",UnionId=@UnionId")}
                                 {(string.IsNullOrWhiteSpace(entity.Remark) ? "" : ",Remark=@Remark")}
                                 {(entity.GroupId > 0 ? "" : ",GroupId=@GroupId")}
-                                WHERE OpenId=@OpenId
+                                WHERE OpenId=@OpenId and ProductUserId=@ProductUserId
                             END
                             ELSE
                             BEGIN
-                                INSERT INTO MpWeiXinUser(OpenId,Subscribe,NickName,Sex,City,Country,Province,Language,HeadImgUrl,SubscribeTime,UnionId,Remark,GroupId)
-                                VALUES(@OpenId,@Subscribe,@NickName,@Sex,@City,@Country,@Province,@Language,@HeadImgUrl,@SubscribeTime,@UnionId,@Remark,@GroupId)
+                                INSERT INTO MpWeiXinUser(OpenId,Subscribe,NickName,Sex,City,Country,Province,Language,HeadImgUrl,SubscribeTime,UnionId,Remark,GroupId,ProductUserId)
+                                VALUES(@OpenId,@Subscribe,@NickName,@Sex,@City,@Country,@Province,@Language,@HeadImgUrl,@SubscribeTime,@UnionId,@Remark,@GroupId,@ProductUserId)
                             END
                             ";
                 IDataParameter[] parameters ={
@@ -70,6 +104,7 @@ namespace Fjtc.DAL.MpWeiXin
                 new SqlParameter("@UnionId",SqlDbType.VarChar,64) {Value =  entity.UnionId},
                 new SqlParameter("@Remark",SqlDbType.NVarChar,512) {Value =  entity.Remark},
                 new SqlParameter("@GroupId",SqlDbType.Int) {Value =  entity.GroupId},
+                new SqlParameter("@ProductUserId",SqlDbType.BigInt) {Value =  entity.ProductUserId},
                 };
                 return DataBaseManager.MainDb().ExecuteNonQuery(sql, parameters).CInt(0, false) > 0;
             }

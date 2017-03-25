@@ -81,5 +81,10 @@
         ///  用户所在的分组ID
         /// </summary>
         public int GroupId { get; set; }
+
+        /// <summary>
+        /// 产品用户Id
+        /// </summary>
+        public long ProductUserId { get; set; }
     }
 }

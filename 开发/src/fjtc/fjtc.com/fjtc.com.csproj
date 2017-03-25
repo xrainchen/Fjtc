@@ -398,6 +398,7 @@
     <Content Include="Content\jquery.ui-1.8.16\images\ui-icons_888888_256x240.png" />
     <Content Include="Content\jquery.ui-1.8.16\images\ui-icons_cd0a0a_256x240.png" />
     <Content Include="Content\jquery.ui-1.8.16\jquery-ui.custom.css" />
+    <Content Include="Content\login.css" />
     <Content Include="Content\uploadify\Change Log.txt" />
     <Content Include="Content\uploadify\css\uploadify.css" />
     <Content Include="Content\uploadify\img\add.jpg" />
@@ -538,6 +539,7 @@
     <Content Include="Areas\Admin\Views\MpUser\List.cshtml" />
     <Content Include="Areas\Admin\Views\MpRedPack\List.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Pager.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductUserAdmin\Index.cshtml" />
     <None Include="Properties\PublishProfiles\fjtc.com.pubxml" />
     <Content Include="Scripts\rponey\rponey.alertMsg.js" />
     <None Include="Web.Debug.config">
@@ -561,10 +563,6 @@
     <ProjectReference Include="..\Fjtc.Common\Fjtc.Common.csproj">
       <Project>{84299fd4-9efa-44c8-9367-472122f8d080}</Project>
       <Name>Fjtc.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Fjtc.DAL\Fjtc.DAL.csproj">
-      <Project>{77c5a01b-43b1-48d5-9a6a-4dad01c135f3}</Project>
-      <Name>Fjtc.DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\Fjtc.DbHelper\Fjtc.DbHelper.csproj">
       <Project>{6a1eb09f-02c2-458d-ba42-a9de9d33a1bf}</Project>

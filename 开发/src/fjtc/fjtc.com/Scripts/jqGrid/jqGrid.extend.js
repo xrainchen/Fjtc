@@ -35,18 +35,10 @@ var jqGridDefaultConfig = {
 function FormToJson(pin) {
     var jsonObj = {};
     $($("#" + pin.formId).serializeArray()).each(function (i, o) {
-        if (o.value) {
-            if (pin.postNameArray) {//以数组方式提交多个name值
-                if (jsonObj[o.name]) {
-                    
-                }
-            } else {
-                if (jsonObj[o.name]) {
-                    jsonObj[o.name] = jsonObj[o.name] + ',' + o.value;
-                }
-                else { jsonObj[o.name] = o.value; }
-            }
+        if (jsonObj[o.name]) {
+            jsonObj[o.name] = jsonObj[o.name] + ',' + o.value;
         }
+        else { jsonObj[o.name] = o.value; }
     });
     return jsonObj;
 }//form表单内带有attribute-search=true的标签数据组合成json对象

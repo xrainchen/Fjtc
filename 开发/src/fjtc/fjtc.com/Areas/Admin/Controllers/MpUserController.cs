@@ -22,6 +22,7 @@ namespace fjtc.com.Areas.Admin.Controllers
         public ActionResult List(MpWeiXinUserSerachParameter serachParameter, FormCollection collection)
         {
             BindParameter(serachParameter);
+            serachParameter.ProductUserId = CurrentUser.Id;
             serachParameter.ReturnList = new MpWeiXinUserBll().GetList(serachParameter);
             return Json(serachParameter);
         }
@@ -54,7 +55,8 @@ namespace fjtc.com.Areas.Admin.Controllers
                             SubscribeTime = weiXinUser.subscribe_time,
                             UnionId = weiXinUser.unionid,
                             Remark = weiXinUser.remark,
-                            GroupId = weiXinUser.groupid
+                            GroupId = weiXinUser.groupid,
+                            ProductUserId = CurrentUser.Id
                         }))
                         {
                             success++;

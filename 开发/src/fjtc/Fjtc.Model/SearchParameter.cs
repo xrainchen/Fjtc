@@ -1,4 +1,5 @@
-﻿using System.Security.Permissions;
+﻿using System;
+using System.Security.Permissions;
 
 namespace Fjtc.Model
 {
@@ -53,6 +54,15 @@ namespace Fjtc.Model
         /// 名称
         /// </summary>
         public string Name { get; set; }
+
+        /// <summary>
+        /// 开始搜索时间
+        /// </summary>
+        public DateTime? BeginSearchTime { get; set; }
+        /// <summary>
+        /// 结束搜索时间
+        /// </summary>
+        public DateTime? EndSearchTime { get; set; }
         #endregion
     }
 }
