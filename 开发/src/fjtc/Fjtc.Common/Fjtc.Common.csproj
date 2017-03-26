@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="RPoney.Framework">
+      <HintPath>D:\Lib.Framework\Rponey.Framework\RPoney.Framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -42,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Encrypt\DesEncryptHelper.cs" />
     <Compile Include="Operator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

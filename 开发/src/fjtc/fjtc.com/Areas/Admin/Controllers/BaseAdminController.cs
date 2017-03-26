@@ -1,11 +1,14 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Text;
 using System.Web.Mvc;
 using fjtc.com.Auth;
 using Fjtc.BLL;
 using Fjtc.BLL.MpWeiXin;
+using Fjtc.Common.Encrypt;
 using Fjtc.Model;
 using Fjtc.Model.Entity;
+using RPoney;
 using Senparc.Weixin.MP.Containers;
 using Senparc.Weixin.MP.Entities;
 
@@ -48,11 +51,13 @@ namespace fjtc.com.Areas.Admin.Controllers
         protected AccessTokenResult AccessToken()
         {
             var mpWeiXinAccessSetting = new MpWeiXinAccessSettingBll().GetMpWeiXinAccessSettingByHost(CurrentUser.BindHost);
-            if(!AccessTokenContainer.CheckRegistered(mpWeiXinAccessSetting.AppId))//检查是否已经注册
+            var appId = string.IsNullOrWhiteSpace(mpWeiXinAccessSetting.AppId) ? "" : Encoding.UTF8.GetString(mpWeiXinAccessSetting.AppId.DesDecrypt().GetBytes());
+            var appSecret = string.IsNullOrWhiteSpace(mpWeiXinAccessSetting.AppSecret) ? "" : Encoding.UTF8.GetString(mpWeiXinAccessSetting.AppSecret.DesDecrypt().GetBytes());
+            if (!AccessTokenContainer.CheckRegistered(appId))//检查是否已经注册
             {
-                AccessTokenContainer.Register(mpWeiXinAccessSetting.AppId, mpWeiXinAccessSetting.AppSecret);//如果没有注册则进行注册
+                AccessTokenContainer.Register(appId, appSecret);//如果没有注册则进行注册
             }
-            return AccessTokenContainer.GetAccessTokenResult(mpWeiXinAccessSetting.AppId); //获取AccessToken结果
+            return AccessTokenContainer.GetAccessTokenResult(appId); //获取AccessToken结果
         }
         /// <summary>
         /// 权限过滤器

@@ -28,5 +28,13 @@ namespace Fjtc.Model.Entity
         /// 令牌
         /// </summary>
         public string Token { get; set; }
+        /// <summary>
+        /// 微信支付商户号
+        /// </summary>
+        public string MachId { get; set; }
+        /// <summary>
+        /// API密钥
+        /// </summary>
+        public string ApiKey { get; set; }
     }
 }

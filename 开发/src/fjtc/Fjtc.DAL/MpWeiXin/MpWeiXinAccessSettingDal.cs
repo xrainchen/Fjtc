@@ -71,17 +71,22 @@ namespace Fjtc.DAL.MpWeiXin
             {
                 var sqlStr = @"IF (SELECT COUNT(1) FROM MpWeiXinAccessSetting with(nolock) WHERE UserId=@UserId)=0
                             BEGIN
-                                   INSERT INTO MpWeiXinAccessSetting(UserId,AppId,AppSecret,Token)  Values(@UserId,@AppId,@AppSecret,@Token)
+                                   INSERT INTO MpWeiXinAccessSetting(UserId,AppId,AppSecret,Token,MachId,ApiKey)
+                                   Values(@UserId,@AppId,@AppSecret,@Token,@MachId,@ApiKey)
                             END
                             ELSE
                             BEGIN
-                                UPDATE MpWeiXinAccessSetting SET AppId=@AppId,AppSecret=@AppSecret,Token=@Token Where UserId=@UserId
+                                UPDATE MpWeiXinAccessSetting 
+                                SET AppId=@AppId,AppSecret=@AppSecret,Token=@Token,MachId=@MachId,ApiKey=@ApiKey  
+                                Where UserId=@UserId
                             END";
                 var paramet = new[] {
                     new SqlParameter("@UserId",SqlDbType.BigInt) { Value = entity.UserId },
                     new SqlParameter("@AppSecret",SqlDbType.VarChar,128) { Value = entity.AppSecret },
                     new SqlParameter("@AppId",SqlDbType.VarChar,128) { Value = entity.AppId },
                     new SqlParameter("@Token",SqlDbType.NVarChar,128) { Value = entity.Token },
+                    new SqlParameter("@MachId",SqlDbType.VarChar,128) { Value = entity.MachId },
+                    new SqlParameter("@ApiKey",SqlDbType.NVarChar,128) { Value = entity.ApiKey },
                 };
                 return DataBaseManager.MainDb().ExecuteNonQuery(sqlStr, paramet) > 0;
             }

@@ -28,7 +28,13 @@ namespace fjtc.com.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            return View(CurrentUser);
+        }
+
+        [HttpPost]
+        public ActionResult Save(ProductUser model)
+        {
+            return null;
         }
     }
 }
