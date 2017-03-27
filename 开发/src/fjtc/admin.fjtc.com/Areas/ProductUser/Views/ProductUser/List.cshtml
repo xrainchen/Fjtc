@@ -5,6 +5,17 @@
     var pagerId = Guid.NewGuid().ToString().Replace("-", "");
     var formId = Guid.NewGuid().ToString().Replace("-", "");
 }
+<script>
+    function resetPassword(url, data) {
+        alertMsg.confirm('确定要重置密码?',
+        {
+            okCall:
+                function () {
+                    $.post(url, data, DWZ.ajaxDone, 'json');
+                }
+        });
+    }
+</script>
 <div class="pageHeader">
     <form id="@formId" onsubmit="return navTabSearch(this);" method="post">
         @Html.Partial("_Pager", Model)
@@ -47,7 +58,7 @@
                 {
                     label: '操作', name: '', index: 'operate', align: 'center',
                     formatter: function (cellvalue, options, rowObject) {
-                        var detail = "<a href='javascript:;'>重置密码</a>||<a href='javascript:;'>修改域名</a>";
+                        var detail = "<a href='javascript:;' onclick=\"resetPassword('@Url.Action("ResetPassword")',{productUserId:"+rowObject.Id + "})\">重置密码</a>||<a href='javascript:;'>修改域名</a>";
                         return detail;
                     }
                 }

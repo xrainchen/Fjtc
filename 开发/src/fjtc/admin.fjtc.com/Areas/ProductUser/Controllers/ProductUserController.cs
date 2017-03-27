@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using admin.fjtc.com.Common;
 using admin.fjtc.com.Controllers;
 using Fjtc.BLL;
 using Fjtc.Model.SearchModel;
@@ -26,9 +27,20 @@ namespace admin.fjtc.com.Areas.User.Controllers
         /// 重置密码
         /// </summary>
         /// <returns></returns>
-        public ActionResult ResetPassword()
+        [HttpPost]
+        public ActionResult ResetPassword(long productUserId)
         {
-            return null;
+            if (!CurrentUser.IsAdministrator())
+            {
+                return DwzHelper.Warn("对不起,您无权操作");
+            }
+            var userBll = new ProductUserBLL();
+            var user = userBll.Get(productUserId);
+            if (user != null)
+            {
+                userBll.UpdatePassword(user.EncryPassword(user.LoginName), user.Id);
+            }
+            return DwzHelper.Success("重置成功");
         }
     }
 }
