@@ -57,15 +57,7 @@ namespace Fjtc.DAL
         {
             try
             {
-                var insertSql = $@"IF (SELECT COUNT(1) FROM CMSUser with(nolock) WHERE Name=@Name) = 0
-                            BEGIN
-                                INSERT INTO CMSUser(Password,Name,CreatedBy,CreatedTime,Status,Number,LoginName,UserType)  Values(@Password, @Name, @CreatedBy, @CreatedTime, @Status, @Number, @LoginName,{(int)UserTypeEnum.User})
-                                SELECT 1;
-                            END
-                            ELSE
-                            BEGIN
-                                SELECT 0;
-                            END";
+                var insertSql = $@"INSERT INTO CMSUser(Password,Name,CreatedBy,CreatedTime,Status,Number,LoginName,UserType)  Values(@Password, @Name, @CreatedBy, @CreatedTime, @Status, @Number, @LoginName,{(int)UserTypeEnum.User})";
                 IDataParameter[] parameters ={
                 new SqlParameter("@Password",SqlDbType.VarChar,32) {Value =  entity.Password},
                 new SqlParameter("@Name", SqlDbType.NVarChar,32) {Value=entity.Name},
@@ -75,7 +67,7 @@ namespace Fjtc.DAL
                 new SqlParameter("@Number", SqlDbType.VarChar,16) {Value=entity.Number},
                 new SqlParameter("@LoginName",SqlDbType.NVarChar,32) {Value =  entity.LoginName}
                 };
-                return DataBaseManager.CmsDb().ExecuteScalar(insertSql, parameters).CInt(0, false) > 0;
+                return DataBaseManager.CmsDb().ExecuteNonQuery(insertSql, parameters).CInt(0, false) > 0;
             }
             catch (Exception ex)
             {
@@ -88,7 +80,7 @@ namespace Fjtc.DAL
         {
             try
             {
-                var insertSql = $@"IF (SELECT COUNT(1) FROM CMSUser with(nolock) WHERE LoginName=@LoginName And Id<>@Id And UserType<>{(int)UserTypeEnum.Administrator}) = 0
+                var insertSql = $@"IF (SELECT EXIST(SELECT Id FROM CMSUser with(nolock) WHERE LoginName=@LoginName And Id<>@Id And UserType<>{(int)UserTypeEnum.Administrator})) = 0
                             BEGIN
                                 Update CMSUser Set Status=@Status,Name=@Name{(string.IsNullOrEmpty(user.Password) ? "" : ",Password=@Password")} Where Id=@Id
                                 SELECT 1;

@@ -69,7 +69,7 @@ namespace Fjtc.DAL.MpWeiXin
         {
             try
             {
-                var sqlStr = @"IF (SELECT COUNT(1) FROM MpWeiXinAccessSetting with(nolock) WHERE UserId=@UserId)=0
+                var sqlStr = @"IF (SELECT EXISTS(SELECT Id FROM MpWeiXinAccessSetting with(nolock) WHERE UserId=@UserId))=0
                             BEGIN
                                    INSERT INTO MpWeiXinAccessSetting(UserId,AppId,AppSecret,Token,MachId,ApiKey)
                                    Values(@UserId,@AppId,@AppSecret,@Token,@MachId,@ApiKey)

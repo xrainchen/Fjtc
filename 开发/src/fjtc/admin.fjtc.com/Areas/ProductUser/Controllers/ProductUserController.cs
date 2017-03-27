@@ -22,5 +22,13 @@ namespace admin.fjtc.com.Areas.User.Controllers
             searchParameter.ReturnList = new ProductUserBLL().GetList(searchParameter);
             return Json(searchParameter);
         }
+        /// <summary>
+        /// 重置密码
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult ResetPassword()
+        {
+            return null;
+        }
     }
 }
