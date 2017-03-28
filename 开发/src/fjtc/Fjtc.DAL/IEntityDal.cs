@@ -31,33 +31,18 @@ namespace Fjtc.DAL
 
     public abstract class EntityDal<T> : IEntityDal<T> where T : IEntity
     {
-        public virtual bool Add(T entity)
-        {
-            throw new System.NotImplementedException();
-        }
+        public abstract bool Add(T entity);
 
-        public virtual bool Update(T entity)
-        {
-            throw new System.NotImplementedException();
-        }
+        public abstract bool Update(T entity);
 
-        public virtual bool Delete(T entity)
-        {
-            throw new System.NotImplementedException();
-        }
+        public abstract bool Delete(T entity);
 
-        public virtual IList<T> Get(T entity)
-        {
-            throw new System.NotImplementedException();
-        }
+        public abstract IList<T> Get(T entity);
     }
 
-    public abstract class IdentityDal<T> : EntityDal<T>, IIdentityDal<T> where T : IEntity
+    public abstract class IdentityDal<T> : EntityDal<T>, IIdentityDal<T> where T : IIdentityEntity
     {
-        public virtual T Get(long id)
-        {
-            throw new System.NotImplementedException();
-        }
+        public abstract T Get(long id);
     }
     #endregion
 }

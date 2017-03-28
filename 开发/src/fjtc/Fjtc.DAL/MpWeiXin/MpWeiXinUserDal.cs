@@ -114,5 +114,21 @@ namespace Fjtc.DAL.MpWeiXin
                 return false;
             }
         }
+
+        public MpWeiXinUser Get(long id)
+        {
+            var sql = "select * from MpWeiXinUser with(nolock) where Id=@Id";
+            var parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@Id", SqlDbType.BigInt) { Value = id });
+            return RPoney.Data.ModelConvertHelper<MpWeiXinUser>.ToModel(DataBaseManager.MainDb().ExecuteFillDataTable(sql, parameters.ToArray()));
+        }
+        public MpWeiXinUser GetBelongMpProductUser(long id, long productUserId)
+        {
+            var sql = "select * from MpWeiXinUser with(nolock) where Id=@Id and ProductUserId=@ProductUserId";
+            var parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@Id", SqlDbType.BigInt) { Value = id });
+            parameters.Add(new SqlParameter("@ProductUserId", SqlDbType.BigInt) { Value = productUserId });
+            return RPoney.Data.ModelConvertHelper<MpWeiXinUser>.ToModel(DataBaseManager.MainDb().ExecuteFillDataTable(sql, parameters.ToArray()));
+        }
     }
 }

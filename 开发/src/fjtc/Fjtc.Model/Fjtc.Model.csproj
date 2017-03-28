@@ -50,6 +50,7 @@
     <Compile Include="Entity\MpWeiXinAccessSetting.cs" />
     <Compile Include="Entity\CMSPower.cs" />
     <Compile Include="Entity\CMSUser.cs" />
+    <Compile Include="Entity\MpWeiXinRedPackLog.cs" />
     <Compile Include="Entity\MpWeiXinUser.cs" />
     <Compile Include="Entity\ProductUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -17,5 +17,15 @@ namespace Fjtc.BLL.MpWeiXin
         {
             return _dal.GetList(serachParameter);
         }
+
+        public MpWeiXinUser Get(long id)
+        {
+            return _dal.Get(id);
+        }
+
+        public MpWeiXinUser GetBelongMpProductUser(long id, long productUserId)
+        {
+            return _dal.GetBelongMpProductUser(id, productUserId);
+        }
     }
 }

@@ -7,4 +7,9 @@
     {
 
     }
+
+    public interface IIdentityEntity : IEntity
+    {
+        long Id { get; set; }
+    }
 }

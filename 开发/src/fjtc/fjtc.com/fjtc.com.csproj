@@ -471,6 +471,7 @@
     <Compile Include="Areas\Admin\Controllers\MpRedPackController.cs" />
     <Compile Include="Areas\Admin\Controllers\MpUserController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductUserAdminController.cs" />
+    <Compile Include="Areas\Admin\Models\RedPackModel.cs" />
     <Compile Include="Auth\CookieTickStorage.cs" />
     <Compile Include="Auth\ITicketStorage.cs" />
     <Compile Include="Auth\TicketStorageFactory.cs" />
@@ -513,7 +514,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\BaseControl\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
