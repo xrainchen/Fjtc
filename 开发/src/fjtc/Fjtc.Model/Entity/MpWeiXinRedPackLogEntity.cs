@@ -4,7 +4,7 @@ namespace Fjtc.Model.Entity
 {
 
     [Serializable]
-    public class MpWeiXinRedPackLog : IIdentityEntity
+    public class MpWeiXinRedPackLogEntity : IIdentityEntity
     {
         public long Id { get; set; }
 

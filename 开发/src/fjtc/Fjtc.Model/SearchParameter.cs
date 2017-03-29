@@ -8,6 +8,10 @@ namespace Fjtc.Model
     /// </summary>
     public class SearchParameter
     {
+        /// <summary>
+        /// 是否全部
+        /// </summary>
+        public bool IsAll { get; set; }
         #region 分页
         /// <summary>
         /// 页码
@@ -63,6 +67,11 @@ namespace Fjtc.Model
         /// 结束搜索时间
         /// </summary>
         public DateTime? EndSearchTime { get; set; }
+
+        /// <summary>
+        /// 选中Id
+        /// </summary>
+        public string SelectedIds { get; set; }
         #endregion
     }
 }

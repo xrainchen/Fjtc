@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using fjtc.com.Areas.Admin.Models;
 using Fjtc.BLL.MpWeiXin;
+using Fjtc.Model.SearchModel;
 using RPoney;
 
 namespace fjtc.com.Areas.Admin.Controllers
@@ -9,14 +11,30 @@ namespace fjtc.com.Areas.Admin.Controllers
     public class MpRedPackController : BaseAdminControl
     {
         // GET: Admin/MpRedPack
+        private readonly Lazy<MpWeiXinRedPackLogBll> _mpWeiXinRePackLogBll = new Lazy<MpWeiXinRedPackLogBll>();
 
-        public ActionResult List()
+        [HttpGet]
+        public ActionResult List(MpWeiXinRedPackLogSearchParameter searchParameter)
         {
-            return View();
+            return View(searchParameter);
+        }
+        [HttpPost]
+        public ActionResult List(MpWeiXinRedPackLogSearchParameter searchParameter, FormCollection collection)
+        {
+            BindParameter(searchParameter);
+            searchParameter.ReturnList = _mpWeiXinRePackLogBll.Value.GetRedPackLog(searchParameter);
+            return Json(searchParameter);
         }
 
-        [HttpPost]
+        [HttpGet]
         public ActionResult SendRedPack(RedPackModel model)
+        {
+            return View(model);
+        }
+
+        [ValidateAntiForgeryToken]
+        [HttpPost]
+        public ActionResult SendRedPack(RedPackModel model,FormCollection collection)
         {
             RPoney.Log.LoggerManager.Info(GetType().Name, "发送红包", model.SerializeToJSON());
             var setting = new MpWeiXinAccessSettingBll().GetMpWeiXinAccessSettingByHost(CurrentUser.BindHost);

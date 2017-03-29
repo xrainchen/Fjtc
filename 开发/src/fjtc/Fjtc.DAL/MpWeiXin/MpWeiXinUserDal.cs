@@ -59,6 +59,10 @@ namespace Fjtc.DAL.MpWeiXin
             var pageSql = DataBaseManager.GetPageString(tbname, filter, orderBy, where, search.Page, search.PageSize);
             var pageCount = DataBaseManager.GetCountString(tbname, where);
             serachParameter.Count = DataBaseManager.MainDb().ExecuteScalar(pageCount, parameters.ToArray()).CInt(0, false);
+            if (search.IsAll)
+            {
+                pageSql = DataBaseManager.GetPageString(tbname, filter, orderBy, where, 1, serachParameter.Count);
+            }
             return
                 RPoney.Data.ModelConvertHelper<MpWeiXinUser>.ToModels(
                     DataBaseManager.MainDb().ExecuteFillDataTable(pageSql, parameters.ToArray()));

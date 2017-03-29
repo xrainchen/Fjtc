@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using fjtc.com.Common;
@@ -12,6 +13,8 @@ namespace fjtc.com.Areas.Admin.Controllers
     public class MpUserController : BaseAdminControl
     {
         // GET: Admin/MpUser
+
+        private readonly Lazy<MpWeiXinUserBll> _mpWeiXinUserBll = new Lazy<MpWeiXinUserBll>();
 
         [HttpGet]
         public ActionResult List(MpWeiXinUserSerachParameter serachParameter)
@@ -37,11 +40,10 @@ namespace fjtc.com.Areas.Admin.Controllers
             {
                 if (result.data.openid.Any())
                 {
-                    var mpWeiXinUserBll = new MpWeiXinUserBll();
                     foreach (var openId in result.data.openid)
                     {
                         var weiXinUser = Fjtc.MpWeiXin.CommonAPIs.CommonApi.GetUserInfo(AccessToken().access_token, openId);
-                        if (mpWeiXinUserBll.Save(new MpWeiXinUser()
+                        if (_mpWeiXinUserBll.Value.Save(new MpWeiXinUser()
                         {
                             OpenId = weiXinUser.openid,
                             Subscribe = weiXinUser.subscribe,
@@ -72,6 +74,15 @@ namespace fjtc.com.Areas.Admin.Controllers
                 }
             }
             return DwzHelper.Success($"同步成功：{success}条,同步失败：{fail}条");
+        }
+
+        [HttpGet]
+        public ActionResult SelectMpUser(MpWeiXinUserSerachParameter search)
+        {
+            BindParameter(search);
+            search.IsAll = true;
+            search.ReturnList = _mpWeiXinUserBll.Value.GetList(search);
+            return View(search);
         }
     }
 }

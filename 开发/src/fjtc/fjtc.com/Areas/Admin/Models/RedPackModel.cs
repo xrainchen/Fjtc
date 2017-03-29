@@ -9,7 +9,7 @@ namespace fjtc.com.Areas.Admin.Models
     {
         public IList<long> MpUserIds { get; set; }
 
-        public decimal RedPackTotalAmount { get; set; }
+        public decimal? RedPackTotalAmount { get; set; }
 
         /// <summary>
         /// 发送红包方式  1 平均，2 随机

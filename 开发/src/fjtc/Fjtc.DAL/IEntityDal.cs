@@ -12,7 +12,6 @@ namespace Fjtc.DAL
     {
         bool Add(T entity);
         bool Update(T entity);
-        bool Delete(T entity);
         IList<T> Get(T entity);
     }
 
@@ -23,6 +22,8 @@ namespace Fjtc.DAL
     public interface IIdentityDal<T> : IEntityDal<T> where T : IEntity
     {
         T Get(long id);
+        bool Delete(long id);
+        bool Exist(long id);
     }
     #endregion
 
@@ -35,14 +36,16 @@ namespace Fjtc.DAL
 
         public abstract bool Update(T entity);
 
-        public abstract bool Delete(T entity);
-
         public abstract IList<T> Get(T entity);
     }
 
     public abstract class IdentityDal<T> : EntityDal<T>, IIdentityDal<T> where T : IIdentityEntity
     {
         public abstract T Get(long id);
+
+        public abstract bool Delete(long id);
+
+        public abstract bool Exist(long id);
     }
     #endregion
 }

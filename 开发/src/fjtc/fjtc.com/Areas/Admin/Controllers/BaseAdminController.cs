@@ -109,6 +109,7 @@ namespace fjtc.com.Areas.Admin.Controllers
         {
             if (searchParameter.Page < 1) searchParameter.Page = 1;
             if (searchParameter.PageSize < 1) searchParameter.Page = 20;
+            searchParameter.IsAll = false;
         }
     }
 }
