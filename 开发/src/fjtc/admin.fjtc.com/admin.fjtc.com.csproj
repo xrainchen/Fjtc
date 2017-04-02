@@ -502,6 +502,7 @@
     <Content Include="Areas\MpWeiXin\Views\web.config" />
     <Content Include="Areas\ProductUser\Views\web.config" />
     <Content Include="Areas\ProductUser\Views\ProductUser\List.cshtml" />
+    <Content Include="Areas\ProductUser\Views\ProductUser\UpdateDomain.cshtml" />
     <None Include="Properties\PublishProfiles\admin.fjtc.com.pubxml" />
     <Content Include="Views\CmsUser\List.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />

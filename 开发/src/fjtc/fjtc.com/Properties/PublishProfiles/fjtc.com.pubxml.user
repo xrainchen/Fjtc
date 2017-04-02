@@ -55,16 +55,16 @@
       <publishTime>03/19/2017 22:44:13</publishTime>
     </File>
     <File Include="bin/Fjtc.BLL.dll">
-      <publishTime>04/02/2017 15:53:30</publishTime>
+      <publishTime>04/02/2017 18:39:46</publishTime>
     </File>
     <File Include="bin/fjtc.com.dll">
-      <publishTime>04/02/2017 16:26:10</publishTime>
+      <publishTime>04/02/2017 18:39:51</publishTime>
     </File>
     <File Include="bin/Fjtc.Common.dll">
       <publishTime>04/02/2017 16:26:05</publishTime>
     </File>
     <File Include="bin/Fjtc.DAL.dll">
-      <publishTime>04/02/2017 15:53:30</publishTime>
+      <publishTime>04/02/2017 18:39:46</publishTime>
     </File>
     <File Include="bin/Fjtc.DbHelper.dll">
       <publishTime>03/30/2017 06:22:54</publishTime>

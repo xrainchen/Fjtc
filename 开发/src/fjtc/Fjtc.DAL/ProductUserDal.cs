@@ -68,8 +68,42 @@ namespace Fjtc.DAL
                 new SqlParameter("@CreatedTime",SqlDbType.DateTime) {Value =  DateTime.Now},
                 new SqlParameter("@MobilePhone", SqlDbType.VarChar,16) {Value=user.MobilePhone},
                 new SqlParameter("@BindHost",SqlDbType.VarChar,32) {Value =  user.BindHost},
-                new SqlParameter("@Company",SqlDbType.NVarChar,64) {Value =  user.BindHost},
-                new SqlParameter("@SiteName",SqlDbType.NVarChar,64) {Value =  user.BindHost},
+                new SqlParameter("@Company",SqlDbType.NVarChar,64) {Value =  user.Company},
+                new SqlParameter("@SiteName",SqlDbType.NVarChar,64) {Value =  user.SiteName},
+                };
+                return DataBaseManager.MainDb().ExecuteNonQuery(sql, parameters).CInt(0, false) > 0;
+            }
+            catch (Exception ex)
+            {
+                LoggerManager.Error(GetType().Name, "添加用户异常", ex);
+                return false;
+            }
+        }
+
+        public bool Update(ProductUser user)
+        {
+            try
+            {
+                var sql = @"Update [ProductUser] Set 
+                            Name=@Name,
+                            LoginName=@LoginName,
+                            Password=@Password,
+                            HeadPhoto=@HeadPhoto,
+                            MobilePhone=@MobilePhone,
+                            BindHost=@BindHost,
+                            Company=@Company,
+                            SiteName=@SiteName
+                            WHERE Id=@Id";
+                IDataParameter[] parameters ={
+                    new SqlParameter("@Id",SqlDbType.BigInt) {Value =  user.Id},
+                    new SqlParameter("@Name",SqlDbType.NVarChar,32) {Value =  user.Name},
+                new SqlParameter("@LoginName", SqlDbType.VarChar,32) {Value=user.LoginName},
+                new SqlParameter("@Password",SqlDbType.VarChar,32) {Value =  user.Password},
+                new SqlParameter("@HeadPhoto", SqlDbType.VarChar) {Value = user.HeadPhoto},
+                new SqlParameter("@MobilePhone", SqlDbType.VarChar,16) {Value=user.MobilePhone},
+                new SqlParameter("@BindHost",SqlDbType.VarChar,32) {Value =  user.BindHost},
+                new SqlParameter("@Company",SqlDbType.NVarChar,64) {Value =  user.Company},
+                new SqlParameter("@SiteName",SqlDbType.NVarChar,64) {Value =  user.SiteName},
                 };
                 return DataBaseManager.MainDb().ExecuteNonQuery(sql, parameters).CInt(0, false) > 0;
             }
@@ -164,6 +198,16 @@ namespace Fjtc.DAL
             IDataParameter[] parameters ={
                 new SqlParameter("@Id",SqlDbType.NVarChar,32) {Value = id},
                 new SqlParameter("@Password",SqlDbType.VarChar,32) {Value =  password}
+                };
+            return DataBaseManager.MainDb().ExecuteNonQuery(sql, parameters).CInt(0, false) > 0;
+        }
+
+        public bool UpdateDomain(string bindost, long id)
+        {
+            var sql = "update ProductUser set BindHost=@BindHost where Id=@Id";
+            IDataParameter[] parameters ={
+                new SqlParameter("@Id",SqlDbType.NVarChar,32) {Value = id},
+                new SqlParameter("@BindHost",SqlDbType.VarChar,32) {Value =  bindost}
                 };
             return DataBaseManager.MainDb().ExecuteNonQuery(sql, parameters).CInt(0, false) > 0;
         }

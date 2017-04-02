@@ -81,6 +81,7 @@ namespace fjtc.com.Areas.Admin.Controllers
         {
             BindParameter(search);
             search.IsAll = true;
+            search.ProductUserId = CurrentUser.Id;
             search.ReturnList = _mpWeiXinUserBll.Value.GetList(search);
             return View(search);
         }

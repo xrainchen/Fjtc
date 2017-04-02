@@ -518,9 +518,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Views\BaseControl\" />
     <Folder Include="Areas\Admin\Views\LogMamager\" />
-    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Fjtc.BLL\Fjtc.BLL.csproj">

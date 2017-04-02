@@ -28,13 +28,24 @@ namespace fjtc.com.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            return View(CurrentUser);
+            var productUserBll = new ProductUserBLL();
+            var user = productUserBll.Get(CurrentUser.Id);
+            return View(user);
         }
 
         [HttpPost]
         public ActionResult Save(ProductUser model)
         {
-            return null;
+            var productUserBll = new ProductUserBLL();
+            var user = productUserBll.Get(CurrentUser.Id);
+            user.SiteName = model.SiteName;
+            user.Name = model.Name;
+            var result=productUserBll.Update(user);
+            if (result)
+            {
+                return DwzHelper.Success("修改成功");
+            }
+            return DwzHelper.Warn("修改失败");
         }
     }
 }

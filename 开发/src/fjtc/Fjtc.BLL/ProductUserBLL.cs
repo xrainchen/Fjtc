@@ -45,5 +45,15 @@ namespace Fjtc.BLL
         {
             return _dal.UpdatePassword(password, id);
         }
+
+        public bool UpdateDomain(string bindost, long id)
+        {
+            return _dal.UpdateDomain(bindost, id);
+        }
+
+        public bool Update(ProductUser user)
+        {
+            return _dal.Update(user);
+        }
     }
 }
