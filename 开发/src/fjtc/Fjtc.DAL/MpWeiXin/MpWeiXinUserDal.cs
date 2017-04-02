@@ -71,7 +71,7 @@ namespace Fjtc.DAL.MpWeiXin
         {
             try
             {
-                var sql = $@"IF(SELECT EXISTS(SELECT Id FROM MpWeiXinUser WITH(NOLOCK) WHERE OpenId=@OpenId))>0
+                var sql = $@"IF(EXISTS(SELECT Id FROM MpWeiXinUser WITH(NOLOCK) WHERE OpenId=@OpenId))
                             BEGIN
                                 UPDATE MpWeiXinUser SET 
                                 Subscribe=@Subscribe

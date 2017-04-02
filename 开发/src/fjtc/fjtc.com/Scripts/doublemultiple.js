@@ -81,11 +81,12 @@
                             var source = $t.dbMultiData;
                             //数据源中包含该对象
                             if (searchText !== "") {
+                                searchText = searchText.toLowerCase();
                                 source = Enumerable.From(source).Where(function (x) {
                                     var fields = searchField.split(',');
                                     var result = false;
                                     for (var i = 0; i < fields.length; i++) {
-                                        result = x[fields[i]].indexOf(searchText) > -1;
+                                        result = x[fields[i]].toLowerCase().indexOf(searchText) > -1;
                                         if (result === true) {
                                             break;
                                         }
@@ -110,13 +111,14 @@
                         if (searchText === "") {
                             searchResultData = $t.selectData;
                         } else {
+                            searchText = searchText.toLowerCase();
                             if ($t.selectData.length > 0) {
                                 searchResultData = Enumerable.From($t.selectData)
                                     .Where(function (x) {
                                         var fields = searchField.split(',');
                                         var result = false;
                                         for (var i = 0; i < fields.length; i++) {
-                                            result = x[fields[i]].indexOf(searchText) > -1;
+                                            result = x[fields[i]].toLowerCase().indexOf(searchText) > -1;
                                             if (result === true) {
                                                 break;
                                             }
@@ -192,8 +194,8 @@
                             .append($('<table/>', { 'class': 'dbmultitable' }).append(theadText).append($("<tbody/>", { "attribute-control-type": "tbody", "attribute-control-name": "result-tbody" })));//结果
                         tsObj.append(
                             p.container
-                            .append(p.selectableContainer.append("<div class='custom-header' style='margin-bottom: 8px;'>可选" + p.name + "</div>搜索：<input type='text' attribute-control-type='search' attribute-control-name='source' autocomplete='off' placeholder=''>").append(sourceTable))//左侧
-                            .append(p.selectionContainer.append("<div class='custom-header' style='margin-bottom: 8px;'>已选" + p.name + "</div>搜索：<input type='text' attribute-control-type='search'  attribute-control-name='result' autocomplete='off' placeholder=''>").append(sltTable))//右侧
+                            .append(p.selectableContainer.append("<div class='custom-header' style='margin-bottom: 8px;'>可选" + p.name + "</div><div>搜索：<input type='text' attribute-control-type='search' attribute-control-name='source' autocomplete='off' placeholder=''></div>").append(sourceTable))//左侧
+                            .append(p.selectionContainer.append("<div class='custom-header' style='margin-bottom: 8px;'>已选" + p.name + "</div><div>搜索：<input type='text' attribute-control-type='search'  attribute-control-name='result' autocomplete='off' placeholder=''></div>").append(sltTable))//右侧
                             [0]);
                     }//初始化下拉框
                 };

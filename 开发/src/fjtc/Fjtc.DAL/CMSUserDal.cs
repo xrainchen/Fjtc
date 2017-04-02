@@ -80,15 +80,7 @@ namespace Fjtc.DAL
         {
             try
             {
-                var insertSql = $@"IF (SELECT EXIST(SELECT Id FROM CMSUser with(nolock) WHERE LoginName=@LoginName And Id<>@Id And UserType<>{(int)UserTypeEnum.Administrator})) = 0
-                            BEGIN
-                                Update CMSUser Set Status=@Status,Name=@Name{(string.IsNullOrEmpty(user.Password) ? "" : ",Password=@Password")} Where Id=@Id
-                                SELECT 1;
-                            END
-                            ELSE
-                            BEGIN
-                                SELECT 0;
-                            END";
+                var sql = $@" Update CMSUser Set Status=@Status,Name=@Name{(string.IsNullOrEmpty(user.Password) ? "" : ",Password=@Password")} Where Id=@Id And UserType<>{(int)UserTypeEnum.Administrator})";
                 IDataParameter[] parameters ={
                 new SqlParameter("@Id", SqlDbType.BigInt) {Value = user.Id},
                 new SqlParameter("@Password",SqlDbType.VarChar,32) {Value =  user.Password},
@@ -96,7 +88,7 @@ namespace Fjtc.DAL
                 new SqlParameter("@LoginName", SqlDbType.NVarChar,32) {Value=user.LoginName},
                 new SqlParameter("@Status",SqlDbType.Int) {Value =  user.Status},
                 };
-                return DataBaseManager.CmsDb().ExecuteScalar(insertSql, parameters).CInt(0, false) > 0;
+                return DataBaseManager.CmsDb().ExecuteNonQuery(sql, parameters).CInt(0, false) > 0;
             }
             catch (Exception ex)
             {

@@ -84,7 +84,7 @@ namespace Fjtc.DAL
         {
             try
             {
-                var sql = "SELECT EXISTS(SELECT Id FROM [ProductUser] with(nolock) WHERE LoginName=@LoginName)";
+                var sql = "SELECT Count(1) FROM [ProductUser] WHERE  EXISTS(SELECT Id FROM [ProductUser] with(nolock) WHERE LoginName=@LoginName)";
                 IDataParameter[] parameters ={
                 new SqlParameter("@LoginName", SqlDbType.VarChar,32) {Value = loginName},
                 };
@@ -101,7 +101,7 @@ namespace Fjtc.DAL
         {
             try
             {
-                var sql = "SELECT EXISTS(SELECT Id FROM [ProductUser] with(nolock) WHERE MobilePhone=@MobilePhone)";
+                var sql = "SELECT Count(1) FROM [ProductUser] WHERE EXISTS(SELECT Id FROM [ProductUser] with(nolock) WHERE MobilePhone=@MobilePhone)";
                 IDataParameter[] parameters ={
                 new SqlParameter("@MobilePhone", SqlDbType.VarChar,32) {Value = mobilephone},
                 };
@@ -117,7 +117,7 @@ namespace Fjtc.DAL
         {
             try
             {
-                var sql = "SELECT EXISTS(SELECT Id FROM [ProductUser] with(nolock) WHERE BindHost=@BindHost)";
+                var sql = "SELECT Count(1) FROM [ProductUser] WHERE EXISTS(SELECT Id FROM [ProductUser] with(nolock) WHERE BindHost=@BindHost)";
                 IDataParameter[] parameters ={
                 new SqlParameter("@BindHost", SqlDbType.VarChar,32) {Value = bindHost},
                 };

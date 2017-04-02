@@ -24,8 +24,8 @@
                 <dt>选择发送用户：</dt>
                 <dd>
                     @Html.HiddenFor(m => m.MpUserIds)
-                    <input class="required textInput readonly" name="MpUserNicks" type="text" readonly="">
-                    <a class="btnLook" target="dialog" mask="true" rel="SelectMpUser" href="@Url.Action("SelectMpUser","MpUser")">选择用户</a>
+                    <input id="MpUserNicks" class="required textInput readonly" name="MpUserNicks" type="text" readonly="">
+                    <a class="btnLook" target="dialog" mask="true" rel="SelectMpUser" href="javascript:;" onclick="$(this).attr('href','@Url.Action("SelectMpUser","MpUser")?SelectedIds='+$('#MpUserIds').val())">选择用户</a>
                 </dd>
             </dl>
         </div>
@@ -36,3 +36,9 @@
         </div>
     </form>
 </div>
+<script>
+    window.SelectUserCallback = function (selectIds, selectNames) {
+        $("#MpUserIds").val(selectIds);
+        $("#MpUserNicks").val(selectNames);
+    }
+</script>

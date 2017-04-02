@@ -54,7 +54,7 @@ namespace Fjtc.DAL.MpWeiXin
             var description = "检查红包日志是否存在";
             try
             {
-                var sql = @"IF EXISTS(SELECT Id FROM MpWeiXinRedPackLog with(nolock) WHERE ID=@Id) BEGIN SELECT 1 END ELSE BEGIN SELECT 0 END";
+                var sql = @"SELECT Count(1) FROM [MpWeiXinRedPackLog] WHERE EXISTS(SELECT Id FROM MpWeiXinRedPackLog with(nolock) WHERE ID=@Id)";
                 IDataParameter[] parameters ={
                 new SqlParameter("@Id", SqlDbType.BigInt,8) {Value = id},
                 };

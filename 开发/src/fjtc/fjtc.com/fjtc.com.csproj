@@ -119,6 +119,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\doublemultiple.css" />
     <Content Include="Content\dwz_jui\dwz.frag.xml" />
     <Content Include="Content\dwz_jui\favicon.ico" />
     <Content Include="Content\dwz_jui\themes\azure\images\accordion\accordion.png" />
@@ -467,6 +468,7 @@
     <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LogMamagerController.cs" />
     <Compile Include="Areas\Admin\Controllers\MpManagerController.cs" />
     <Compile Include="Areas\Admin\Controllers\MpRedPackController.cs" />
     <Compile Include="Areas\Admin\Controllers\MpUserController.cs" />
@@ -517,6 +519,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\BaseControl\" />
+    <Folder Include="Areas\Admin\Views\LogMamager\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>

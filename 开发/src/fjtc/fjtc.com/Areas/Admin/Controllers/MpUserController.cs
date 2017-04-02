@@ -70,7 +70,7 @@ namespace fjtc.com.Areas.Admin.Controllers
                             message += $"{openId}同步失败";
                         }
                     }
-                    RPoney.Log.LoggerManager.Info(GetType().Name, $"同步记录:{message}");
+                    RPoney.Log.LoggerManager.Debug(GetType().Name, $"同步记录:{message}");
                 }
             }
             return DwzHelper.Success($"同步成功：{success}条,同步失败：{fail}条");
