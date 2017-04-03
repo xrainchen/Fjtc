@@ -19,20 +19,30 @@ namespace Fjtc.BLL.MpWeiXin
             return AccessSettingDic.GetOrAdd(userName, x => _mpWeiXinAccessSettingDal.GetMpWeiXinAccessSetting(userName));
         }
 
-        public MpWeiXinAccessSetting GetMpWeiXinAccessSettingByHost(string host)
+        public MpWeiXinAccessSetting GetMpWeiXinAccessSettingByHost(string host, bool isCace = true)
         {
-            if (!AccessSettingDic.ContainsKey(host) || AccessSettingDic[host] == null)
+            if (isCace)
+            {
+                if (!AccessSettingDic.ContainsKey(host) || AccessSettingDic[host] == null)
+                {
+                    AccessSettingDic.AddOrUpdate(
+                        host,
+                        x => _mpWeiXinAccessSettingDal.GetMpWeiXinAccessSettingByHost(host),
+                        (x, setting) => _mpWeiXinAccessSettingDal.GetMpWeiXinAccessSettingByHost(host)
+                        );
+                }
+            }
+            else
             {
                 AccessSettingDic.AddOrUpdate(
-                    host,
-                    x => _mpWeiXinAccessSettingDal.GetMpWeiXinAccessSettingByHost(host),
-                    (x, setting) => _mpWeiXinAccessSettingDal.GetMpWeiXinAccessSettingByHost(host)
-                    );
-
+                        host,
+                        x => _mpWeiXinAccessSettingDal.GetMpWeiXinAccessSettingByHost(host),
+                        (x, setting) => _mpWeiXinAccessSettingDal.GetMpWeiXinAccessSettingByHost(host)
+                        );
             }
             return AccessSettingDic.GetOrAdd(host,
-                x =>
-            _mpWeiXinAccessSettingDal.GetMpWeiXinAccessSettingByHost(host));
+                   x =>
+                       _mpWeiXinAccessSettingDal.GetMpWeiXinAccessSettingByHost(host));
         }
         public bool AddOrUpdate(MpWeiXinAccessSetting entity)
         {

@@ -73,7 +73,12 @@
     <Compile Include="ViewModel\MpWeiXinRedPackLogViewModel.cs" />
     <Compile Include="ViewModel\ProductUserViewModel.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Fjtc.Common\Fjtc.Common.csproj">
+      <Project>{84299fd4-9efa-44c8-9367-472122f8d080}</Project>
+      <Name>Fjtc.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

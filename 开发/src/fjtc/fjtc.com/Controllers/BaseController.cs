@@ -43,16 +43,6 @@ namespace fjtc.com.Controllers
 
         private MpWeiXinAccessSetting _currentAccessSetting;
         protected MpWeiXinAccessSetting CurrentAccessSetting => _currentAccessSetting;
-
-        protected AccessTokenResult AccessToken()
-        {
-            if (!AccessTokenContainer.CheckRegistered(_currentAccessSetting.AppId))//检查是否已经注册
-            {
-                AccessTokenContainer.Register(_currentAccessSetting.AppId, _currentAccessSetting.AppSecret);//如果没有注册则进行注册
-            }
-            return AccessTokenContainer.GetAccessTokenResult(_currentAccessSetting.AppId); //获取AccessToken结果
-        }
-
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             if (filterContext == null)

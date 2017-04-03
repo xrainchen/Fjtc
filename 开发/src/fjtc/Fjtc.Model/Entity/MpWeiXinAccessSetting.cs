@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Text;
+using Fjtc.Common.Encrypt;
+using RPoney;
 
 namespace Fjtc.Model.Entity
 {
@@ -36,5 +39,26 @@ namespace Fjtc.Model.Entity
         /// API密钥
         /// </summary>
         public string ApiKey { get; set; }
+
+
+        public MpWeiXinAccessSetting Decrypt()
+        {
+            //this.AppId = string.IsNullOrWhiteSpace(this.AppId) ? "" : Encoding.UTF8.GetString(this.AppId.DesDecrypt().GetBytes());
+            //this.AppSecret = string.IsNullOrWhiteSpace(this.AppSecret) ? "" : Encoding.UTF8.GetString(this.AppSecret.DesDecrypt().GetBytes());
+            //this.Token = string.IsNullOrWhiteSpace(this.Token) ? "" : Encoding.UTF8.GetString(this.Token.DesDecrypt().GetBytes());
+            //this.MachId = string.IsNullOrWhiteSpace(this.MachId) ? "" : Encoding.UTF8.GetString(this.MachId.DesDecrypt().GetBytes());
+            //this.ApiKey = string.IsNullOrWhiteSpace(this.ApiKey) ? "" : Encoding.UTF8.GetString(this.ApiKey.DesDecrypt().GetBytes());
+            return this;
+        }
+
+        public MpWeiXinAccessSetting Encrypt()
+        {
+            //this.AppId = string.IsNullOrWhiteSpace(this.AppId) ? "" : Encoding.UTF8.GetBytes(this.AppId).GetHexString().DesEncrypt();
+            //this.AppSecret = string.IsNullOrWhiteSpace(this.AppSecret) ? "" : Encoding.UTF8.GetBytes(this.AppSecret).GetHexString().DesEncrypt();
+            //this.Token = string.IsNullOrWhiteSpace(this.Token) ? "" : Encoding.UTF8.GetBytes(this.Token).GetHexString().DesEncrypt();
+            //this.MachId = string.IsNullOrWhiteSpace(this.MachId) ? "" : Encoding.UTF8.GetBytes(this.MachId).GetHexString().DesEncrypt();
+            //this.ApiKey = string.IsNullOrWhiteSpace(this.ApiKey) ? "" : Encoding.UTF8.GetBytes(this.ApiKey).GetHexString().DesEncrypt();
+            return this;
+        }
     }
 }
