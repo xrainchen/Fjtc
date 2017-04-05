@@ -479,6 +479,7 @@
     <Compile Include="Auth\TicketStorageFactory.cs" />
     <Compile Include="Common\DwzHelper.cs" />
     <Compile Include="Common\JsonResultHelper.cs" />
+    <Compile Include="Common\OrderHelper.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MpWeiXinController.cs" />
@@ -521,6 +522,10 @@
     <Folder Include="Areas\Admin\Views\LogMamager\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\cms.rponey.cc.Utilty\cms.rponey.cc.Utilty.csproj">
+      <Project>{CC920A91-40F8-48CF-A694-F53B25E991D7}</Project>
+      <Name>cms.rponey.cc.Utilty</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Fjtc.BLL\Fjtc.BLL.csproj">
       <Project>{6325681c-f223-40a5-bd24-06746962a62a}</Project>
       <Name>Fjtc.BLL</Name>

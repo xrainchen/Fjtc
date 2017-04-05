@@ -1,4 +1,5 @@
-﻿using Senparc.Weixin.MP;
+﻿using cms.rponey.cc.Utilty;
+using Senparc.Weixin.MP;
 using Senparc.Weixin.MP.TenPayLibV3;
 
 namespace Fjtc.MpWeiXin.TenPayLibV3
@@ -17,7 +18,6 @@ namespace Fjtc.MpWeiXin.TenPayLibV3
         /// <param name="tenPayCertPath"></param>
         /// <param name="openId"></param>
         /// <param name="senderName"></param>
-        /// <param name="iP"></param>
         /// <param name="redPackAmount"></param>
         /// <param name="wishingWord"></param>
         /// <param name="actionName"></param>
@@ -32,7 +32,7 @@ namespace Fjtc.MpWeiXin.TenPayLibV3
         public static NormalRedPackResult SendNormalRedPack(string appId, string mchId, string tenPayKey,
             string tenPayCertPath,
             string openId, string senderName,
-            string iP, int redPackAmount, string wishingWord, string actionName, string remark,
+            int redPackAmount, string wishingWord, string actionName, string remark,
             out string nonceStr, out string paySign,
             string mchBillNo, RedPack_Scene? scene = null, string riskInfo = null, string consumeMchId = null)
         {
@@ -43,7 +43,7 @@ namespace Fjtc.MpWeiXin.TenPayLibV3
                  tenPayCertPath,
                  openId,
                  senderName,
-                 iP,
+                 Tools.GetIp(),
                  redPackAmount,
                  wishingWord,
                  actionName,

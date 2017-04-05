@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Web.Mvc;
 using fjtc.com.Areas.Admin.Models;
+using fjtc.com.Common;
 using Fjtc.BLL.MpWeiXin;
 using Fjtc.Model.SearchModel;
 using RPoney;
@@ -34,7 +35,7 @@ namespace fjtc.com.Areas.Admin.Controllers
 
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public ActionResult SendRedPack(RedPackModel model,FormCollection collection)
+        public ActionResult SendRedPack(RedPackModel model, FormCollection collection)
         {
             RPoney.Log.LoggerManager.Info(GetType().Name, "发送红包", model.SerializeToJSON());
             var setting = new MpWeiXinAccessSettingBll().GetMpWeiXinAccessSettingByHost(CurrentUser.BindHost);
@@ -47,18 +48,19 @@ namespace fjtc.com.Areas.Admin.Controllers
                 Fjtc.MpWeiXin.TenPayLibV3.RedPackApi.SendNormalRedPack(
                     setting.AppId,
                     setting.MachId,
-                    "tenPayCertPath",
-                    "tenPayCertPath",
+                    setting.ApiKey,
+                    setting.CertPath,
                     user.OpenId,
-                    "senderName",
-                    "iP",
+                    CurrentUser.Company,
                     item.RedPackAmount,
-                    "wishingWord",
-                    "actionName",
+                    model.Wishing,
+                    model.ActionName,
                     model.Remark,
                     out nonceStr,
                     out paySign,
-                    "mchBillNo"
+                    OrderHelper.GetMachBillno(setting.MachId),
+                    model.SceneIdType
+
                     );
             }
             return null;

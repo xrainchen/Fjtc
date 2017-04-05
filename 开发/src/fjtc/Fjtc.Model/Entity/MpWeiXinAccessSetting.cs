@@ -40,6 +40,10 @@ namespace Fjtc.Model.Entity
         /// </summary>
         public string ApiKey { get; set; }
 
+        /// <summary>
+        /// 证书路径
+        /// </summary>
+        public string CertPath { get; set; }
 
         public MpWeiXinAccessSetting Decrypt()
         {
