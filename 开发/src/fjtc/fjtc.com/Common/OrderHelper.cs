@@ -1,4 +1,5 @@
 ﻿using System;
+using cms.rponey.cc.Utilty;
 
 namespace fjtc.com.Common
 {
@@ -12,18 +13,14 @@ namespace fjtc.com.Common
         /// <returns></returns>
         public static string GetMachBillno(string machId)
         {
-            return machId + DateTime.Now.ToString("yyyyMMdd")+ Identity();
+            return machId + DateTime.Now.ToString("yyyyMMdd") + Identity();
         }
 
         public static string Identity()
         {
             identity++;
-            if (identity > 999999999)
-            {
-                identity = 0;
-            }
-            var result = identity.ToString().PadLeft(10, '0');
-            return result.Substring(result.Length - 10, 10);
+            var result = identity.ToString().PadLeft(5, '0');
+            return Tools.GetRandom("0123456789", 2, System.Threading.Thread.GetDomainID())+ DateTime.Now.Millisecond.ToString().PadLeft(3,'0') + result.Substring(result.Length - 5, 5);
         }
     }
 }

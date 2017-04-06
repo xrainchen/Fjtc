@@ -31,6 +31,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "团队", "团队", "{B5C96C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cms.rponey.cc.Utilty", "cms.rponey.cc.Utilty\cms.rponey.cc.Utilty.csproj", "{CC920A91-40F8-48CF-A694-F53B25E991D7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "单元测试", "单元测试", "{CBFB9D1A-3A9A-42F6-92C3-7C3264A69554}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fjtc.UnitTest", "fjtc.UnitTest\fjtc.UnitTest.csproj", "{854FE3B9-3B5F-4A3F-9940-2122873BEED7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +81,10 @@ Global
 		{CC920A91-40F8-48CF-A694-F53B25E991D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC920A91-40F8-48CF-A694-F53B25E991D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC920A91-40F8-48CF-A694-F53B25E991D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{854FE3B9-3B5F-4A3F-9940-2122873BEED7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{854FE3B9-3B5F-4A3F-9940-2122873BEED7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{854FE3B9-3B5F-4A3F-9940-2122873BEED7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{854FE3B9-3B5F-4A3F-9940-2122873BEED7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -92,5 +100,6 @@ Global
 		{84299FD4-9EFA-44C8-9367-472122F8D080} = {B5C96CBD-7FBF-4419-8C5B-42F84250D014}
 		{8E313094-8437-48F4-985D-267286939D10} = {B5C96CBD-7FBF-4419-8C5B-42F84250D014}
 		{CC920A91-40F8-48CF-A694-F53B25E991D7} = {B5C96CBD-7FBF-4419-8C5B-42F84250D014}
+		{854FE3B9-3B5F-4A3F-9940-2122873BEED7} = {CBFB9D1A-3A9A-42F6-92C3-7C3264A69554}
 	EndGlobalSection
 EndGlobal
