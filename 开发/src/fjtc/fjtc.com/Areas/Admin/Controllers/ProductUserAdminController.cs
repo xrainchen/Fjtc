@@ -40,7 +40,8 @@ namespace fjtc.com.Areas.Admin.Controllers
             var user = productUserBll.Get(CurrentUser.Id);
             user.SiteName = model.SiteName;
             user.Name = model.Name;
-            var result=productUserBll.Update(user);
+            user.Company = model.Company;
+            var result = productUserBll.Update(user);
             if (result)
             {
                 return DwzHelper.Success("修改成功");

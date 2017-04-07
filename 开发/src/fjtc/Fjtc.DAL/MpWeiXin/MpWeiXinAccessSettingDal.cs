@@ -71,13 +71,13 @@ namespace Fjtc.DAL.MpWeiXin
             {
                 var sqlStr = @"IF (Not EXISTS(SELECT Id FROM MpWeiXinAccessSetting with(nolock) WHERE UserId=@UserId))
                             BEGIN
-                                   INSERT INTO MpWeiXinAccessSetting(UserId,AppId,AppSecret,Token,MachId,ApiKey)
-                                   Values(@UserId,@AppId,@AppSecret,@Token,@MachId,@ApiKey)
+                                   INSERT INTO MpWeiXinAccessSetting(UserId,AppId,AppSecret,Token,MachId,ApiKey,CertPath)
+                                   Values(@UserId,@AppId,@AppSecret,@Token,@MachId,@ApiKey,@CertPath)
                             END
                             ELSE
                             BEGIN
                                 UPDATE MpWeiXinAccessSetting 
-                                SET AppId=@AppId,AppSecret=@AppSecret,Token=@Token,MachId=@MachId,ApiKey=@ApiKey  
+                                SET AppId=@AppId,AppSecret=@AppSecret,Token=@Token,MachId=@MachId,ApiKey=@ApiKey,CertPath=@CertPath 
                                 Where UserId=@UserId
                             END";
                 var paramet = new[] {
@@ -87,6 +87,7 @@ namespace Fjtc.DAL.MpWeiXin
                     new SqlParameter("@Token",SqlDbType.NVarChar,128) { Value = entity.Token },
                     new SqlParameter("@MachId",SqlDbType.VarChar,128) { Value = entity.MachId },
                     new SqlParameter("@ApiKey",SqlDbType.NVarChar,128) { Value = entity.ApiKey },
+                    new SqlParameter("@CertPath",SqlDbType.NVarChar,128) { Value = entity.CertPath },
                 };
                 return DataBaseManager.MainDb().ExecuteNonQuery(sqlStr, paramet) > 0;
             }

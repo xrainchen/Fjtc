@@ -50,7 +50,7 @@ namespace fjtc.com.Areas.Admin.Controllers
         }
         protected AccessTokenResult AccessToken()
         {
-            var mpWeiXinAccessSetting = new MpWeiXinAccessSettingBll().GetMpWeiXinAccessSettingByHost(CurrentUser.BindHost).Decrypt();
+            var mpWeiXinAccessSetting = new MpWeiXinAccessSettingBll().GetMpWeiXinAccessSettingByHost(CurrentUser.BindHost);
             var appId = mpWeiXinAccessSetting.AppId;
             var appSecret = mpWeiXinAccessSetting.AppSecret;
             if (!AccessTokenContainer.CheckRegistered(appId))//检查是否已经注册

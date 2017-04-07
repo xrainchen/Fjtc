@@ -15,7 +15,7 @@ namespace Fjtc.DAL.MpWeiXin
         public IList<MpWeiXinRedPackLogViewModel> GetRedPackLog(SearchParameter serachParameter)
         {
             var search = serachParameter as MpWeiXinRedPackLogSearchParameter;
-            var tbname = "MpWeiXinRedPackLogEntity with(nolock)";
+            var tbname = "MpWeiXinRedPackLog with(nolock)";
             var filter = "*";
             var orderBy = "CreatedTime desc";
             var where = "";

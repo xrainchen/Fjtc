@@ -9,7 +9,7 @@ namespace fjtc.com.Areas.Admin.Models
     /// </summary>
     public class RedPackModel
     {
-        public IList<long> MpUserIds { get; set; }
+        public string MpUserIds { get; set; }
 
         public decimal? RedPackTotalAmount { get; set; }
 

@@ -23,7 +23,7 @@ namespace fjtc.com.Areas.Admin.Controllers
         {
             var setting = new MpWeiXinAccessSettingBll().GetMpWeiXinAccessSetting(CurrentUser.Id) ?? new MpWeiXinAccessSetting { UserId = CurrentUser.Id };
             ViewBag.CurrentUser = CurrentUser;
-            return View(setting.Decrypt());
+            return View(setting);
         }
 
         [HttpPost]
@@ -38,7 +38,8 @@ namespace fjtc.com.Areas.Admin.Controllers
                 entity.Token = model.Token;
                 entity.MachId = model.MachId;
                 entity.ApiKey = model.ApiKey;
-                var result = new MpWeiXinAccessSettingBll().AddOrUpdate(entity.Encrypt());
+                entity.CertPath = model.CertPath;
+                var result = new MpWeiXinAccessSettingBll().AddOrUpdate(entity);
                 if (result)
                 {
                     return DwzHelper.Success("保存成功");

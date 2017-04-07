@@ -21,7 +21,7 @@ namespace fjtc.com.Controllers
         public ActionResult Auth(MpWeiXinAccessModel model)
         {
             LoggerManager.Debug(GetType().Name, "请求数据", model.SerializeToJSON());
-            var accessSetting = new MpWeiXinAccessSettingBll().GetMpWeiXinAccessSettingByHost(Request.Url.Host, false).Decrypt();
+            var accessSetting = new MpWeiXinAccessSettingBll().GetMpWeiXinAccessSettingByHost(Request.Url.Host, false);
             if (CheckSignature.Check(model.Signature, model.Timestamp, model.Nonce, accessSetting.Token))
             {
                 return Content(model.Echostr);

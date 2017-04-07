@@ -5,6 +5,7 @@ using System.Web.Mvc;
 using fjtc.com.Areas.Admin.Models;
 using fjtc.com.Common;
 using Fjtc.BLL.MpWeiXin;
+using Fjtc.Model.Entity;
 using Fjtc.Model.SearchModel;
 using RPoney;
 
@@ -42,30 +43,76 @@ namespace fjtc.com.Areas.Admin.Controllers
             RPoney.Log.LoggerManager.Info(GetType().Name, "发送红包", model.SerializeToJSON());
             var setting = new MpWeiXinAccessSettingBll().GetMpWeiXinAccessSettingByHost(CurrentUser.BindHost);
             var mpUserBll = new MpWeiXinUserBll();
+            var errMsg = string.Empty;
             foreach (var item in MakeRedPack(model))
             {
-                var user = mpUserBll.GetBelongMpProductUser(item.MpUserId, CurrentUser.Id);
-                var nonceStr = string.Empty;
-                var paySign = string.Empty;
-                Fjtc.MpWeiXin.TenPayLibV3.RedPackApi.SendNormalRedPack(
-                    setting.AppId,
-                    setting.MachId,
-                    setting.ApiKey,
-                    setting.CertPath,
-                    user.OpenId,
-                    CurrentUser.Company,
-                    item.RedPackAmount,
-                    model.Wishing,
-                    model.ActionName,
-                    model.Remark,
-                    out nonceStr,
-                    out paySign,
-                    OrderHelper.GetMachBillno(setting.MachId),
-                    model.SceneIdType
+                try
+                {
+                    var user = mpUserBll.GetBelongMpProductUser(item.MpUserId, CurrentUser.Id);
+                    var nonceStr = string.Empty;
+                    var paySign = string.Empty;
+                    var result = Fjtc.MpWeiXin.TenPayLibV3.RedPackApi.SendNormalRedPack(
+                         setting.AppId,
+                         setting.MachId,
+                         setting.ApiKey,
+                         setting.CertPath,
+                         user.OpenId,
+                         CurrentUser.Company,
+                         item.RedPackAmount,
+                         model.Wishing,
+                         model.ActionName,
+                         model.Remark,
+                         out nonceStr,
+                         out paySign,
+                         OrderHelper.GetMachBillno(setting.MachId),
+                         model.SceneIdType
+                         );
+                    RPoney.Log.LoggerManager.Info(GetType().Name, result.SerializeToJSON());
+                    if (result.return_code == "SUCCESS")
+                    {
+                        if (result.result_code == "SUCCESS")
+                        {
+                            _mpWeiXinRePackLogBll.Value.Add(new MpWeiXinRedPackLogEntity()
+                            {
+                                CreatedBy = CurrentUser.LoginName,
+                                OpenId = result.re_openid,
+                                RedPackAmount = Convert.ToInt64(result.total_amount),
+                                Remark = $"微信单号：{result.send_listid}",
+                                ProductUserId = CurrentUser.Id
+                            });
+                        }
+                        else if (result.result_code == "FAIL")
+                        {
+                            RPoney.Log.LoggerManager.Info(GetType().Name, $"{result.err_code}:{result.err_code_des}");
+                            errMsg += $"发送失败:{ result.err_code}:{ result.err_code_des}{Environment.NewLine}";
+                        }
+                        else
+                        {
+                            errMsg += $"未知返回码:{result.result_code}";
+                        }
+                    }
+                    else if (result.return_code == "FAIL ")
+                    {
+                        RPoney.Log.LoggerManager.Info(GetType().Name, $"{item.MpUserId}发送失败,消息:{result.return_msg}{Environment.NewLine}");
+                        errMsg += $"{item.MpUserId}发送失败,消息:{result.return_msg}{Environment.NewLine}";
+                    }
+                    else
+                    {
+                        errMsg += $"未知返回码:{result.return_code}";
+                    }
 
-                    );
+                }
+                catch (Exception ex)
+                {
+                    errMsg += $"{item.MpUserId}发送失败,详细请查看日志{Environment.NewLine}";
+                    RPoney.Log.LoggerManager.Error(GetType().Name, $"{item.MpUserId}发送红包异常", ex);
+                }
             }
-            return null;
+            if (!string.IsNullOrWhiteSpace(errMsg))
+            {
+                return DwzHelper.Warn(errMsg);
+            }
+            return DwzHelper.Success("发送成功");
         }
 
         private IList<RedPackItemModel> MakeRedPack(RedPackModel model)
@@ -73,17 +120,18 @@ namespace fjtc.com.Areas.Admin.Controllers
             var totalMoney = model.RedPackTotalAmount.GetValueOrDefault() * 100;//单位换算  元换算成分
             var redpackmoney = Convert.ToInt32(totalMoney);
             var redPackList = new List<RedPackItemModel>();
+            var mpUserIds = model.MpUserIds.Split(',');
             switch (model.SendRedPackType)
             {
                 case 1://平均
-                    redPackList.AddRange(model.MpUserIds.Select(mpUserIds => new RedPackItemModel()
+                    redPackList.AddRange(mpUserIds.Select(mpuserId => new RedPackItemModel()
                     {
-                        MpUserId = mpUserIds,
+                        MpUserId = Convert.ToInt64(mpuserId),
                         RedPackAmount = redpackmoney
                     }));
                     break;
                 case 2://随机
-                    var people = model.MpUserIds.Count;
+                    var people = mpUserIds.Length;
                     var min = 1;
                     for (int i = 0; i < people - 1; i++)
                     {
