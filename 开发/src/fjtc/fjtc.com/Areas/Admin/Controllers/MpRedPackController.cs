@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using fjtc.com.Areas.Admin.Models;
 using fjtc.com.Common;
@@ -37,6 +38,7 @@ namespace fjtc.com.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult SendRedPack(RedPackModel model, FormCollection collection)
         {
+            //校验
             RPoney.Log.LoggerManager.Info(GetType().Name, "发送红包", model.SerializeToJSON());
             var setting = new MpWeiXinAccessSettingBll().GetMpWeiXinAccessSettingByHost(CurrentUser.BindHost);
             var mpUserBll = new MpWeiXinUserBll();
@@ -68,14 +70,27 @@ namespace fjtc.com.Areas.Admin.Controllers
 
         private IList<RedPackItemModel> MakeRedPack(RedPackModel model)
         {
+            var totalMoney = model.RedPackTotalAmount.GetValueOrDefault() * 100;//单位换算  元换算成分
+            var redpackmoney = Convert.ToInt32(totalMoney);
             var redPackList = new List<RedPackItemModel>();
             switch (model.SendRedPackType)
             {
                 case 1://平均
-
+                    redPackList.AddRange(model.MpUserIds.Select(mpUserIds => new RedPackItemModel()
+                    {
+                        MpUserId = mpUserIds,
+                        RedPackAmount = redpackmoney
+                    }));
                     break;
                 case 2://随机
-
+                    var people = model.MpUserIds.Count;
+                    var min = 1;
+                    for (int i = 0; i < people - 1; i++)
+                    {
+                        int leftPeople = people - i;
+                        var avg = totalMoney / leftPeople;
+                        //随机计算
+                    }
                     break;
             }
             return redPackList;
