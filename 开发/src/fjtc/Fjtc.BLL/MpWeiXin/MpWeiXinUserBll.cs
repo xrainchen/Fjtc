@@ -12,7 +12,10 @@ namespace Fjtc.BLL.MpWeiXin
         {
             return _dal.Save(entity);
         }
-
+        public bool Add(MpWeiXinUser entity)
+        {
+            return _dal.Add(entity);
+        }
         public IList<MpWeiXinUser> GetList(SearchParameter serachParameter)
         {
             return _dal.GetList(serachParameter);
@@ -26,6 +29,16 @@ namespace Fjtc.BLL.MpWeiXin
         public MpWeiXinUser GetBelongMpProductUser(long id, long productUserId)
         {
             return _dal.GetBelongMpProductUser(id, productUserId);
+        }
+
+        public bool IsExistOpenId(string openId)
+        {
+            return _dal.IsExistOpenId(openId);
+        }
+
+        public bool RemarkUser(MpWeiXinUser entity)
+        {
+            return _dal.RemarkUser(entity);
         }
     }
 }

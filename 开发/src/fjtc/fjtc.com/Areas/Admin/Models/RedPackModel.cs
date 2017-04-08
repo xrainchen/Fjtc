@@ -33,6 +33,10 @@ namespace fjtc.com.Areas.Admin.Models
         /// 活动名称
         /// </summary>
         public string ActionName { get; set; }
+        /// <summary>
+        /// 发送者
+        /// </summary>
+        public string SenderName { get; set; }
     }
 
     public class RedPackItemModel

@@ -57,7 +57,7 @@ namespace fjtc.com.Areas.Admin.Controllers
                          setting.ApiKey,
                          setting.CertPath,
                          user.OpenId,
-                         CurrentUser.Company,
+                         model.SenderName,
                          item.RedPackAmount,
                          model.Wishing,
                          model.ActionName,
@@ -133,11 +133,30 @@ namespace fjtc.com.Areas.Admin.Controllers
                 case 2://随机
                     var people = mpUserIds.Length;
                     var min = 1;
-                    for (int i = 0; i < people - 1; i++)
+                    for (int i = 0; i < people; i++)
                     {
                         int leftPeople = people - i;
-                        var avg = totalMoney / leftPeople;
+                        var avg = (redpackmoney * 1.00) / leftPeople;
                         //随机计算
+                        var afgFloor = Convert.ToInt32(Math.Floor(Convert.ToDouble(avg)));
+                        var redPackItem = new RedPackItemModel()
+                        {
+                            MpUserId = Convert.ToInt64(mpUserIds[i]),
+                        };
+                        if (leftPeople == 1)
+                        {
+                            redPackItem.RedPackAmount = redpackmoney;
+                        }
+                        else
+                        {
+                            var randomTime = new Random(leftPeople);
+                            var time = randomTime.Next(1, leftPeople - 1);
+                            var random = new Random(afgFloor * leftPeople);
+                            var ranValue = random.Next(1, afgFloor * time);
+                            redPackItem.RedPackAmount = ranValue;
+                            redpackmoney = redpackmoney - ranValue;
+                        }
+                        redPackList.Add(redPackItem);
                     }
                     break;
             }

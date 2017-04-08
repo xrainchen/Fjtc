@@ -78,9 +78,9 @@ namespace Fjtc.DAL.MpWeiXin
                         new SqlParameter("@ProductUserId", SqlDbType.BigInt,8) {Value = entity.ProductUserId},
                                     new SqlParameter("@OpenId", SqlDbType.BigInt,8) {Value = entity.OpenId},
                                     new SqlParameter("@RedPackAmount", SqlDbType.Decimal,9) {Value = entity.RedPackAmount},
-                                    new SqlParameter("@CreatedTime", SqlDbType.DateTime) {Value = entity.CreatedTime},
+                                    new SqlParameter("@CreatedTime", SqlDbType.DateTime) {Value = DateTime.Now},
                                     new SqlParameter("@Remark", SqlDbType.NVarChar,256) {Value = entity.Remark},
-                                    new SqlParameter("@CreatedBy", SqlDbType.NVarChar,64)
+                                    new SqlParameter("@CreatedBy", SqlDbType.NVarChar,64) {Value = entity.CreatedBy}
             };
                 LoggerManager.Debug(GetType().Name, $"{description},sql:{sql}{Environment.NewLine}参数:{entity.SerializeToJSON()}");
                 return DataBaseManager.MainDb().ExecuteNonQuery(sql, parameters).CInt(0, false) > 0;
@@ -99,10 +99,8 @@ namespace Fjtc.DAL.MpWeiXin
                 var sql = @"UPDATE MpWeiXinRedPackLog  SET                                                 
             ProductUserId=@ProductUserId,                                     
             OpenId=@OpenId,                                     
-            RedPackAmount=@RedPackAmount,                                     
-            CreatedTime=@CreatedTime,                                     
-            Remark=@Remark,                                     
-            CreatedBy=@CreatedBy             			
+            RedPackAmount=@RedPackAmount,                                        
+            Remark=@Remark,
 			WHERE Id=@Id;
                 ";
                 IDataParameter[] parameters = {
@@ -110,9 +108,7 @@ namespace Fjtc.DAL.MpWeiXin
                                     new SqlParameter("@ProductUserId", SqlDbType.BigInt,8) {Value = entity.ProductUserId},
                                     new SqlParameter("@OpenId", SqlDbType.BigInt,8) {Value = entity.OpenId},
                                     new SqlParameter("@RedPackAmount", SqlDbType.Decimal,9) {Value = entity.RedPackAmount},
-                                    new SqlParameter("@CreatedTime", SqlDbType.DateTime) {Value = entity.CreatedTime},
-                                    new SqlParameter("@Remark", SqlDbType.NVarChar,256) {Value = entity.Remark},
-                                    new SqlParameter("@CreatedBy", SqlDbType.NVarChar,64)
+                                    new SqlParameter("@Remark", SqlDbType.NVarChar,256) {Value = entity.Remark}
             };
                 LoggerManager.Debug(GetType().Name, $"{description},sql:{sql}{Environment.NewLine}参数:{entity.SerializeToJSON()}");
                 return DataBaseManager.MainDb().ExecuteNonQuery(sql, parameters).CInt(0, false) > 0;

@@ -119,6 +119,53 @@ namespace Fjtc.DAL.MpWeiXin
             }
         }
 
+        public bool Add(MpWeiXinUser entity)
+        {
+            try
+            {
+                var sql = $@"INSERT INTO MpWeiXinUser(OpenId,Subscribe,NickName,Sex,City,Country,Province,Language,HeadImgUrl,SubscribeTime,UnionId,Remark,GroupId,ProductUserId)
+                                VALUES(@OpenId,@Subscribe,@NickName,@Sex,@City,@Country,@Province,@Language,@HeadImgUrl,@SubscribeTime,@UnionId,@Remark,@GroupId,@ProductUserId)";
+                IDataParameter[] parameters ={
+                new SqlParameter("@OpenId",SqlDbType.VarChar,64) {Value =  entity.OpenId},
+                new SqlParameter("@Subscribe", SqlDbType.Int) {Value=entity.Subscribe},
+                new SqlParameter("@NickName",SqlDbType.NVarChar,64) {Value =  entity.NickName},
+                new SqlParameter("@Sex", SqlDbType.Int) {Value = entity.Sex},
+                new SqlParameter("@City",SqlDbType.NVarChar,64) {Value =  entity.City},
+                new SqlParameter("@Country", SqlDbType.NVarChar,64) {Value=entity.Country},
+                new SqlParameter("@Province",SqlDbType.NVarChar,64) {Value =  entity.Province},
+                new SqlParameter("@Language",SqlDbType.NVarChar,64) {Value =  entity.Language},
+                new SqlParameter("@HeadImgUrl",SqlDbType.NVarChar,512) {Value =  entity.HeadImgUrl},
+                new SqlParameter("@SubscribeTime",SqlDbType.BigInt) {Value =  entity.SubscribeTime},
+                new SqlParameter("@UnionId",SqlDbType.VarChar,64) {Value =  entity.UnionId},
+                new SqlParameter("@Remark",SqlDbType.NVarChar,512) {Value =  entity.Remark},
+                new SqlParameter("@GroupId",SqlDbType.Int) {Value =  entity.GroupId},
+                new SqlParameter("@ProductUserId",SqlDbType.BigInt) {Value =  entity.ProductUserId},
+                };
+                return DataBaseManager.MainDb().ExecuteNonQuery(sql, parameters).CInt(0, false) > 0;
+            }
+            catch (Exception ex)
+            {
+                LoggerManager.Error(GetType().Name, "添加菜单异常", ex);
+                return false;
+            }
+        }
+
+        public bool IsExistOpenId(string openId)
+        {
+            try
+            {
+                var sql = "SELECT Count(1) FROM [MpWeiXinUser] WHERE  EXISTS(SELECT Id FROM [MpWeiXinUser] with(nolock) WHERE OpenId=@OpenId)";
+                IDataParameter[] parameters ={
+                new SqlParameter("@OpenId", SqlDbType.VarChar,64) {Value = openId},
+                };
+                return DataBaseManager.MainDb().ExecuteScalar(sql, parameters).CInt(0, false) > 0;
+            }
+            catch (Exception ex)
+            {
+                LoggerManager.Error(GetType().Name, "查询OpenId是否存在", ex);
+                return false;
+            }
+        }
         public MpWeiXinUser Get(long id)
         {
             var sql = "select * from MpWeiXinUser with(nolock) where Id=@Id";
@@ -133,6 +180,27 @@ namespace Fjtc.DAL.MpWeiXin
             parameters.Add(new SqlParameter("@Id", SqlDbType.BigInt) { Value = id });
             parameters.Add(new SqlParameter("@ProductUserId", SqlDbType.BigInt) { Value = productUserId });
             return RPoney.Data.ModelConvertHelper<MpWeiXinUser>.ToModel(DataBaseManager.MainDb().ExecuteFillDataTable(sql, parameters.ToArray()));
+        }
+
+        public bool RemarkUser(MpWeiXinUser entity)
+        {
+            try
+            {
+                var sql = $@"UPDATE MpWeiXinUser SET Remark=@Remark
+                             WHERE OpenId=@OpenId and ProductUserId=@ProductUserId
+                            ";
+                IDataParameter[] parameters ={
+                new SqlParameter("@OpenId",SqlDbType.VarChar,64) {Value =  entity.OpenId},
+                new SqlParameter("@Remark",SqlDbType.NVarChar,512) {Value =  entity.Remark},
+                new SqlParameter("@ProductUserId",SqlDbType.BigInt) {Value =  entity.ProductUserId},
+                };
+                return DataBaseManager.MainDb().ExecuteNonQuery(sql, parameters).CInt(0, false) > 0;
+            }
+            catch (Exception ex)
+            {
+                LoggerManager.Error(GetType().Name, "备注用户异常", ex);
+                return false;
+            }
         }
     }
 }

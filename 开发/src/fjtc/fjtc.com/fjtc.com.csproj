@@ -508,6 +508,7 @@
     <Content Include="Areas\Admin\Views\ProductUserAdmin\Index.cshtml" />
     <Content Include="Areas\Admin\Views\MpRedPack\SendRedPack.cshtml" />
     <Content Include="Areas\Admin\Views\MpUser\SelectMpUser.cshtml" />
+    <Content Include="Areas\Admin\Views\MpUser\RemarkUser.cshtml" />
     <None Include="Properties\PublishProfiles\fjtc.com.pubxml" />
     <Content Include="Scripts\rponey\rponey.alertMsg.js" />
     <None Include="Web.Debug.config">
