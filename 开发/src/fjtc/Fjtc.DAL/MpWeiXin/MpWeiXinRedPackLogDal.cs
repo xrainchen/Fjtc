@@ -76,7 +76,7 @@ namespace Fjtc.DAL.MpWeiXin
                 var sql = @"INSERT INTO MpWeiXinRedPackLog(ProductUserId,OpenId,RedPackAmount,CreatedTime,Remark,CreatedBy) VALUES(@ProductUserId,@OpenId,@RedPackAmount,@CreatedTime,@Remark,@CreatedBy);";
                 IDataParameter[] parameters = {
                         new SqlParameter("@ProductUserId", SqlDbType.BigInt,8) {Value = entity.ProductUserId},
-                                    new SqlParameter("@OpenId", SqlDbType.BigInt,8) {Value = entity.OpenId},
+                                    new SqlParameter("@OpenId", SqlDbType.NVarChar,64) {Value = entity.OpenId},
                                     new SqlParameter("@RedPackAmount", SqlDbType.Decimal,9) {Value = entity.RedPackAmount},
                                     new SqlParameter("@CreatedTime", SqlDbType.DateTime) {Value = DateTime.Now},
                                     new SqlParameter("@Remark", SqlDbType.NVarChar,256) {Value = entity.Remark},
@@ -106,7 +106,7 @@ namespace Fjtc.DAL.MpWeiXin
                 IDataParameter[] parameters = {
                         new SqlParameter("@Id", SqlDbType.BigInt,8) {Value = entity.Id},
                                     new SqlParameter("@ProductUserId", SqlDbType.BigInt,8) {Value = entity.ProductUserId},
-                                    new SqlParameter("@OpenId", SqlDbType.BigInt,8) {Value = entity.OpenId},
+                                    new SqlParameter("@OpenId", SqlDbType.NVarChar,64) {Value = entity.OpenId},
                                     new SqlParameter("@RedPackAmount", SqlDbType.Decimal,9) {Value = entity.RedPackAmount},
                                     new SqlParameter("@Remark", SqlDbType.NVarChar,256) {Value = entity.Remark}
             };

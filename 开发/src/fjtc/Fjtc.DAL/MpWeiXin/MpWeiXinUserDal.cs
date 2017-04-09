@@ -43,7 +43,7 @@ namespace Fjtc.DAL.MpWeiXin
             }
             if (!string.IsNullOrWhiteSpace(search.Name))
             {
-                where += " and NickName like @NickName";
+                where += " and NickName like @NickName or Remark like @NickName";
                 parameters.Add(new SqlParameter("@NickName", SqlDbType.NVarChar) { Value = $"%{search.Name}%" });
             }
             if (search.BeginSearchTime.HasValue)

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web.Mvc;
 using fjtc.com.Areas.Admin.Models;
 using fjtc.com.Common;
+using Fjtc.BLL;
 using Fjtc.BLL.MpWeiXin;
 using Fjtc.Model.Entity;
 using Fjtc.Model.SearchModel;
@@ -15,6 +16,7 @@ namespace fjtc.com.Areas.Admin.Controllers
     {
         // GET: Admin/MpRedPack
         private readonly Lazy<MpWeiXinRedPackLogBll> _mpWeiXinRePackLogBll = new Lazy<MpWeiXinRedPackLogBll>();
+        private readonly Lazy<ProductUserBLL> _productUserBll = new Lazy<ProductUserBLL>();
 
         [HttpGet]
         public ActionResult List(MpWeiXinRedPackLogSearchParameter searchParameter)
@@ -25,6 +27,7 @@ namespace fjtc.com.Areas.Admin.Controllers
         public ActionResult List(MpWeiXinRedPackLogSearchParameter searchParameter, FormCollection collection)
         {
             BindParameter(searchParameter);
+            searchParameter.ProductUserId = CurrentUser.Id;
             searchParameter.ReturnList = _mpWeiXinRePackLogBll.Value.GetRedPackLog(searchParameter);
             return Json(searchParameter);
         }
@@ -39,6 +42,11 @@ namespace fjtc.com.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult SendRedPack(RedPackModel model, FormCollection collection)
         {
+            var productUser = _productUserBll.Value.Get(CurrentUser.Id);
+            if (productUser.SendRedPackPassword != productUser.EncryPassword(model.SendRedPackPassword))
+            {
+                return DwzHelper.Warn("发送红包口令错误");
+            }
             //校验
             RPoney.Log.LoggerManager.Info(GetType().Name, "发送红包", model.SerializeToJSON());
             var setting = new MpWeiXinAccessSettingBll().GetMpWeiXinAccessSettingByHost(CurrentUser.BindHost);

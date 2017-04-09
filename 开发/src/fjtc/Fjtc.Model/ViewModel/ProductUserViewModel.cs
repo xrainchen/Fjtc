@@ -33,5 +33,10 @@ namespace Fjtc.Model.ViewModel
         /// 绑定域名
         /// </summary>
         public string BindHost { get; set; }
+
+        /// <summary>
+        /// 发送红包密码
+        /// </summary>
+        public string SendRedPackPassword { get; set; }
     }
 }

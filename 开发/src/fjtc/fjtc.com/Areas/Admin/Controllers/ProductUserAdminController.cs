@@ -48,5 +48,29 @@ namespace fjtc.com.Areas.Admin.Controllers
             }
             return DwzHelper.Warn("修改失败");
         }
+
+        [HttpGet]
+        public ActionResult UpdateSendRedPackPassword(ProductUser model)
+        {
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult UpdateSendRedPackPassword(ProductUser model, FormCollection collection)
+        {
+            var userBll = new ProductUserBLL();
+            var sourceSendRedPackPassword = collection["SourceSendRedPackPassword"];
+            var user = userBll.Get(CurrentUser.Id);
+            if (user.SendRedPackPassword != model.EncryPassword(sourceSendRedPackPassword))
+            {
+                return DwzHelper.Warn("原始密码不对");
+            }
+            var result = userBll.UpdateSendRedPackPassword(model.EncryPassword(model.SendRedPackPassword), CurrentUser.Id);
+            if (result)
+            {
+                return DwzHelper.SuccessAndClose("", "密码修改成功");
+            }
+            return DwzHelper.Warn("密码修改失败");
+        }
     }
 }

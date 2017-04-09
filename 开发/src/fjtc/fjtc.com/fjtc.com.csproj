@@ -509,8 +509,10 @@
     <Content Include="Areas\Admin\Views\MpRedPack\SendRedPack.cshtml" />
     <Content Include="Areas\Admin\Views\MpUser\SelectMpUser.cshtml" />
     <Content Include="Areas\Admin\Views\MpUser\RemarkUser.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductUserAdmin\UpdateSendRedPackPassword.cshtml" />
     <None Include="Properties\PublishProfiles\fjtc.com.pubxml" />
     <Content Include="Scripts\rponey\rponey.alertMsg.js" />
+    <Content Include="Views\ProductUser\RetSetSendRedPackPassword.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

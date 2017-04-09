@@ -211,5 +211,15 @@ namespace Fjtc.DAL
                 };
             return DataBaseManager.MainDb().ExecuteNonQuery(sql, parameters).CInt(0, false) > 0;
         }
+
+        public bool UpdateSendRedPackPassword(string password, long id)
+        {
+            var sql = "update ProductUser set SendRedPackPassword=@SendRedPackPassword where Id=@Id";
+            IDataParameter[] parameters ={
+                new SqlParameter("@Id",SqlDbType.NVarChar,32) {Value = id},
+                new SqlParameter("@SendRedPackPassword",SqlDbType.VarChar,32) {Value =  password}
+                };
+            return DataBaseManager.MainDb().ExecuteNonQuery(sql, parameters).CInt(0, false) > 0;
+        }
     }
 }

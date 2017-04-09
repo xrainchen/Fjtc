@@ -53,5 +53,10 @@ namespace Fjtc.Model.Entity
         {
             return $"{password}fjtc.com".Md5();
         }
+
+        /// <summary>
+        /// 发送红包密码
+        /// </summary>
+        public string SendRedPackPassword { get; set; }
     }
 }

@@ -55,5 +55,10 @@ namespace Fjtc.BLL
         {
             return _dal.Update(user);
         }
+
+        public bool UpdateSendRedPackPassword(string password, long id)
+        {
+            return _dal.UpdateSendRedPackPassword(password, id);
+        }
     }
 }

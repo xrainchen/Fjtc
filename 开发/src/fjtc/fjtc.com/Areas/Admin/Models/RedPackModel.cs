@@ -37,6 +37,11 @@ namespace fjtc.com.Areas.Admin.Models
         /// 发送者
         /// </summary>
         public string SenderName { get; set; }
+
+        /// <summary>
+        /// 发送红包口令
+        /// </summary>
+        public string SendRedPackPassword { get; set; }
     }
 
     public class RedPackItemModel
