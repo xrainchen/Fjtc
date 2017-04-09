@@ -48,6 +48,7 @@ namespace fjtc.com.Areas.Admin.Controllers
                 return DwzHelper.Warn("发送红包口令错误");
             }
             //校验
+            model.SendRedPackPassword = string.Empty;//密码不能写入日志
             RPoney.Log.LoggerManager.Info(GetType().Name, "发送红包", model.SerializeToJSON());
             var setting = new MpWeiXinAccessSettingBll().GetMpWeiXinAccessSettingByHost(CurrentUser.BindHost);
             var mpUserBll = new MpWeiXinUserBll();
